@@ -58,7 +58,7 @@ class GraphValues(object):
 
         return self.y[self.x.index(x)]
 
-    def get_range(self, min_value, max_value):
+    def get_range(self, min_value, max_value) -> list:
         """
         Returns a list of x values that belong to the
         function's domain between the minimum and maximum.
