@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b976ea12-097a-4504-9e18-7de89079988f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/plot_tool/model/function_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_tool/model/plotter_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_tool/user/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_tool/user/session.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,14 +12,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.53057706">
+    <splitter split-orientation="horizontal" split-proportion="0.5044014">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/plot_tool/model/plotter_model.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="379">
-                  <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+                <state>
+                  <caret lean-forward="true" />
                   <folding>
                     <element signature="e#47#79#0" expanded="true" />
                   </folding>
@@ -32,7 +31,7 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/plot_tool/model/function_model.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="357">
@@ -52,6 +51,15 @@
                   <folding>
                     <element signature="e#68#120#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/plot_tool/user/session.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="272">
+                  <caret line="16" selection-start-line="16" selection-end-line="16" />
                 </state>
               </provider>
             </entry>
@@ -84,6 +92,7 @@
         <option value="$PROJECT_DIR$/plot_tool/data/plotter.py" />
         <option value="$PROJECT_DIR$/plot_tool/model/function_model.py" />
         <option value="$PROJECT_DIR$/plot_tool/model/plotter_model.py" />
+        <option value="$PROJECT_DIR$/plot_tool/user/session.py" />
       </list>
     </option>
   </component>
@@ -121,6 +130,12 @@
               <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
@@ -195,7 +210,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13616072" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15476191" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -294,11 +309,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/model/plotter_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#47#79#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/user/session.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
