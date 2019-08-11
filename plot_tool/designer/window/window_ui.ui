@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>892</width>
+    <width>861</width>
     <height>477</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>892</width>
+     <width>861</width>
      <height>21</height>
     </rect>
    </property>
@@ -81,7 +81,6 @@
    <addaction name="menuExport"/>
    <addaction name="menuAbout"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionas_Image">
    <property name="text">
     <string>as Image...</string>
