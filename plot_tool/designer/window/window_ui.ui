@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>892</width>
+    <height>477</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>892</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFiles">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+    <addaction name="actionSave_all"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuImport">
+    <property name="title">
+     <string>Import</string>
+    </property>
+    <widget class="QMenu" name="menufrom_LTSpice_IV">
+     <property name="title">
+      <string>from LTSpice IV</string>
+     </property>
+     <addaction name="actionSignal"/>
+     <addaction name="actionBode"/>
+    </widget>
+    <addaction name="menufrom_LTSpice_IV"/>
+    <addaction name="actionfrom_Excel"/>
+   </widget>
+   <widget class="QMenu" name="menuExport">
+    <property name="title">
+     <string>Export</string>
+    </property>
+    <addaction name="actionas_Image"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuAdd">
+    <property name="title">
+     <string>Add</string>
+    </property>
+    <widget class="QMenu" name="menuSignal">
+     <property name="title">
+      <string>Signal</string>
+     </property>
+     <addaction name="actionSenoidal"/>
+     <addaction name="actionSquare"/>
+     <addaction name="actionTriangle"/>
+     <addaction name="actionStep"/>
+    </widget>
+    <addaction name="menuSignal"/>
+    <addaction name="actionfrom_TransferFunction_2"/>
+   </widget>
+   <addaction name="menuFiles"/>
+   <addaction name="menuAdd"/>
+   <addaction name="menuImport"/>
+   <addaction name="menuExport"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionas_Image">
+   <property name="text">
+    <string>as Image...</string>
+   </property>
+  </action>
+  <action name="actionfrom_Excel">
+   <property name="text">
+    <string>from Excel</string>
+   </property>
+  </action>
+  <action name="actionfrom_TransferFunction">
+   <property name="text">
+    <string>from TransferFunction...</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionfrom_TransferFunction_2">
+   <property name="text">
+    <string>Transfer Function</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="text">
+    <string>Save as</string>
+   </property>
+  </action>
+  <action name="actionSave_all">
+   <property name="text">
+    <string>Save all</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionSenoidal">
+   <property name="text">
+    <string>Sinusoidal</string>
+   </property>
+  </action>
+  <action name="actionSquare">
+   <property name="text">
+    <string>Square</string>
+   </property>
+  </action>
+  <action name="actionTriangle">
+   <property name="text">
+    <string>Triangle</string>
+   </property>
+  </action>
+  <action name="actionImpulse">
+   <property name="text">
+    <string>Impulse</string>
+   </property>
+  </action>
+  <action name="actionStep">
+   <property name="text">
+    <string>Step</string>
+   </property>
+  </action>
+  <action name="actionSignal">
+   <property name="text">
+    <string>Signal</string>
+   </property>
+  </action>
+  <action name="actionBode">
+   <property name="text">
+    <string>Bode</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
