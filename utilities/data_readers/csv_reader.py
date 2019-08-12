@@ -12,8 +12,8 @@ TO DO:
 import pandas as pd
 import matplotlib.pyplot as plt
 import csv
-from pandas import ExcelWriter
-from pandas import ExcelFile
+#from pandas import ExcelWriter
+#from pandas import ExcelFile
 import os
 
 
@@ -36,11 +36,17 @@ def import_file_data(file_path, x_col_name, x_col_number, y_col_name, y_col_numb
     base = os.path.basename(file_path)
     if os.path.splitext(base)[1] == ".csv":
         data = pd.read_csv(file_path, delimiter=";", encoding="utf-8", decimal=",")
-    #elif os.path.splitext(base)[1] == ".txt":
-    elif (os.path.splitext(base)[1] == ".xls") or (os.path.splitext(base)[1] == ".xlsx"):
+        print(data)
+    elif os.path.splitext(base)[1] == ".txt":
+        print("es un txt")
+        data = pd.read_csv(file_path, delimiter="\t", encoding="latin_1", decimal=".")
+        print(data)
+    #elif (os.path.splitext(base)[1] == ".xls") or (os.path.splitext(base)[1] == ".xlsx"):
         #data = pd.read_excel('xlsTest.xlsx', sheetname='Sheet1')
         #print("Column headings:")
         #print(df.columns)
+    #else:
+    #    print("Incorrect file extension")
     '''
     #--- TO DO (2)
     VERIFICAR QUE LA COLUMNA EXISTA, YA SEA NUMERO O NOMBRE
@@ -58,11 +64,13 @@ def import_file_data(file_path, x_col_name, x_col_number, y_col_name, y_col_numb
     return (x,y)
 
 def main(): #FOR TEST
-    file_path = "csvTest.csv"
     #file_path = "xlsTest.xlsx"
+    file_path = "txtTest.txt"
+    #file_path = "csvTest.csv"
     x_col_name = "Freq"
     x_col_number = 0
-    y_col_name = "Amplitude"
+    #y_col_name = "Amplitude"
+    y_col_name = "I(C1)"
     y_col_number = 1
 
     input_data = import_file_data(file_path, x_col_name, x_col_number, y_col_name, y_col_number)
