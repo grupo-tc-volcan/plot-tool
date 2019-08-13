@@ -25,7 +25,7 @@ from plot_tool.data.function import GraphFunction
 from plot_tool.data.values import GraphValues
 
 from plot_tool.model.function_model import GraphFunctionModel
-from plot_tool.view.function_line import GraphFunctionLineView
+from plot_tool.view.function_line_view import GraphFunctionLineView
 
 
 class SampleWidget(QWidget):

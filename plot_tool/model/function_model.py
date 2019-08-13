@@ -33,8 +33,12 @@ class GraphFunctionModel(QObject):
         return self.graph == other.graph
 
     def notifyChange(self):
+        """ A change on the model's properties has been done
+        and an event is triggered.
+        """
         self.hasChanged.emit()
 
+    # GraphFunctionModel's properties
     @pyqtProperty(str)
     def name(self):
         return self._name

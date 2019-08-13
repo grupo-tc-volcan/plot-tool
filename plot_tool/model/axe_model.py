@@ -12,12 +12,14 @@ from plot_tool.data.magnitudes import GraphMagnitude
 
 class Scale(Enum):
     Linear = "Linear"
-    Semilog = "Semilog"
     Log = "Log"
 
 
-class GraphAxeModel(QObject):
-    """ GraphAxe Model """
+class GraphAxesModel(QObject):
+    """ GraphAxes Model
+    This model class is used to represent a GraphPlotterModel component
+    used to describe where different graphs are being drawn.
+    """
 
     # GraphAxeModel's Signal
     hasChanged = pyqtSignal()
@@ -27,24 +29,23 @@ class GraphAxeModel(QObject):
                  yMagnitude: GraphMagnitude,
                  parent=None,
                  *args, **kwargs):
-        super(GraphAxeModel, self).__init__(*args, **kwargs)
+        super(GraphAxesModel, self).__init__(*args, **kwargs)
 
         # Data model references
         self.parent = parent
 
         # Property members
-        self._xLabel = "X Label"
-        self._yLabel = "Y Label"
+        self._xMagnitude = xMagnitude
         self._xScale = Scale.Linear
-
-        self._xMinimum = None
-        self._xMaximum = None
-
-        self._yMinimum = None
-        self._yMaximum = None
+        self._xLabel = kwargs["xLabel"] if "xLabel" in kwargs.keys() else "X Label"
+        self._xMinimum = kwargs["xMinimum"] if "xMinimum" in kwargs.keys() else 0.0
+        self._xMaximum = kwargs["xMaximum"] if "xMaximum" in kwargs.keys() else 10.0
 
         self._yMagnitude = yMagnitude
-        self._xMagnitude = xMagnitude
+        self._yScale = Scale.Linear
+        self._yLabel = kwargs["yLabel"] if "yLabel" in kwargs.keys() else "Y Label"
+        self._yMinimum = kwargs["yMinimum"] if "yMinimum" in kwargs.keys() else 0.0
+        self._yMaximum = kwargs["yMaximum"] if "yMaximum" in kwargs.keys() else 10.0
 
     def notifyChange(self):
         self.hasChanged.emit()
@@ -83,6 +84,15 @@ class GraphAxeModel(QObject):
     @yLabel.setter
     def yLabel(self, value: str):
         self._yLabel = value
+        self.notifyChange()
+
+    @pyqtProperty(Scale)
+    def yScale(self):
+        return self._yScale
+
+    @yScale.setter
+    def yScale(self, value: Scale):
+        self._yScale = value
         self.notifyChange()
 
     @pyqtProperty(Scale)

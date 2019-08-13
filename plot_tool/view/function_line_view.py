@@ -7,6 +7,7 @@ from matplotlib.lines import Line2D
 from plot_tool.model.function_model import GraphFunctionModel
 
 
+# noinspection PyPropertyAccess
 class GraphFunctionLineView(Line2D):
     """ GraphFunction Line View """
 
@@ -14,7 +15,6 @@ class GraphFunctionLineView(Line2D):
         super(GraphFunctionLineView, self).__init__(
             model.graph.values.x,
             model.graph.values.y,
-            label=model.graph.name,
             *args,
             **kwargs
         )
@@ -28,7 +28,11 @@ class GraphFunctionLineView(Line2D):
 
     def onHasChanged(self):
         self.set_visible(self.model.isVisible)
+        self.set_color(
+            [
+                self.model.color.red() / 255,
+                self.model.color.green() / 255,
+                self.model.color.blue() / 255
+            ]
+        )
         self.set_label(self.model.name)
-
-    def setParent(self, parent):
-        self.parent = parent
