@@ -20,19 +20,24 @@ class GraphPlotterModel(QObject):
     """ GraphPlotter Model """
 
     # GraphPlotterModel's signals
-    graphModelChanged = pyqtSignal()
-    axeModelChanged = pyqtSignal()
+    graphModelAdded = pyqtSignal(GraphFunctionModel)
+    graphModelRemoved = pyqtSignal(GraphFunctionModel)
+    axesModelAdded = pyqtSignal(GraphAxesModel)
+    axesModelRemoved = pyqtSignal(GraphAxesModel)
     propertyChanged = pyqtSignal()
 
     def __init__(self, graphPlotter: GraphPlotter, *args, **kwargs):
-        super(GraphPlotterModel, self).__init__(*args, **kwargs)
+        super(GraphPlotterModel, self).__init__()
 
         # Data model reference
         self.plotter = graphPlotter
 
         # A GraphPlotterModel has the following models as components
-        self.graphModels = [GraphFunctionModel(graph, self) for graph in self.plotter.graphs]
-        self.axeModels = []
+        self.graphModels = []
+        self.axesModels = []
+
+        self.addGraphModels()
+        self.addAxesModels()
 
         # Property Members
         self._name = kwargs["name"] if "name" in kwargs.keys() else "Name"
@@ -50,17 +55,37 @@ class GraphPlotterModel(QObject):
         :return: Returns whether it could or not add the graph.
         """
         if self.plotter.add_graph(graph):
-            # GraphFunction model change
-            self.graph_models.append(GraphFunctionModel(graph, self))
-            self.graphModelChanged.emit()
-
-            # Updating axe models
-            self.updateAxeModels()
-            self.updateAxeProperties()
-
+            self.addGraphModels()
+            self.addAxesModels()
             return True
         else:
             return False
+
+    def addGraphModels(self):
+        """ Updates the graph models needed according to the data source """
+        for graph in self.plotter.graphs:
+            model = GraphFunctionModel(graph, self)
+            if model not in self.graphModels:
+                self.graphModels.append(model)
+                self.graphModelAdded.emit(model)
+
+    def addAxesModels(self):
+        """ Updates the current status of axes models. """
+        for y_magnitude in self.plotter.y_magnitudes:
+            model = GraphAxesModel(
+                self.plotter.x_magnitude,
+                y_magnitude,
+                self
+            )
+            if model not in self.axesModels:
+                self.axesModels.append(model)
+
+                model.xScale = self.xScale
+                model.xLabel = self.xLabel
+                model.xMinimum = self.xMinimum
+                model.xMaximum = self.xMaximum
+
+                self.axesModelAdded.emit(model)
 
     def removeGraph(self, graph: GraphFunction) -> bool:
         """
@@ -71,58 +96,36 @@ class GraphPlotterModel(QObject):
         :return: Returns whether it could or not remove the graph.
         """
         if self.plotter.remove_graph(graph):
-            # GraphFunction model change
-            self.graph_models.remove(GraphFunctionModel(graph, self))
-            self.graphModelChanged.emit()
-
-            # Updating axe models
-            self.updateAxeModels()
-            self.updateAxeProperties()
-
+            self.removeGraphModel(GraphFunctionModel(graph, self))
+            self.removeAxesModels()
             return True
         else:
             return False
 
-    def updateAxeProperties(self):
-        """ Updates the current value of axes properties. """
-        for axeModel in self.axeModels:
-            axeModel.xScale = self.xScale
-            axeModel.xLabel = self.xLabel
-            axeModel.xMinimum = self.xMinimum
-            axeModel.xMaximum = self.xMaximum
+    def removeGraphModel(self, model: GraphFunctionModel):
+        """ Removes the given GraphFunctionModel """
+        self.graphModels.remove(model)
+        self.graphModelRemoved.emit(model)
 
-    def updateAxeModels(self):
-        """ Updates the current status of axes models. """
-
-        # Looking for new Axe Models
-        for y_magnitude in self.plotter.y_magnitudes:
-            for axeModel in self.axeModels:
-                if axeModel.yMagnitude == y_magnitude:
-                    break
-            else:
-                self.axeModels.append(
-                    GraphAxesModel(
-                        self.plotter.x_magnitude,
-                        y_magnitude,
-                        self
-                    )
-                )
-
-        # Deleting not used Axe Models
-        removeModels = []
-        for axeModel in self.axeModels:
-            if axeModel.yMagnitude not in self.plotter.y_magnitudes:
-                removeModels.append(axeModel)
+    def removeAxesModels(self):
+        """ Removes all axes that are not being used. """
+        removeModels = [axesModel for axesModel in self.axesModels if axesModel.yMagnitude not in self.plotter.y_magnitudes]
         for removeModel in removeModels:
-            self.axeModels.remove(removeModel)
+            self.axesModels.remove(removeModel)
+            self.axesModelRemoved(removeModel)
 
-        # Event triggering
-        self.axeModelChanged.emit()
+    def updateAxesProperties(self):
+        """ Updates the current value of axes properties. """
+        for axesModel in self.axesModels:
+            axesModel.xScale = self.xScale
+            axesModel.xLabel = self.xLabel
+            axesModel.xMinimum = self.xMinimum
+            axesModel.xMaximum = self.xMaximum
 
     def notifyPropertyChange(self):
         """ Notifying that a property has changed and propagating
         the change throughout the internal axe models. """
-        self.updateAxeProperties()
+        self.updateAxesProperties()
         self.propertyChanged.emit()
 
     # GraphPlotterModel's properties

@@ -15,6 +15,7 @@ class Scale(Enum):
     Log = "Log"
 
 
+# noinspection PyPropertyAccess
 class GraphAxesModel(QObject):
     """ GraphAxes Model
     This model class is used to represent a GraphPlotterModel component
@@ -29,23 +30,26 @@ class GraphAxesModel(QObject):
                  yMagnitude: GraphMagnitude,
                  parent=None,
                  *args, **kwargs):
-        super(GraphAxesModel, self).__init__(*args, **kwargs)
+        super(GraphAxesModel, self).__init__()
 
         # Data model references
         self.parent = parent
 
         # Property members
         self._xMagnitude = xMagnitude
-        self._xScale = Scale.Linear
+        self._xScale = kwargs["xScale"] if "xScale" in kwargs.keys() else Scale.Linear
         self._xLabel = kwargs["xLabel"] if "xLabel" in kwargs.keys() else "X Label"
         self._xMinimum = kwargs["xMinimum"] if "xMinimum" in kwargs.keys() else 0.0
         self._xMaximum = kwargs["xMaximum"] if "xMaximum" in kwargs.keys() else 10.0
 
         self._yMagnitude = yMagnitude
-        self._yScale = Scale.Linear
+        self._yScale = kwargs["yScale"] if "yScale" in kwargs.keys() else Scale.Linear
         self._yLabel = kwargs["yLabel"] if "yLabel" in kwargs.keys() else "Y Label"
         self._yMinimum = kwargs["yMinimum"] if "yMinimum" in kwargs.keys() else 0.0
         self._yMaximum = kwargs["yMaximum"] if "yMaximum" in kwargs.keys() else 10.0
+
+    def __eq__(self, other):
+        return self.yMagnitude == other.yMagnitude
 
     def notifyChange(self):
         self.hasChanged.emit()

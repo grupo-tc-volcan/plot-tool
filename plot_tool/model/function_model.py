@@ -18,7 +18,7 @@ class GraphFunctionModel(QObject):
     hasChanged = pyqtSignal()
 
     def __init__(self, graph_function: GraphFunction, parent=None, *args, **kwargs):
-        super(GraphFunctionModel, self).__init__(*args, **kwargs)
+        super(GraphFunctionModel, self).__init__()
 
         # Data model reference
         self.graph = graph_function
@@ -27,7 +27,7 @@ class GraphFunctionModel(QObject):
         # Property members
         self._name = self.graph.name
         self._isVisible = True
-        self._color = QColor(255, 255, 255)
+        self._color = QColor(0, 0, 0)
 
     def __eq__(self, other):
         return self.graph == other.graph

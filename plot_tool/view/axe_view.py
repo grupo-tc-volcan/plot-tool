@@ -16,7 +16,16 @@ class GraphAxesView(Axes):
     """ GraphAxesModel View """
 
     def __init__(self, model: GraphAxesModel, parent, rect, *args, **kwargs):
-        super(GraphAxesView, self).__init__(parent, rect, *args, **kwargs)
+        super(GraphAxesView, self).__init__(
+            parent,
+            rect,
+            xscale=self.convertScale(model.xScale),
+            yscale=self.convertScale(model.yScale),
+            xlabel=model.xLabel,
+            ylabel=model.yLabel,
+            xlim=(model.xMinimum, model.xMaximum),
+            ylim=(model.yMinimum, model.yMaximum),
+            *args, **kwargs)
 
         # Data model reference
         self.model = model
@@ -41,6 +50,6 @@ class GraphAxesView(Axes):
     @staticmethod
     def convertScale(modelValue: Scale):
         if modelValue == Scale.Linear:
-            return LinearScale
+            return LinearScale.name
         elif modelValue == Scale.Log:
-            return LogScale
+            return LogScale.name

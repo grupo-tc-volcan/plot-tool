@@ -1,4 +1,5 @@
 # python native modules
+from copy import copy
 
 # third-party modules
 
@@ -61,4 +62,4 @@ class GraphPlotter(object):
         self.y_magnitudes = []
         for graph in self.graphs:
             if graph.y_magnitude not in self.y_magnitudes:
-                self.y_magnitudes.append(graph.y_magnitude)
+                self.y_magnitudes.append(copy(graph.y_magnitude))

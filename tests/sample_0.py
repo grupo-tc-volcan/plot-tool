@@ -6,8 +6,6 @@ Sample 0: Creates a QTApplication, builds the MainWindow and runs it.
 
 # third-party modules
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-from matplotlib.axes import Axes
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QVBoxLayout
@@ -23,9 +21,9 @@ from numpy import pi
 from plot_tool.data.magnitudes import GraphMagnitude
 from plot_tool.data.function import GraphFunction
 from plot_tool.data.values import GraphValues
-
-from plot_tool.model.function_model import GraphFunctionModel
-from plot_tool.view.function_line_view import GraphFunctionLineView
+from plot_tool.data.plotter import GraphPlotter
+from plot_tool.model.plotter_model import GraphPlotterModel
+from plot_tool.view.plotter_view import GraphPlotterFigureView
 
 
 class SampleWidget(QWidget):
@@ -38,67 +36,53 @@ class SampleWidget(QWidget):
     def __init__(self, parent=None, *args, **kwargs):
         super(SampleWidget, self).__init__(parent, *args, **kwargs)
 
-        self.graph = None
-        self.graph_model = None
-        self.graph_view = None
-
-        # Window settings
+        # Widget settings
         self.setWindowTitle("Sample Widget")
 
+        # Model and view
+        self.plotterData = GraphPlotter(GraphMagnitude.Time)
+        self.plotterModel = GraphPlotterModel(self.plotterData)
+        self.plotterView = GraphPlotterFigureView(self.plotterModel)
+
         # Components
-        self.sampleButton = QPushButton("Sample Button")
-        self.sampleButton.clicked.connect(self.onSampleButtonClick)
+        self.newButton = QPushButton("New")
+        self.newButton.clicked.connect(self.onNewButton)
 
-        self.visibleButton = QPushButton("Visible Toggle")
-        self.visibleButton.clicked.connect(self.toggleVisibility)
+        self.drawButton = QPushButton("Draw")
+        self.drawButton.clicked.connect(self.onDrawButton)
 
-        self.figure = Figure()
-        self.canvas = FigureCanvas(self.figure)
+        self.figureCanvas = FigureCanvas(self.plotterView)
+        self.plotterView.setParent(self.figureCanvas)
 
-        self.axes = Axes(self.figure, [0.1, 0.1, 0.8, 0.8])
+        # Layout managements
+        self.horizontalLayout = QHBoxLayout()
+        self.verticalLayout = QVBoxLayout()
 
-        self.figure.add_axes(self.axes)
+        self.verticalLayout.addWidget(self.newButton)
+        self.verticalLayout.addWidget(self.drawButton)
 
-        # Layout management
-        self.boxLayout = QHBoxLayout()
-        self.buttonBoxLayout = QVBoxLayout()
+        self.horizontalLayout.addLayout(self.verticalLayout)
+        self.horizontalLayout.addWidget(self.figureCanvas)
+        self.setLayout(self.horizontalLayout)
 
-        self.buttonBoxLayout.addWidget(self.sampleButton)
-        self.buttonBoxLayout.addWidget(self.visibleButton)
-
-        self.boxLayout.addLayout(self.buttonBoxLayout)
-        self.boxLayout.addWidget(self.canvas)
-
-        self.setLayout(self.boxLayout)
-
-        # Run the widget
+        # Show()
         self.show()
 
-    def toggleVisibility(self, event):
-        if self.graph_model is not None:
-            self.graph_model.isVisible = False if self.graph_model.isVisible else True
+    def onDrawButton(self, event=None):
+        self.figureCanvas.draw()
 
-    def updateCanvas(self):
-        self.canvas.draw()
+    def onNewButton(self, event=None):
+        times = list(arange(0, 10, 0.1))
+        values = [5*sin(time * 2 * pi / 10) for time in times]
 
-    def onSampleButtonClick(self, event):
-
-        time_interval = arange(0, 2 * pi, 2 * pi / 100)
-        value_interval = [sin(t) for t in time_interval]
-
-        self.graph = GraphFunction(
-            "Sample Function",
-            GraphValues(list(time_interval), value_interval),
-            GraphMagnitude.Time,
-            GraphMagnitude.Voltage
+        self.plotterModel.addGraph(
+            GraphFunction(
+                "NewFunction",
+                GraphValues(times, values),
+                GraphMagnitude.Time,
+                GraphMagnitude.Voltage
+            )
         )
-
-        self.graph_model = GraphFunctionModel(self.graph)
-        self.graph_view = GraphFunctionLineView(self.graph_model)
-
-        self.graph_model.hasChanged.connect(self.updateCanvas)
-        self.axes.add_line(self.graph_view)
-        self.updateCanvas()
 
 
 if __name__ == "__main__":
