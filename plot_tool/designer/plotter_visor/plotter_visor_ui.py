@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_GraphPlotterVisor(object):
     def setupUi(self, GraphPlotterVisor):
         GraphPlotterVisor.setObjectName("GraphPlotterVisor")
-        GraphPlotterVisor.resize(250, 420)
+        GraphPlotterVisor.resize(250, 399)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -217,11 +217,14 @@ class Ui_GraphPlotterVisor(object):
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.verticalLayout.addWidget(self.line_2)
+        self.label_17 = QtWidgets.QLabel(GraphPlotterVisor)
+        self.label_17.setObjectName("label_17")
+        self.verticalLayout.addWidget(self.label_17)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.tableView = QtWidgets.QTableView(GraphPlotterVisor)
-        self.tableView.setObjectName("tableView")
-        self.horizontalLayout.addWidget(self.tableView)
+        self.listWidget = QtWidgets.QListWidget(GraphPlotterVisor)
+        self.listWidget.setObjectName("listWidget")
+        self.horizontalLayout.addWidget(self.listWidget)
         self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.retranslateUi(GraphPlotterVisor)
@@ -254,6 +257,7 @@ class Ui_GraphPlotterVisor(object):
         self.edgeColorButton.setText(_translate("GraphPlotterVisor", "..."))
         self.legendEdgeColorButton.setText(_translate("GraphPlotterVisor", "..."))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_3), _translate("GraphPlotterVisor", "Style Settings"))
+        self.label_17.setText(_translate("GraphPlotterVisor", "Graph Functions"))
 
 
 if __name__ == "__main__":

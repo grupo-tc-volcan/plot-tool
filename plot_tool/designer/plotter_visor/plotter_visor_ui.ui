@@ -392,9 +392,16 @@
     </widget>
    </item>
    <item>
+    <widget class="QLabel" name="label_17">
+     <property name="text">
+      <string>Graph Functions</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QTableView" name="tableView"/>
+      <widget class="QListWidget" name="listWidget"/>
      </item>
     </layout>
    </item>

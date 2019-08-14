@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b976ea12-097a-4504-9e18-7de89079988f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/plot_tool/view/function_visor_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/designer/function_visor/function_visor_ui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/designer/function_visor/function_visor_ui.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/designer/plotter_visor/plotter_visor_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/designer/plotter_visor/plotter_visor_ui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/designer/plotter_visor/plotter_visor_ui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/designer/plotter_visor/plotter_visor_ui.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_tool/model/plotter_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/model/plotter_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_tool/view/function_visor_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/view/function_visor_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,38 +15,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5372385">
+    <splitter split-orientation="horizontal" split-proportion="0.6415289">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="229">
-                  <caret line="53" column="36" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
-                  <folding>
-                    <element signature="e#47#127#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/plot_tool/model/axe_model.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1652">
-                  <caret line="129" column="23" lean-forward="true" selection-start-line="129" selection-start-column="23" selection-end-line="129" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#24#45#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/plot_tool/model/plotter_model.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="199">
-                  <caret line="172" column="23" selection-start-line="172" selection-start-column="23" selection-end-line="172" selection-end-column="23" />
+                <state relative-caret-position="165">
+                  <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
                   <folding>
                     <element signature="e#47#84#0" expanded="true" />
                   </folding>
@@ -57,12 +31,12 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/plot_tool/view/function_visor_view.py">
+            <entry file="file://$PROJECT_DIR$/plot_tool/view/axe_view.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="385">
-                  <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+                <state relative-caret-position="175">
+                  <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
                   <folding>
-                    <element signature="e#47#87#0" expanded="true" />
+                    <element signature="e#47#79#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -72,32 +46,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-85">
-                  <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-                  <folding>
-                    <element signature="e#47#87#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/backends/backend_qt5agg.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="199">
-                  <caret line="71" selection-start-line="71" selection-end-line="71" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_figure_view.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="148">
-                  <caret line="56" selection-start-line="56" selection-end-line="56" />
+                <state relative-caret-position="96">
+                  <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
                   <folding>
                     <element signature="e#47#83#0" expanded="true" />
                   </folding>
@@ -106,21 +59,36 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/figure.py">
+            <entry file="file://$PROJECT_DIR$/plot_tool/view/function_visor_view.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="122">
-                  <caret line="975" selection-start-line="975" selection-end-line="975" />
+                <state relative-caret-position="127">
+                  <caret line="44" column="57" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
+                  <folding>
+                    <element signature="e#47#87#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="49" column="37" lean-forward="true" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+                  <folding>
+                    <element signature="e#47#127#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/plot_tool/model/function_model.py">
+            <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+                <state relative-caret-position="1224">
+                  <caret line="105" column="25" lean-forward="true" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
                   <folding>
-                    <element signature="e#47#84#0" expanded="true" />
+                    <element signature="e#47#87#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -183,8 +151,8 @@
         <option value="$PROJECT_DIR$/plot_tool/designer/plugins/plotter_visor_plugin.py" />
         <option value="$PROJECT_DIR$/plot_tool/view/plotter_figure_view.py" />
         <option value="$PROJECT_DIR$/plot_tool/view/window.py" />
-        <option value="$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py" />
         <option value="$PROJECT_DIR$/plot_tool/model/plotter_model.py" />
+        <option value="$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py" />
         <option value="$PROJECT_DIR$/plot_tool/view/function_visor_view.py" />
       </list>
     </option>
@@ -400,20 +368,20 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1108631" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2797619" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49181548" visible="true" weight="0.101472996" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49255952" weight="0.36006546" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4903274" visible="true" weight="0.101472996" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.86681545" weight="0.36006546" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49925596" weight="0.3289689" />
       <window_info anchor="bottom" id="Floobits" order="7" sideWeight="0.49925596" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50818455" side_tool="true" visible="true" weight="0.101472996" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50967264" side_tool="true" visible="true" weight="0.101472996" />
       <window_info anchor="bottom" id="Python Console" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -659,16 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/view/axe_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-          <folding>
-            <element signature="e#47#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
@@ -690,6 +648,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-116346528/PyQt5/QtWidgets/QColorDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/model/axe_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1652">
@@ -700,23 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="53" column="36" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
-          <folding>
-            <element signature="e#47#127#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-116346528/PyQt5/QtWidgets/QColorDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/backends/backend_qt5agg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -724,29 +672,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_figure_view.py">
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-116346528/PyQt5/QtWidgets/QLabel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="e#47#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/model/plotter_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="172" column="23" selection-start-line="172" selection-start-column="23" selection-end-line="172" selection-end-column="23" />
-          <folding>
-            <element signature="e#47#84#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="207">
+          <caret line="276" column="21" lean-forward="true" selection-start-line="276" selection-start-column="21" selection-end-line="276" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/model/function_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="340">
           <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
           <folding>
             <element signature="e#47#84#0" expanded="true" />
@@ -754,10 +689,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_figure_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#47#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="1224">
+          <caret line="105" column="25" lean-forward="true" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
           <folding>
             <element signature="e#47#87#0" expanded="true" />
           </folding>
@@ -766,10 +711,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/view/function_visor_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="127">
+          <caret line="44" column="57" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
           <folding>
             <element signature="e#47#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="49" column="37" lean-forward="true" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+          <folding>
+            <element signature="e#47#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/model/plotter_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#47#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/axe_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#47#79#0" expanded="true" />
           </folding>
         </state>
       </provider>
