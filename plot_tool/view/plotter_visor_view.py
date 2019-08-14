@@ -3,6 +3,7 @@
 # third-party modules
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QColorDialog
+from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtWidgets import QListWidgetItem
 from PyQt5.QtWidgets import QWidget
 
@@ -47,6 +48,30 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         self.yMinimum.valueChanged.connect(self.onMinimumYChanged)
         self.yMaximum.valueChanged.connect(self.onMaximumYChanged)
 
+    def verifyXValue(self, value: float):
+        if self.xScale.currentText() == Scale.Log.value:
+            if value < 0:
+                QMessageBox.warning(
+                    self,
+                    "Error message",
+                    "Logarithmic scale cannot have negative values!"
+                )
+                return False
+
+        return True
+
+    def verifyYValue(self, value: float):
+        if self.yScale.currentText() == Scale.Log.value:
+            if value < 0:
+                QMessageBox.warning(
+                    self,
+                    "Error message",
+                    "Logarithmic scale cannot have negative values!"
+                )
+                return False
+
+        return True
+
     def onLabelYChanged(self):
         if self.model is not None:
             if len(self.model.axesModels):
@@ -63,21 +88,33 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         if self.model is not None:
             if len(self.model.axesModels):
                 selectedAxes = self.model.axesModels[self.axes.currentIndex()]
-                selectedAxes.yMinimum = self.yMinimum.value()
+                if self.verifyYValue(self.yMinimum.value()):
+                    selectedAxes.yMinimum = self.yMinimum.value()
+                else:
+                    self.yMinimum.setValue(selectedAxes.yMinimum)
 
     def onMaximumYChanged(self):
         if self.model is not None:
             if len(self.model.axesModels):
                 selectedAxes = self.model.axesModels[self.axes.currentIndex()]
-                selectedAxes.yMaximum = self.yMaximum.value()
+                if self.verifyYValue(self.yMaximum.value()):
+                    selectedAxes.yMaximum = self.yMaximum.value()
+                else:
+                    self.yMaximum.setValue(selectedAxes.yMaximum)
 
     def onMaximumXChanged(self):
         if self.model is not None:
-            self.model.xMaximum = float(self.xMaximum.value())
+            if self.verifyXValue(float(self.xMaximum.value())):
+                self.model.xMaximum = float(self.xMaximum.value())
+            else:
+                self.xMaximum.setValue(self.model.xMaximum)
 
     def onMinimumXChanged(self):
         if self.model is not None:
-            self.model.xMinimum = float(self.xMinimum.value())
+            if self.verifyXValue(float(self.xMinimum.value())):
+                self.model.xMinimum = float(self.xMinimum.value())
+            else:
+                self.xMinimum.setValue(self.model.xMinimum)
 
     def onScaleXChanged(self):
         if self.model is not None:
@@ -89,7 +126,15 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
 
     def onNameChanged(self):
         if self.model is not None:
-            self.model.name = self.name.text()
+            if len(self.name.text()):
+                self.model.name = self.name.text()
+            else:
+                QMessageBox.warning(
+                    self,
+                    "Error message",
+                    "Please remember not to use empty names!"
+                )
+                self.name.setText(self.model.name)
 
     def onFaceColorButton(self):
         if self.model is not None:
