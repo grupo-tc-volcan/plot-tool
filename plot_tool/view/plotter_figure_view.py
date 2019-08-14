@@ -27,6 +27,7 @@ class GraphPlotterFigureView(Figure):
         # GraphPlotter view components
         self.graphViews = []
         self.axesViews = []
+        self.legendView = None
 
         # Updating initial views
         for graphModel in self.model.graphModels:
@@ -43,12 +44,6 @@ class GraphPlotterFigureView(Figure):
     def setParent(self, parent):
         """ Setting up the parent """
         self.parent = parent
-
-    def updateScreen(self):
-        """ Whenever a change is done, tell its parent that
-        must redraw
-        """
-        self.parent.draw()
 
     def onGraphModelAdded(self, model: GraphFunctionModel):
         """ When the GraphFunctionModel is created """
@@ -107,4 +102,10 @@ class GraphPlotterFigureView(Figure):
             for graphView in self.graphViews:
                 if graphView.model.graph.y_magnitude == axesView.model.yMagnitude:
                     if graphView not in axesView.get_lines():
+
+                        # When a new line is attached, we also need to update
+                        # the legend() label
                         axesView.add_line(graphView)
+                        if self.legendView is not None:
+                            self.legendView.remove()
+                        self.legendView = self.legend(handles=self.graphViews)
