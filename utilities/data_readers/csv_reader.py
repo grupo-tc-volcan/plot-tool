@@ -61,6 +61,8 @@ class DataReader:
         :param y_col_number: Number of the file's column that contains the x values.
         :return: x and y values (tuple (?)).
         '''
+
+        '''
         base = os.path.basename(self.file_path)
         if os.path.splitext(base)[1] == ".csv":
             self.data = pd.read_csv(self.file_path, delimiter=";", encoding="utf-8", decimal=",")
@@ -76,6 +78,8 @@ class DataReader:
             print(self.data)
         # else:
         #    print("Incorrect file extension")
+        '''
+
         '''
         #--- TO DO (2)
         VERIFICAR QUE LA COLUMNA EXISTA, YA SEA NUMERO O NOMBRE
