@@ -48,6 +48,23 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         self.yMinimum.valueChanged.connect(self.onMinimumYChanged)
         self.yMaximum.valueChanged.connect(self.onMaximumYChanged)
 
+        self.xMinimumDial.valueChanged.connect(self.onMinimumXDialChanged)
+        self.xMaximumDial.valueChanged.connect(self.onMaximumXDialChanged)
+        self.yMinimumDial.valueChanged.connect(self.onMinimumYDialChanged)
+        self.yMaximumDial.valueChanged.connect(self.onMaximumYDialChanged)
+
+    def onMinimumXDialChanged(self):
+        self.xMinimum.setValue(float(self.xMinimumDial.value()))
+
+    def onMaximumXDialChanged(self):
+        self.xMaximum.setValue(float(self.xMaximumDial.value()))
+
+    def onMinimumYDialChanged(self):
+        self.yMinimum.setValue(float(self.yMinimumDial.value()))
+
+    def onMaximumYDialChanged(self):
+        self.yMaximum.setValue(float(self.yMaximumDial.value()))
+
     def verifyXValue(self, value: float):
         if self.xScale.currentText() == Scale.Log.value:
             if value < 0:
@@ -90,6 +107,7 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
                 selectedAxes = self.model.axesModels[self.axes.currentIndex()]
                 if self.verifyYValue(self.yMinimum.value()):
                     selectedAxes.yMinimum = self.yMinimum.value()
+                    self.yMinimumDial.setValue(selectedAxes.yMinimum)
                 else:
                     self.yMinimum.setValue(selectedAxes.yMinimum)
 
@@ -99,6 +117,7 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
                 selectedAxes = self.model.axesModels[self.axes.currentIndex()]
                 if self.verifyYValue(self.yMaximum.value()):
                     selectedAxes.yMaximum = self.yMaximum.value()
+                    self.yMaximumDial.setValue(selectedAxes.yMaximum)
                 else:
                     self.yMaximum.setValue(selectedAxes.yMaximum)
 
@@ -106,6 +125,7 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         if self.model is not None:
             if self.verifyXValue(float(self.xMaximum.value())):
                 self.model.xMaximum = float(self.xMaximum.value())
+                self.xMaximumDial.setValue(self.model.xMaximum)
             else:
                 self.xMaximum.setValue(self.model.xMaximum)
 
@@ -113,6 +133,7 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         if self.model is not None:
             if self.verifyXValue(float(self.xMinimum.value())):
                 self.model.xMinimum = float(self.xMinimum.value())
+                self.xMinimumDial.setValue(self.model.xMinimum)
             else:
                 self.xMinimum.setValue(self.model.xMinimum)
 
