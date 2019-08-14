@@ -20,11 +20,14 @@ from plot_tool.view.function_visor_view import GraphFunctionVisorView
 class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
     """ GraphPlotter model's visor view """
 
-    def __init__(self, parent=None, *args, **kwargs):
-        super(GraphPlotterVisorView, self).__init__(parent, *args, **kwargs)
+    def __init__(self, parent=None, model=None):
+        super(GraphPlotterVisorView, self).__init__(parent)
+
         self.setupUi(self)
         self.colorDialog = QColorDialog()
         self.model = None
+        if model is not None:
+            self.setModel(model)
 
         self.axes.currentIndexChanged.connect(self.updateAxesData)
 
@@ -32,6 +35,61 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         self.edgeColorButton.clicked.connect(self.onEdgeColorButton)
         self.legendFaceColorButton.clicked.connect(self.onLegendFaceColorButton)
         self.legendEdgeColorButton.clicked.connect(self.onLegendEdgeColorButton)
+
+        self.name.textChanged.connect(self.onNameChanged)
+        self.xLabel.textChanged.connect(self.onLabelXChanged)
+        self.xScale.currentTextChanged.connect(self.onScaleXChanged)
+        self.xMinimum.valueChanged.connect(self.onMinimumXChanged)
+        self.xMaximum.valueChanged.connect(self.onMaximumXChanged)
+
+        self.yLabel.textChanged.connect(self.onLabelYChanged)
+        self.yScale.currentTextChanged.connect(self.onScaleYChanged)
+        self.yMinimum.valueChanged.connect(self.onMinimumYChanged)
+        self.yMaximum.valueChanged.connect(self.onMaximumYChanged)
+
+    def onLabelYChanged(self):
+        if self.model is not None:
+            if len(self.model.axesModels):
+                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
+                selectedAxes.yLabel = self.yLabel.text()
+
+    def onScaleYChanged(self):
+        if self.model is not None:
+            if len(self.model.axesModels):
+                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
+                selectedAxes.yScale = self.convertScale(self.yScale.currentText())
+
+    def onMinimumYChanged(self):
+        if self.model is not None:
+            if len(self.model.axesModels):
+                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
+                selectedAxes.yMinimum = self.yMinimum.value()
+
+    def onMaximumYChanged(self):
+        if self.model is not None:
+            if len(self.model.axesModels):
+                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
+                selectedAxes.yMaximum = self.yMaximum.value()
+
+    def onMaximumXChanged(self):
+        if self.model is not None:
+            self.model.xMaximum = float(self.xMaximum.value())
+
+    def onMinimumXChanged(self):
+        if self.model is not None:
+            self.model.xMinimum = float(self.xMinimum.value())
+
+    def onScaleXChanged(self):
+        if self.model is not None:
+            self.model.xScale = self.convertScale(self.xScale.currentText())
+
+    def onLabelXChanged(self):
+        if self.model is not None:
+            self.model.xLabel = self.xLabel.text()
+
+    def onNameChanged(self):
+        if self.model is not None:
+            self.model.name = self.name.text()
 
     def onFaceColorButton(self):
         if self.model is not None:
@@ -59,15 +117,21 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
 
     def updateViewData(self):
         if self.model is not None:
-            self.name.setText(self.model.name)
-            self.xLabel.setText(self.model.xLabel)
-            self.xMinimum.setValue(self.model.xMinimum)
-            self.xMaximum.setValue(self.model.xMaximum)
+            if self.name.text() != self.model.name:
+                self.name.setText(self.model.name)
+            if self.xLabel.text() != self.model.xLabel:
+                self.xLabel.setText(self.model.xLabel)
+            if self.xMinimum.value() != self.model.xMinimum:
+                self.xMinimum.setValue(self.model.xMinimum)
+            if self.xMaximum.value() != self.model.xMaximum:
+                self.xMaximum.setValue(self.model.xMaximum)
+
             self.xMagnitude.setText(self.model.plotter.x_magnitude.value)
 
-            self.xScale.clear()
-            self.xScale.addItems([scale.value for scale in Scale])
-            self.xScale.setCurrentText(self.model.xScale.value)
+            if self.xScale.currentText() != self.model.xScale.value:
+                self.xScale.clear()
+                self.xScale.addItems([s.value for s in Scale])
+                self.xScale.setCurrentText(self.model.xScale.value)
 
             self.axes.clear()
             self.axes.addItems(["Axes {}".format(index) for index in range(len(self.model.axesModels))])
@@ -123,14 +187,27 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
             if len(self.model.axesModels):
                 selectedAxes = self.model.axesModels[self.axes.currentIndex()]
 
-                self.yLabel.setText(selectedAxes.yLabel)
-                self.yMinimum.setValue(selectedAxes.yMinimum)
-                self.yMaximum.setValue(selectedAxes.yMaximum)
+                if self.yLabel.text() != selectedAxes.yLabel:
+                    self.yLabel.setText(selectedAxes.yLabel)
+
+                if self.yMinimum.value() != selectedAxes.yMinimum:
+                    self.yMinimum.setValue(selectedAxes.yMinimum)
+                if self.yMaximum.value() != selectedAxes.yMaximum:
+                    self.yMaximum.setValue(selectedAxes.yMaximum)
+
                 self.yMagnitude.setText(selectedAxes.yMagnitude.value)
 
-                self.yScale.clear()
-                self.yScale.addItems([scale.value for scale in Scale])
-                self.yScale.setCurrentText(selectedAxes.yScale.value)
+                if self.yScale.currentText() != selectedAxes.yScale.value:
+                    self.yScale.clear()
+                    self.yScale.addItems([s.value for s in Scale])
+                    self.yScale.setCurrentText(selectedAxes.yScale.value)
+
+    @staticmethod
+    def convertScale(value: str):
+        for s in Scale:
+            if s.value == value:
+                return s
+        return None
 
 
 if __name__ == "__main__":

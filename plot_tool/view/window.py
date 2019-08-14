@@ -34,7 +34,7 @@ class Window(QMainWindow, Ui_MainWindow):
         self.plotterView = GraphPlotterFigureView(self.plotterModel)
 
         self.figureCanvas = FigureCanvas(self.plotterView)
-        self.plotterView.setParent(self.figureCanvas)
+        self.plotterView.setFigureCanvas(self.figureCanvas)
 
         self.gridLayout.addWidget(self.figureCanvas)
 
@@ -51,7 +51,6 @@ class Window(QMainWindow, Ui_MainWindow):
         if signalDialog.exec():
             graphFunction = signalDialog.getGraphFunction()
             self.plotterModel.addGraph(graphFunction)
-            self.figureCanvas.draw()
 
 
 if __name__ == "__main__":

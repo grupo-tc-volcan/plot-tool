@@ -2,6 +2,7 @@
 
 # third-party modules
 from matplotlib.figure import Figure
+from matplotlib.backend_bases import FigureCanvasBase
 
 from PyQt5.QtGui import QColor
 
@@ -13,20 +14,23 @@ from plot_tool.model.axe_model import GraphAxesModel
 from plot_tool.view.function_line_view import GraphFunctionLineView
 from plot_tool.view.axe_view import GraphAxesView
 
+from plot_tool.view.base.view import View
 
-class GraphPlotterFigureView(Figure):
+
+class GraphPlotterFigureView(Figure, View):
     """ GraphPlotter figure view """
 
     def __init__(self, model: GraphPlotterModel, *args, **kwargs):
-        super(GraphPlotterFigureView, self).__init__(
+        Figure.__init__(
+            self,
             figsize=(1, 1),
             facecolor=self.convertColor(model.faceColor),
             edgecolor=self.convertColor(model.edgeColor),
             *args, **kwargs)
+        View.__init__(self)
 
         # Data model references
         self.model = model
-        self.parent = None
 
         # GraphPlotter view components
         self.graphViews = []
@@ -46,10 +50,6 @@ class GraphPlotterFigureView(Figure):
         self.model.axesModelRemoved.connect(self.onAxesModelRemoved)
         self.model.propertyChanged.connect(self.onPropertyChanged)
 
-    def setParent(self, parent):
-        """ Setting up the parent """
-        self.parent = parent
-
     def onPropertyChanged(self):
         """ When properties have changed, updating view... """
         self.set_facecolor(self.convertColor(self.model.faceColor))
@@ -58,14 +58,14 @@ class GraphPlotterFigureView(Figure):
 
     def onGraphModelAdded(self, model: GraphFunctionModel):
         """ When the GraphFunctionModel is created """
-        self.graphViews.append(GraphFunctionLineView(model, self))
+        self.graphViews.append(GraphFunctionLineView(model, self.canvas))
 
         # Update axe and line attachment
         self.updateAttachments()
 
     def onGraphModelRemoved(self, model: GraphFunctionModel):
         """ When the GraphFunctionModel is removed """
-        graphView = GraphFunctionLineView(model, self)
+        graphView = GraphFunctionLineView(model, self.canvas)
         self.graphViews.remove(graphView)
         graphView.remove()
 
@@ -75,6 +75,7 @@ class GraphPlotterFigureView(Figure):
         if len(self.axesViews):
             axesView = GraphAxesView(model,
                                      self,
+                                     self.canvas,
                                      [0.1, 0.1, 0.8, 0.8],
                                      sharex=self.axesViews[0])
 
@@ -91,6 +92,7 @@ class GraphPlotterFigureView(Figure):
         else:
             axesView = GraphAxesView(model,
                                      self,
+                                     self.canvas,
                                      [0.1, 0.1, 0.8, 0.8])
 
         # Appending and adding to the figure!
@@ -126,6 +128,7 @@ class GraphPlotterFigureView(Figure):
         self.legendView = self.legend(handles=self.graphViews,
                                       facecolor=self.convertColor(self.model.legendFaceColor),
                                       edgecolor=self.convertColor(self.model.legendEdgeColor))
+        self.canvas.draw_idle()
 
     @staticmethod
     def convertColor(value: QColor):
