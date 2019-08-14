@@ -65,9 +65,11 @@ class GraphPlotterFigureView(Figure, View):
 
     def onGraphModelRemoved(self, model: GraphFunctionModel):
         """ When the GraphFunctionModel is removed """
-        graphView = GraphFunctionLineView(model, self.canvas)
-        self.graphViews.remove(graphView)
-        graphView.remove()
+        for graphView in self.graphViews:
+            if graphView.model == model:
+                self.graphViews.remove(graphView)
+                graphView.remove()
+                break
 
     def onAxesModelAdded(self, model: GraphAxesModel):
         """ When the GraphAxesModel is created """

@@ -27,6 +27,11 @@ class GraphFunctionVisorView(QWidget, Ui_FunctionVisor):
         # Signal connection
         self.changeColorButton.clicked.connect(self.onChangeColorButton)
         self.isVisibleBox.toggled.connect(self.onVisibleToggled)
+        self.deleteButton.clicked.connect(self.onDeleteButton)
+
+    def onDeleteButton(self):
+        if self.model is not None:
+            self.model.parent.removeGraph(self.model.graph)
 
     def onVisibleToggled(self):
         if self.model is not None:
