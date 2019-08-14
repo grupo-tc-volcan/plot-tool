@@ -27,7 +27,7 @@ class GraphFunctionModel(QObject):
         # Property members
         self._name = self.graph.name
         self._isVisible = True
-        self._color = QColor(0, 0, 0)
+        self._color = QColor(0, 255, 0)
 
     def __eq__(self, other):
         return self.graph == other.graph

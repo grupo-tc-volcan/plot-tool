@@ -6,20 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>861</width>
+    <width>764</width>
     <height>477</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QGridLayout" name="gridLayout"/>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>861</width>
+     <width>764</width>
      <height>21</height>
     </rect>
    </property>
@@ -32,20 +38,6 @@
     <addaction name="actionSave_as"/>
     <addaction name="actionSave_all"/>
     <addaction name="actionExit"/>
-   </widget>
-   <widget class="QMenu" name="menuImport">
-    <property name="title">
-     <string>Import</string>
-    </property>
-    <widget class="QMenu" name="menufrom_LTSpice_IV">
-     <property name="title">
-      <string>from LTSpice IV</string>
-     </property>
-     <addaction name="actionSignal"/>
-     <addaction name="actionBode"/>
-    </widget>
-    <addaction name="menufrom_LTSpice_IV"/>
-    <addaction name="actionfrom_Excel"/>
    </widget>
    <widget class="QMenu" name="menuExport">
     <property name="title">
@@ -63,21 +55,14 @@
     <property name="title">
      <string>Add</string>
     </property>
-    <widget class="QMenu" name="menuSignal">
-     <property name="title">
-      <string>Signal</string>
-     </property>
-     <addaction name="actionSenoidal"/>
-     <addaction name="actionSquare"/>
-     <addaction name="actionTriangle"/>
-     <addaction name="actionStep"/>
-    </widget>
-    <addaction name="menuSignal"/>
-    <addaction name="actionfrom_TransferFunction_2"/>
+    <addaction name="actionSignals"/>
+    <addaction name="actionTransfer_Function"/>
+    <addaction name="separator"/>
+    <addaction name="actionfrom_LTSpice_IV_2"/>
+    <addaction name="actionfrom_Excel_2"/>
    </widget>
    <addaction name="menuFiles"/>
    <addaction name="menuAdd"/>
-   <addaction name="menuImport"/>
    <addaction name="menuExport"/>
    <addaction name="menuAbout"/>
   </widget>
@@ -164,6 +149,31 @@
   <action name="actionBode">
    <property name="text">
     <string>Bode</string>
+   </property>
+  </action>
+  <action name="actionfrom_LTSpice_IV">
+   <property name="text">
+    <string>from LTSpice IV</string>
+   </property>
+  </action>
+  <action name="actionSignals">
+   <property name="text">
+    <string>Signals</string>
+   </property>
+  </action>
+  <action name="actionTransfer_Function">
+   <property name="text">
+    <string>Transfer Function</string>
+   </property>
+  </action>
+  <action name="actionfrom_LTSpice_IV_2">
+   <property name="text">
+    <string>from LTSpice IV</string>
+   </property>
+  </action>
+  <action name="actionfrom_Excel_2">
+   <property name="text">
+    <string>from Excel</string>
    </property>
   </action>
  </widget>

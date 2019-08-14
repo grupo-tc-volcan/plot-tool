@@ -16,7 +16,9 @@ class GraphPlotterFigureView(Figure):
     """ GraphPlotter figure view """
 
     def __init__(self, model: GraphPlotterModel, *args, **kwargs):
-        super(GraphPlotterFigureView, self).__init__(*args, **kwargs)
+        super(GraphPlotterFigureView, self).__init__(
+            figsize=(1, 1),
+            *args, **kwargs)
 
         # Data model references
         self.model = model
@@ -69,6 +71,17 @@ class GraphPlotterFigureView(Figure):
                                      self,
                                      [0.1, 0.1, 0.8, 0.8],
                                      sharex=self.axesViews[0])
+
+            # Magic code to hide all the axes spines
+            axesView.spines["left"].set_position(("axes", 1.1))
+            axesView.set_frame_on(True)
+            axesView.patch.set_visible(False)
+            for spine in axesView.spines.values():
+                spine.set_visible(False)
+            axesView.spines["left"].set_visible(True)
+
+            # Resizing the figure to keep adding new axis
+            self.set_figwidth(self.get_figwidth() * 1.1)
         else:
             axesView = GraphAxesView(model,
                                      self,

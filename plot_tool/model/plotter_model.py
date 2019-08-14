@@ -41,7 +41,7 @@ class GraphPlotterModel(QObject):
 
         # Property Members
         self._name = kwargs["name"] if "name" in kwargs.keys() else "Name"
-        self._xLabel = kwargs["xLabel"] if "xLabel" in kwargs.keys() else "X Label"
+        self._xLabel = kwargs["xLabel"] if "xLabel" in kwargs.keys() else self.plotter.x_magnitude.value
         self._xScale = kwargs["xScale"] if "xScale" in kwargs.keys() else Scale.Linear
         self._xMinimum = kwargs["xMinimum"] if "xMinimum" in kwargs.keys() else 0.0
         self._xMaximum = kwargs["xMaximum"] if "xMaximum" in kwargs.keys() else 10.0
@@ -55,8 +55,14 @@ class GraphPlotterModel(QObject):
         :return: Returns whether it could or not add the graph.
         """
         if self.plotter.add_graph(graph):
+            # General adding methods
             self.addGraphModels()
             self.addAxesModels()
+
+            # Some algorithms to improve visualization
+            self.adjustSizeOfXAxis()
+            self.adjustSizeOfYAxis()
+
             return True
         else:
             return False
@@ -127,6 +133,53 @@ class GraphPlotterModel(QObject):
         the change throughout the internal axe models. """
         self.updateAxesProperties()
         self.propertyChanged.emit()
+
+    # Algorithms used to improve the user experience
+    # when handling several GraphFunctions inside the Plotter
+
+    def adjustSizeOfXAxis(self):
+        """ Gets the x minimum and maximum values needed to produce a stretch
+        view of the graph. """
+        xMinimum = xMaximum = None
+        for graphModel in self.graphModels:
+            for x in graphModel.graph.values.x:
+                if xMinimum is None and xMaximum is None:
+                    xMinimum = xMaximum = x
+                    continue
+
+                if x < xMinimum:
+                    xMinimum = x
+                elif x > xMaximum:
+                    xMaximum = x
+
+        self.xMinimum = xMinimum
+        self.xMaximum = xMaximum
+
+    def adjustSizeOfYAxis(self):
+        """ It's more complicated, for each possible y magnitude we should find the
+        minimum and maximum value needed to represent the graph, then the corresponding
+        axe should have that settings. """
+        for axesModel in self.axesModels:
+
+            # Each axes model has its corresponding values
+            yMinimum = yMaximum = None
+
+            for graphModel in self.graphModels:
+                if graphModel.graph.y_magnitude == axesModel.yMagnitude:
+                    for y in graphModel.graph.values.y:
+                        if yMaximum is None and yMinimum is None:
+                            yMaximum = yMinimum = y
+                            continue
+
+                        if y > yMaximum:
+                            yMaximum = y
+                        elif y < yMinimum:
+                            yMinimum = y
+
+            # If values needed were found... updates them
+            if yMinimum is not None and yMaximum is not None:
+                axesModel.yMinimum = yMinimum
+                axesModel.yMaximum = yMaximum
 
     # GraphPlotterModel's properties
     @pyqtProperty(str)
