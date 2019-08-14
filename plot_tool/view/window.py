@@ -6,6 +6,8 @@ from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMainWindow
 
+from PyQt5.QtGui import QColor
+
 # plot-tool modules
 from plot_tool.designer.window.window_ui import Ui_MainWindow
 
@@ -35,6 +37,8 @@ class Window(QMainWindow, Ui_MainWindow):
         self.plotterView.setParent(self.figureCanvas)
 
         self.gridLayout.addWidget(self.figureCanvas)
+
+        self.visorView.setModel(self.plotterModel)
 
         # Slot and signal connections
         self.actionSignals.triggered.connect(self.onSignalsAction)

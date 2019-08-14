@@ -11,17 +11,25 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(764, 477)
+        MainWindow.resize(316, 522)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.visorView = GraphPlotterVisorView(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.visorView.sizePolicy().hasHeightForWidth())
+        self.visorView.setSizePolicy(sizePolicy)
+        self.visorView.setObjectName("visorView")
+        self.horizontalLayout_2.addWidget(self.visorView)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout_2.addLayout(self.gridLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 764, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 316, 21))
         self.menubar.setObjectName("menubar")
         self.menuFiles = QtWidgets.QMenu(self.menubar)
         self.menuFiles.setObjectName("menuFiles")
@@ -99,6 +107,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.visorView.setToolTip(_translate("MainWindow", "Click and drag here"))
+        self.visorView.setWhatsThis(_translate("MainWindow", "Visor View.  "))
         self.menuFiles.setTitle(_translate("MainWindow", "File"))
         self.menuExport.setTitle(_translate("MainWindow", "Export"))
         self.menuAbout.setTitle(_translate("MainWindow", "Help"))
@@ -126,6 +136,7 @@ class Ui_MainWindow(object):
         self.actionfrom_LTSpice_IV_2.setText(_translate("MainWindow", "from LTSpice IV"))
         self.actionfrom_Excel_2.setText(_translate("MainWindow", "from Excel"))
 
+from plotter_visor_view import GraphPlotterVisorView
 
 if __name__ == "__main__":
     import sys

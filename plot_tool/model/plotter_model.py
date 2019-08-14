@@ -5,6 +5,8 @@ from PyQt5.QtCore import pyqtProperty
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtCore import QObject
 
+from PyQt5.QtGui import QColor
+
 # plot-tool modules
 from plot_tool.data.plotter import GraphPlotter
 from plot_tool.data.function import GraphFunction
@@ -25,6 +27,7 @@ class GraphPlotterModel(QObject):
     axesModelAdded = pyqtSignal(GraphAxesModel)
     axesModelRemoved = pyqtSignal(GraphAxesModel)
     propertyChanged = pyqtSignal()
+    hasChanged = pyqtSignal()
 
     def __init__(self, graphPlotter: GraphPlotter, *args, **kwargs):
         super(GraphPlotterModel, self).__init__()
@@ -45,6 +48,11 @@ class GraphPlotterModel(QObject):
         self._xScale = kwargs["xScale"] if "xScale" in kwargs.keys() else Scale.Linear
         self._xMinimum = kwargs["xMinimum"] if "xMinimum" in kwargs.keys() else 0.0
         self._xMaximum = kwargs["xMaximum"] if "xMaximum" in kwargs.keys() else 10.0
+
+        self._faceColor = kwargs["faceColor"] if "faceColor" in kwargs.keys() else QColor(255, 255, 255, 0)
+        self._edgeColor = kwargs["edgeColor"] if "edgeColor" in kwargs.keys() else QColor(0, 0, 0, 0)
+        self._legendFaceColor = kwargs["legendFaceColor"] if "legendFaceColor" in kwargs.keys() else QColor(255, 255, 255, 255)
+        self._legendEdgeColor = kwargs["legendEdgeColor"] if "legendEdgeColor" in kwargs.keys() else QColor(0, 0, 0, 0)
 
     def addGraph(self, graph: GraphFunction) -> bool:
         """
@@ -74,6 +82,7 @@ class GraphPlotterModel(QObject):
             if model not in self.graphModels:
                 self.graphModels.append(model)
                 self.graphModelAdded.emit(model)
+                self.hasChanged.emit()
 
     def addAxesModels(self):
         """ Updates the current status of axes models. """
@@ -92,6 +101,7 @@ class GraphPlotterModel(QObject):
                 model.xMaximum = self.xMaximum
 
                 self.axesModelAdded.emit(model)
+                self.hasChanged.emit()
 
     def removeGraph(self, graph: GraphFunction) -> bool:
         """
@@ -112,13 +122,15 @@ class GraphPlotterModel(QObject):
         """ Removes the given GraphFunctionModel """
         self.graphModels.remove(model)
         self.graphModelRemoved.emit(model)
+        self.hasChanged.emit()
 
     def removeAxesModels(self):
         """ Removes all axes that are not being used. """
         removeModels = [axesModel for axesModel in self.axesModels if axesModel.yMagnitude not in self.plotter.y_magnitudes]
         for removeModel in removeModels:
             self.axesModels.remove(removeModel)
-            self.axesModelRemoved(removeModel)
+            self.axesModelRemoved.emit(removeModel)
+            self.hasChanged.emit()
 
     def updateAxesProperties(self):
         """ Updates the current value of axes properties. """
@@ -133,10 +145,10 @@ class GraphPlotterModel(QObject):
         the change throughout the internal axe models. """
         self.updateAxesProperties()
         self.propertyChanged.emit()
+        self.hasChanged.emit()
 
     # Algorithms used to improve the user experience
     # when handling several GraphFunctions inside the Plotter
-
     def adjustSizeOfXAxis(self):
         """ Gets the x minimum and maximum values needed to produce a stretch
         view of the graph. """
@@ -182,6 +194,42 @@ class GraphPlotterModel(QObject):
                 axesModel.yMaximum = yMaximum
 
     # GraphPlotterModel's properties
+    @pyqtProperty(QColor)
+    def faceColor(self):
+        return self._faceColor
+
+    @faceColor.setter
+    def faceColor(self, value: QColor):
+        self._faceColor = value
+        self.notifyPropertyChange()
+
+    @pyqtProperty(QColor)
+    def edgeColor(self):
+        return self._edgeColor
+
+    @edgeColor.setter
+    def edgeColor(self, value: QColor):
+        self._edgeColor = value
+        self.notifyPropertyChange()
+
+    @pyqtProperty(QColor)
+    def legendFaceColor(self):
+        return self._legendFaceColor
+
+    @legendFaceColor.setter
+    def legendFaceColor(self, value: QColor):
+        self._legendFaceColor = value
+        self.notifyPropertyChange()
+
+    @pyqtProperty(QColor)
+    def legendEdgeColor(self):
+        return self._legendEdgeColor
+
+    @legendEdgeColor.setter
+    def legendEdgeColor(self, value: QColor):
+        self._legendEdgeColor = value
+        self.notifyPropertyChange()
+
     @pyqtProperty(str)
     def name(self):
         return self._name

@@ -3,6 +3,8 @@
 # third-party modules
 from matplotlib.figure import Figure
 
+from PyQt5.QtGui import QColor
+
 # plot-tool modules
 from plot_tool.model.plotter_model import GraphPlotterModel
 from plot_tool.model.function_model import GraphFunctionModel
@@ -18,6 +20,8 @@ class GraphPlotterFigureView(Figure):
     def __init__(self, model: GraphPlotterModel, *args, **kwargs):
         super(GraphPlotterFigureView, self).__init__(
             figsize=(1, 1),
+            facecolor=self.convertColor(model.faceColor),
+            edgecolor=self.convertColor(model.edgeColor),
             *args, **kwargs)
 
         # Data model references
@@ -40,10 +44,17 @@ class GraphPlotterFigureView(Figure):
         self.model.graphModelRemoved.connect(self.onGraphModelRemoved)
         self.model.axesModelAdded.connect(self.onAxesModelAdded)
         self.model.axesModelRemoved.connect(self.onAxesModelRemoved)
+        self.model.propertyChanged.connect(self.onPropertyChanged)
 
     def setParent(self, parent):
         """ Setting up the parent """
         self.parent = parent
+
+    def onPropertyChanged(self):
+        """ When properties have changed, updating view... """
+        self.set_facecolor(self.convertColor(self.model.faceColor))
+        self.set_edgecolor(self.convertColor(self.model.edgeColor))
+        self.updateLegendView()
 
     def onGraphModelAdded(self, model: GraphFunctionModel):
         """ When the GraphFunctionModel is created """
@@ -106,6 +117,21 @@ class GraphPlotterFigureView(Figure):
                         # When a new line is attached, we also need to update
                         # the legend() label
                         axesView.add_line(graphView)
-                        if self.legendView is not None:
-                            self.legendView.remove()
-                        self.legendView = self.legend(handles=self.graphViews)
+                        self.updateLegendView()
+
+    def updateLegendView(self):
+        """ Updating the legend view """
+        if self.legendView is not None:
+            self.legendView.remove()
+        self.legendView = self.legend(handles=self.graphViews,
+                                      facecolor=self.convertColor(self.model.legendFaceColor),
+                                      edgecolor=self.convertColor(self.model.legendEdgeColor))
+
+    @staticmethod
+    def convertColor(value: QColor):
+        return (
+            value.red() / 255,
+            value.green() / 255,
+            value.blue() / 255,
+            value.alpha() / 255
+        )
