@@ -2,6 +2,7 @@
 
 # third-party modules
 from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QColorDialog
 from PyQt5.QtWidgets import QWidget
 
 # plot-tool modules
@@ -19,9 +20,31 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
     def __init__(self, parent=None, *args, **kwargs):
         super(GraphPlotterVisorView, self).__init__(parent, *args, **kwargs)
         self.setupUi(self)
+        self.colorDialog = QColorDialog()
         self.model = None
 
         self.axes.currentIndexChanged.connect(self.updateAxesData)
+
+        self.faceColorButton.clicked.connect(self.onFaceColorButton)
+        self.edgeColorButton.clicked.connect(self.onEdgeColorButton)
+        self.legendFaceColorButton.clicked.connect(self.onLegendFaceColorButton)
+        self.legendEdgeColorButton.clicked.connect(self.onLegendEdgeColorButton)
+
+    def onFaceColorButton(self):
+        if self.model is not None:
+            self.model.faceColor = self.colorDialog.getColor()
+
+    def onEdgeColorButton(self):
+        if self.model is not None:
+            self.model.edgeColor = self.colorDialog.getColor()
+
+    def onLegendFaceColorButton(self):
+        if self.model is not None:
+            self.model.legendFaceColor = self.colorDialog.getColor()
+
+    def onLegendEdgeColorButton(self):
+        if self.model is not None:
+            self.model.legendEdgeColor = self.colorDialog.getColor()
 
     def setModel(self, model: GraphPlotterModel):
         # Setting the reference
@@ -45,6 +68,42 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
 
             self.axes.clear()
             self.axes.addItems(["Axes {}".format(index) for index in range(len(self.model.axesModels))])
+
+            self.faceColorView.setStyleSheet(
+                "background-color: rgb({}, {}, {}, {});".format(
+                    self.model.faceColor.red(),
+                    self.model.faceColor.green(),
+                    self.model.faceColor.blue(),
+                    self.model.faceColor.alpha()
+                )
+            )
+
+            self.edgeColorView.setStyleSheet(
+                "background-color: rgb({}, {}, {}, {});".format(
+                    self.model.edgeColor.red(),
+                    self.model.edgeColor.green(),
+                    self.model.edgeColor.blue(),
+                    self.model.edgeColor.alpha()
+                )
+            )
+
+            self.legendFaceColorView.setStyleSheet(
+                "background-color: rgb({}, {}, {}, {});".format(
+                    self.model.legendFaceColor.red(),
+                    self.model.legendFaceColor.green(),
+                    self.model.legendFaceColor.blue(),
+                    self.model.legendFaceColor.alpha()
+                )
+            )
+
+            self.legendEdgeColorView.setStyleSheet(
+                "background-color: rgb({}, {}, {}, {});".format(
+                    self.model.legendEdgeColor.red(),
+                    self.model.legendEdgeColor.green(),
+                    self.model.legendEdgeColor.blue(),
+                    self.model.legendEdgeColor.alpha()
+                )
+            )
 
             self.updateAxesData()
 

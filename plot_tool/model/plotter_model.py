@@ -49,10 +49,10 @@ class GraphPlotterModel(QObject):
         self._xMinimum = kwargs["xMinimum"] if "xMinimum" in kwargs.keys() else 0.0
         self._xMaximum = kwargs["xMaximum"] if "xMaximum" in kwargs.keys() else 10.0
 
-        self._faceColor = kwargs["faceColor"] if "faceColor" in kwargs.keys() else QColor(255, 255, 255, 0)
-        self._edgeColor = kwargs["edgeColor"] if "edgeColor" in kwargs.keys() else QColor(0, 0, 0, 0)
+        self._faceColor = kwargs["faceColor"] if "faceColor" in kwargs.keys() else QColor(255, 255, 255, 255)
+        self._edgeColor = kwargs["edgeColor"] if "edgeColor" in kwargs.keys() else QColor(0, 0, 0, 255)
         self._legendFaceColor = kwargs["legendFaceColor"] if "legendFaceColor" in kwargs.keys() else QColor(255, 255, 255, 255)
-        self._legendEdgeColor = kwargs["legendEdgeColor"] if "legendEdgeColor" in kwargs.keys() else QColor(0, 0, 0, 0)
+        self._legendEdgeColor = kwargs["legendEdgeColor"] if "legendEdgeColor" in kwargs.keys() else QColor(0, 0, 0, 255)
 
     def addGraph(self, graph: GraphFunction) -> bool:
         """
