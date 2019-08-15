@@ -16,6 +16,10 @@ import csv
 #from pandas import ExcelFile
 import os
 import PyQt5.QtWidgets
+from DataViewerDialog_ui import Ui_Dialog
+from PyQt5.QtWidgets import QApplication, QDialog
+
+
 
 DEBUG = False
 
@@ -56,6 +60,13 @@ class App(QWidget):
             print(fileName)
             return fileName
 '''PRUEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'''
+
+class DataSelectorDialog(QWidget):#(Ui_Dialog):
+    def __init__(self,parent=None):
+        super().__init__()
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self)
+        self.ui.buttonBox.accepted.connect(print("CONNECTEEED"))
 
 
 class DataReader:
@@ -160,6 +171,12 @@ def main(): #FOR TEST
 
     myFile = DataReader(file_path)
     data_columns = myFile.get_file_data_names()
+    #myDialog = Ui_Dialog()
+    #myDialog.setupUi()
+    #myDialog.XAxisSelector.setSpec
+    #myDialog.show()
+    myDialog = DataSelectorDialog()
+    myDialog.ui.XAxisSelector.setValue(43)
     input_data = myFile.import_file_data(x_col_name, x_col_number, y_col_name, y_col_number)
 
     if DEBUG:
