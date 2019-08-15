@@ -6,6 +6,7 @@
       <w>frac</w>
       <w>mathtext</w>
       <w>matplotlib</w>
+      <w>scipy</w>
       <w>semilog</w>
     </words>
   </dictionary>

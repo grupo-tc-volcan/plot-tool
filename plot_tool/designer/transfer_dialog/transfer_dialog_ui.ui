@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>575</width>
-    <height>299</height>
+    <height>350</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,11 +53,11 @@
       <item>
        <widget class="QStackedWidget" name="stackedWidget">
         <property name="currentIndex">
-         <number>2</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="page">
          <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="0">
+          <item row="0" column="0" alignment="Qt::AlignHCenter">
            <widget class="QRadioButton" name="frequencyModule">
             <property name="text">
              <string>|H(f)| Module</string>
@@ -67,7 +67,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
+          <item row="1" column="0" alignment="Qt::AlignHCenter">
            <widget class="QRadioButton" name="frequencyPhase">
             <property name="text">
              <string>H(f)° Phase</string>
@@ -81,7 +81,14 @@
         </widget>
         <widget class="QWidget" name="page_3">
          <layout class="QGridLayout" name="gridLayout_6">
-          <item row="0" column="0">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="step">
+            <property name="text">
+             <string>Step Response</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
            <widget class="QPushButton" name="importButton">
             <property name="maximumSize">
              <size>
@@ -94,11 +101,18 @@
             </property>
            </widget>
           </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="impulsive">
+            <property name="text">
+             <string>Impulsive Response</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
         <widget class="QWidget" name="page_2">
          <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0">
+          <item row="0" column="0" alignment="Qt::AlignHCenter">
            <widget class="QRadioButton" name="bodeModule">
             <property name="text">
              <string>|H(f)| Module</string>
@@ -108,7 +122,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
+          <item row="1" column="0" alignment="Qt::AlignHCenter">
            <widget class="QRadioButton" name="bodePhase">
             <property name="text">
              <string>H(f)° Phase</string>
@@ -224,6 +238,55 @@
    <item row="3" column="1">
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
+      <layout class="QFormLayout" name="formLayout">
+       <property name="horizontalSpacing">
+        <number>60</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="name"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Magnitude X</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="xMagnitude"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Magnitude Y</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="yMagnitude"/>
+       </item>
+      </layout>
+     </item>
+     <item>
       <widget class="QWidget" name="horizontalWidget" native="true">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -284,7 +347,7 @@
       <widget class="QLabel" name="info">
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
         </font>
        </property>
        <property name="text">

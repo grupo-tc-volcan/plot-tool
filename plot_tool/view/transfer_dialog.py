@@ -10,9 +10,20 @@ from PyQt5.QtWidgets import QVBoxLayout
 
 import matplotlib.pyplot as plot
 
+from scipy.signal import lti
+
+from numpy import angle
+from numpy import pi
+
 # plot-tool modules
 from plot_tool.designer.transfer_dialog.transfer_dialog_ui import Ui_Dialog
 from plot_tool.view.base.graph_dialog_view import GraphFunctionDialog
+from plot_tool.view.signal_dialog import SignalDialog
+
+from plot_tool.data.values import GraphValues
+from plot_tool.data.magnitudes import GraphMagnitude
+from plot_tool.data.magnitudes import get_magnitude_from_string
+from plot_tool.data.function import GraphFunction
 
 # Settings needed for the functions to work!
 plot.rc("mathtext", fontset="cm")
@@ -25,9 +36,17 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         super(TransferDialog, self).__init__(*args, **kwargs)
         self.setupUi(self)
 
+        # Data
+        self.transferFunction = None
+        self.signalFunction = None
+
         # Creating the preview widget
         self.previewSvg = QSvgWidget()
         self.previewLayout.addWidget(self.previewSvg)
+
+        # Setting up components...
+        self.yMagnitude.addItems([magnitude.value for magnitude in GraphMagnitude])
+        self.xMagnitude.addItems([magnitude.value for magnitude in GraphMagnitude])
 
         # Connecting the signals...
         self.gain.textChanged.connect(self.updateWithRoots)
@@ -37,13 +56,139 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         self.numerator.textChanged.connect(self.updateWithCoefficients)
         self.denominator.textChanged.connect(self.updateWithCoefficients)
 
-        self.type.currentTextChanged.connect(self.onType)
         self.importButton.clicked.connect(self.onImport)
 
-        self.frequencyModule.toggled.connect(self.onFrequencyModule)
-        self.frequencyPhase.toggled.connect(self.onFrequencyPhase)
-        self.bodeModule.toggled.connect(self.onBodeModule)
-        self.bodePhase.toggled.connect(self.onBodePhase)
+        self.type.currentTextChanged.connect(self.verifySetupComplete)
+        self.frequencyModule.toggled.connect(self.verifySetupComplete)
+        self.frequencyPhase.toggled.connect(self.verifySetupComplete)
+        self.bodeModule.toggled.connect(self.verifySetupComplete)
+        self.bodePhase.toggled.connect(self.verifySetupComplete)
+        self.name.textChanged.connect(self.verifySetupComplete)
+        self.xMagnitude.currentTextChanged.connect(self.verifySetupComplete)
+        self.yMagnitude.currentTextChanged.connect(self.verifySetupComplete)
+
+    def getGraphFunction(self) -> list:
+        graphFunctions = []
+
+        if self.type.currentText() == "Frequency Response":
+            frequency, magnitudes = self.transferFunction.freqresp()
+
+            if self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
+                frequency = frequency / (2 * pi)
+
+            if self.frequencyModule.isChecked():
+                graphFunctions.append(
+                    GraphFunction(
+                        self.name.text(),
+                        GraphValues(frequency, [abs(magnitude) for magnitude in magnitudes]),
+                        get_magnitude_from_string(self.xMagnitude.currentText()),
+                        get_magnitude_from_string(self.yMagnitude.currentText())
+                    )
+                )
+            if self.frequencyPhase.isChecked():
+                graphFunctions.append(
+                    GraphFunction(
+                        self.name.text(),
+                        GraphValues(frequency, [angle(magnitude) for magnitude in magnitudes]),
+                        get_magnitude_from_string(self.xMagnitude.currentText()),
+                        get_magnitude_from_string(self.yMagnitude.currentText())
+                    )
+                )
+
+        elif self.type.currentText() == "Bode":
+            frequency, magnitudes, phases = self.transferFunction.bode()
+
+            if self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
+                frequency = frequency / (2 * pi)
+
+            if self.bodeModule.isChecked():
+                graphFunctions.append(
+                    GraphFunction(
+                        self.name.text(),
+                        GraphValues(frequency, [magnitude for magnitude in magnitudes]),
+                        get_magnitude_from_string(self.xMagnitude.currentText()),
+                        get_magnitude_from_string(self.yMagnitude.currentText())
+                    )
+                )
+
+            if self.bodePhase.isChecked():
+                graphFunctions.append(
+                    GraphFunction(
+                        self.name.text(),
+                        GraphValues(frequency, [phase for phase in phases]),
+                        get_magnitude_from_string(self.xMagnitude.currentText()),
+                        get_magnitude_from_string(self.yMagnitude.currentText())
+                    )
+                )
+
+        elif self.type.currentText() == "Temporal Response":
+            if self.signalFunction is not None:
+                t, y, x = self.transferFunction.output(self.signalFunction.values.y,
+                                                       self.signalFunction.values.x)
+
+                graphFunctions.append(
+                    GraphFunction(
+                        self.name.text(),
+                        GraphValues(t, y),
+                        self.signalFunction.x_magnitude,
+                        get_magnitude_from_string(self.yMagnitude.currentText())
+                    )
+                )
+
+            if self.impulsive.isChecked():
+                t, y = self.transferFunction.impulsive()
+
+                graphFunctions.append(
+                    GraphFunction(
+                        self.name.text(),
+                        GraphValues(t, y),
+                        GraphMagnitude.Time,
+                        get_magnitude_from_string(self.yMagnitude.currentText())
+                    )
+                )
+
+            if self.step.isChecked():
+                t, y = self.transferFunction.step()
+
+                graphFunctions.append(
+                    GraphFunction(
+                        self.name.text(),
+                        GraphValues(t, y),
+                        GraphMagnitude.Time,
+                        get_magnitude_from_string(self.yMagnitude.currentText())
+                    )
+                )
+
+        return graphFunctions
+
+    def verifySetupComplete(self):
+        if self.transferFunction is not None:
+            if len(self.name.text()):
+                if self.type.currentText() == "Frequency Response":
+                    if self.frequencyModule.isChecked() or self.frequencyPhase.isChecked():
+                        if self.xMagnitude.currentText() == GraphMagnitude.AngularFrequency.value \
+                                or self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
+                            self.buttonBox.setEnabled(True)
+                            return
+                        else:
+                            self.status.setText("ERROR")
+                            self.status.setStyleSheet("color: red;")
+                            self.info.setText("Frequency Response requires a frequency x magnitude!")
+                elif self.type.currentText() == "Bode":
+                    if self.bodeModule.isChecked() or self.bodePhase.isChecked():
+                        if self.xMagnitude.currentText() == GraphMagnitude.AngularFrequency.value \
+                                or self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
+                            self.buttonBox.setEnabled(True)
+                            return
+                        else:
+                            self.status.setText("ERROR")
+                            self.status.setStyleSheet("color: red;")
+                            self.info.setText("Frequency Response requires a frequency x magnitude!")
+                elif self.type.currentText() == "Temporal Response":
+                    if self.signalFunction is not None or self.impulsive.isChecked() or self.step.isChecked():
+                        self.buttonBox.setEnabled(True)
+                        return
+        self.buttonBox.setEnabled(False)
 
     def updateWithRoots(self):
         zeros = self.canParseStringValue(self.zeros.text())
@@ -52,9 +197,10 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
             if poles is not None:
                 gain = self.canParseGainValue(self.gain.text())
                 if gain is not None:
-                    if len(zeros) and len(poles):
-                        latex = latex_rational_from_roots(zeros, poles, gain)
-                        self.previewSvg.load(svg_from_latex(latex))
+                    latex = latex_rational_from_roots(zeros, poles, gain)
+                    self.previewSvg.load(svg_from_latex(latex))
+
+                    self.transferFunction = lti(zeros, poles, gain)
 
     def updateWithCoefficients(self):
         num = self.canParseStringValue(self.numerator.text())
@@ -65,23 +211,13 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                     latex = latex_rational_from_coefficients(num, den)
                     self.previewSvg.load(svg_from_latex(latex))
 
-    def onType(self):
-        pass
-
-    def onFrequencyModule(self):
-        pass
-
-    def onFrequencyPhase(self):
-        pass
-
-    def onBodeModule(self):
-        pass
-
-    def onBodePhase(self):
-        pass
+                    self.transferFunction = lti(num, den)
 
     def onImport(self):
-        pass
+        dialog = SignalDialog()
+        if dialog.exec():
+            self.signalFunction = dialog.getGraphFunction()[0]
+            self.verifySetupComplete()
 
     def canParseGainValue(self, value: str):
         """ Returns whether the string value containing the gain is valid or not.
@@ -127,16 +263,32 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
 def latex_polynomial_from_roots(roots: list) -> str:
     """ Returns a string value representing a polynomial function
     described by the given roots using LaTeX. """
-    return ".".join(["(s {} {})".format("-" if root > 0 else "+", abs(root)) for root in roots])
+    return ".".join(
+        ["(s{})".format(
+            "" if root == 0 else " {} {}".format("-" if root > 0 else "+", abs(root)))
+            for root in roots
+        ]
+    )
 
 
 def latex_rational_from_roots(zeros: list, poles: list, gain: float) -> str:
     """ Returns a string value representing a polynomial function
     described by the given zeros, poles and gain using LaTeX. """
-    return r'\frac{}{} '.format(
-        "{" + "{} \cdot ".format(gain) + latex_polynomial_from_roots(zeros) + "}",
-        "{" + latex_polynomial_from_roots(poles) + "}"
-    )
+
+    if len(zeros) and len(poles):
+        return r'\frac{}{} '.format(
+            "{" + "{} \cdot ".format(gain) + latex_polynomial_from_roots(zeros) + "}",
+            "{" + latex_polynomial_from_roots(poles) + "}"
+        )
+    elif len(zeros):
+        return r'{} \cdot '.format(gain) + latex_polynomial_from_roots(zeros)
+    elif len(poles):
+        return r'\frac{}{} '.format(
+            "{" + "{}".format(gain) + "}",
+            "{" + latex_polynomial_from_roots(poles) + "}"
+        )
+    else:
+        return "{}".format(gain)
 
 
 def latex_polynomial_from_coefficients(coefs: list) -> str:
