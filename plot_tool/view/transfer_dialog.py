@@ -13,6 +13,21 @@ import matplotlib.pyplot as plot
 plot.rc("mathtext", fontset="cm")
 
 
+def latex_polynomial_from_roots(roots: list) -> str:
+    """ Returns a string value representing a polynomial function
+    described by the given roots using LaTeX. """
+    return ".".join(["(s {} {})".format("-" if root > 0 else "+", abs(root)) for root in roots])
+
+
+def latex_rational_from_roots(zeros: list, poles: list, gain: list) -> str:
+    """ Returns a string value representing a polynomial function
+    described by the given zeros, poles and gain using LaTeX. """
+    return r'\frac{}{} '.format(
+        "{" + "{} \cdot ".format(gain) + latex_polynomial_from_roots(zeros) + "}",
+        "{" + latex_polynomial_from_roots(poles) + "}"
+    )
+
+
 def latex_polynomial_from_coefficients(coefs: list) -> str:
     """ Returns a string value representing a polynomial function
     described by the given coefficients using LaTeX. """
@@ -62,6 +77,6 @@ def svg_from_latex(latex: str, font_size=12, dpi=300):
 if __name__ == "__main__":
     app = QApplication([])
     svg = QSvgWidget()
-    svg.load(svg_from_latex(latex_rational_from_coefficients([1, 2, 3], [2, 3, 4])))
+    svg.load(svg_from_latex(latex_rational_from_roots([3], [-3], 4)))
     svg.show()
     app.exec()
