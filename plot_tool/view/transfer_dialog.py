@@ -41,8 +41,10 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         self.signalFunction = None
 
         # Creating the preview widget
+        """
         self.previewSvg = QSvgWidget()
         self.previewLayout.addWidget(self.previewSvg)
+        """
 
         # Setting up components...
         self.yMagnitude.addItems([magnitude.value for magnitude in GraphMagnitude])
@@ -198,7 +200,9 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                 gain = self.canParseGainValue(self.gain.text())
                 if gain is not None:
                     latex = latex_rational_from_roots(zeros, poles, gain)
+                    """
                     self.previewSvg.load(svg_from_latex(latex))
+                    """
 
                     self.transferFunction = lti(zeros, poles, gain)
 
@@ -209,7 +213,9 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
             if den is not None:
                 if len(num) and len(den):
                     latex = latex_rational_from_coefficients(num, den)
+                    """
                     self.previewSvg.load(svg_from_latex(latex))
+                    """
 
                     self.transferFunction = lti(num, den)
 
@@ -342,3 +348,7 @@ def main():
     dialog = TransferDialog()
     dialog.exec()
     app.exec()
+
+
+if __name__ == "__main__":
+    main()

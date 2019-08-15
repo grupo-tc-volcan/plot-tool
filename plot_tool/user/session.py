@@ -3,6 +3,9 @@
 # third-party modules
 
 # plot-tool modules
+from plot_tool.model.plotter_model import GraphPlotterModel
+
+from PyQt5.QtWidgets import QListView
 
 
 class Session(object):
@@ -12,5 +15,8 @@ class Session(object):
     """
 
     def __init__(self):
-        self.current_plotter = None
-        self.plotters = []
+        self.plotter_models = []
+        self.plotter_selected = None
+
+    def addPlotterModel(self, plotter_model: GraphPlotterModel):
+        self.plotter_models.append(plotter_model)

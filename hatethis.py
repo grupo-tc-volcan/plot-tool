@@ -1,2 +1,2 @@
-from plot_tool.view.transfer_dialog import main
+from plot_tool.view.window import main
 main()
