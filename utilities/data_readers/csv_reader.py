@@ -15,8 +15,48 @@ import csv
 #from pandas import ExcelWriter
 #from pandas import ExcelFile
 import os
+import PyQt5.QtWidgets
 
 DEBUG = False
+
+'''PRUEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'''
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
+from PyQt5.QtGui import QIcon
+
+
+class App(QWidget):
+
+    def __init__(self):
+        super().__init__()
+        self.title = 'PyQt5 file dialogs - pythonspot.com'
+        self.left = 10
+        self.top = 10
+        self.width = 640
+        self.height = 480
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.left, self.top, self.width, self.height)
+
+        #self.openFileNameDialog()
+        #self.openFileNamesDialog()
+        #self.saveFileDialog()
+
+        self.show()
+
+    def openFileNameDialog(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getOpenFileName(self, "Choose File", "",
+                                                  "All Files (*);;Python Files (*.py)", options=options)
+        if fileName:
+            print("nombreeee:")
+            print(fileName)
+            return fileName
+'''PRUEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'''
+
 
 class DataReader:
     def __init__(self,_file_path):
@@ -100,7 +140,7 @@ class DataReader:
 def main(): #FOR TEST
     #file_path = "xlsTest.xlsx"
     #file_path = "txtTest2.txt"
-    file_path = "csvTest.csv"
+    #file_path = "csvTest.csv"
     #x_col_name = "Freq."
     x_col_name = "Freq"
     x_col_number = 0
@@ -108,9 +148,15 @@ def main(): #FOR TEST
     #y_col_name = "I(L1)"
     y_col_number = 1
 
+
     #data_columns = get_file_data_names(file_path)
     #input_data = import_file_data(file_path, x_col_name, x_col_number, y_col_name, y_col_number)
 
+
+    app = QApplication(sys.argv)
+    ex = App()
+    # sys.exit(app.exec_())
+    file_path = ex.openFileNameDialog()
 
     myFile = DataReader(file_path)
     data_columns = myFile.get_file_data_names()
