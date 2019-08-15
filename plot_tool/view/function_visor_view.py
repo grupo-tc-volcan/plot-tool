@@ -25,9 +25,19 @@ class GraphFunctionVisorView(QWidget, Ui_FunctionVisor):
             self.setModel(model)
 
         # Signal connection
-        self.changeColorButton.clicked.connect(self.onChangeColorButton)
+        self.name.textChanged.connect(self.onNameChanged)
+        self.color.clicked.connect(self.onChangeColorButton)
         self.isVisibleBox.toggled.connect(self.onVisibleToggled)
         self.deleteButton.clicked.connect(self.onDeleteButton)
+
+    def onNameChanged(self):
+        if self.model is not None:
+            # Verify not empty value
+            if len(self.name.text()):
+                # Verify not used value
+                if self.name.text() not in [graphModel.name for graphModel in self.model.parent.graphModels]:
+                    self.model.name = self.name.text()
+                    return
 
     def onDeleteButton(self):
         if self.model is not None:

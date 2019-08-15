@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="trashButton">
+    <file>files/trash.png</file>
+  </qresource>
+  <qresource prefix="settingButton">
+    <file>files/settings.png</file>
+  </qresource>
+</RCC>

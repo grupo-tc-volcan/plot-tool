@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>510</height>
+    <height>458</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,7 +52,7 @@
         <x>0</x>
         <y>0</y>
         <width>282</width>
-        <height>258</height>
+        <height>206</height>
        </rect>
       </property>
       <attribute name="label">
@@ -228,7 +228,7 @@
         <x>0</x>
         <y>0</y>
         <width>282</width>
-        <height>258</height>
+        <height>206</height>
        </rect>
       </property>
       <attribute name="label">
@@ -242,50 +242,16 @@
            <property name="horizontalSpacing">
             <number>60</number>
            </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_7">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>Axes</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_8">
-             <property name="text">
-              <string>Label Y</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="text">
-              <string>Scale Y</string>
-             </property>
-            </widget>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="yLabel"/>
            </item>
            <item row="2" column="1">
             <widget class="QComboBox" name="yScale"/>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="yLabel"/>
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="label_12">
              <property name="text">
               <string>Magnitude Y</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_10">
-             <property name="text">
-              <string>Minimum Y</string>
              </property>
             </widget>
            </item>
@@ -296,34 +262,17 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="1" alignment="Qt::AlignRight">
-            <widget class="QDoubleSpinBox" name="yMinimum">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>Minimum Y</string>
              </property>
-             <property name="maximumSize">
-              <size>
-               <width>60</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="buttonSymbols">
-              <enum>QAbstractSpinBox::NoButtons</enum>
-             </property>
-             <property name="decimals">
-              <number>4</number>
-             </property>
-             <property name="minimum">
-              <double>-10000000.000000000000000</double>
-             </property>
-             <property name="maximum">
-              <double>10000000.000000000000000</double>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>Maximum Y</string>
              </property>
             </widget>
            </item>
@@ -358,12 +307,84 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_11">
-             <property name="text">
-              <string>Maximum Y</string>
+           <item row="4" column="1" alignment="Qt::AlignRight">
+            <widget class="QDoubleSpinBox" name="yMinimum">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>60</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
+             <property name="decimals">
+              <number>4</number>
+             </property>
+             <property name="minimum">
+              <double>-10000000.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>10000000.000000000000000</double>
              </property>
             </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Label Y</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Axes</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Scale Y</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>Axes Face Color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="QWidget" name="axesFaceColor" native="true"/>
+             </item>
+             <item>
+              <widget class="QToolButton" name="axesFaceColorButton">
+               <property name="text">
+                <string>...</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
@@ -377,7 +398,7 @@
         <x>0</x>
         <y>0</y>
         <width>282</width>
-        <height>258</height>
+        <height>206</height>
        </rect>
       </property>
       <attribute name="label">
@@ -393,27 +414,6 @@
           <widget class="QLabel" name="label_13">
            <property name="text">
             <string>Face Color</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_14">
-           <property name="text">
-            <string>Edge Color</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_15">
-           <property name="text">
-            <string>Legend Face Color</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="label_16">
-           <property name="text">
-            <string>Legend Edge Color</string>
            </property>
           </widget>
          </item>
@@ -433,19 +433,12 @@
            </item>
           </layout>
          </item>
-         <item row="2" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <item>
-            <widget class="QWidget" name="legendFaceColorView" native="true"/>
-           </item>
-           <item>
-            <widget class="QToolButton" name="legendFaceColorButton">
-             <property name="text">
-              <string>...</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_14">
+           <property name="text">
+            <string>Edge Color</string>
+           </property>
+          </widget>
          </item>
          <item row="1" column="1">
           <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -460,6 +453,34 @@
             </widget>
            </item>
           </layout>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string>Legend Face Color</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QWidget" name="legendFaceColorView" native="true"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="legendFaceColorButton">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_16">
+           <property name="text">
+            <string>Legend Edge Color</string>
+           </property>
+          </widget>
          </item>
          <item row="3" column="1">
           <layout class="QHBoxLayout" name="horizontalLayout_6">

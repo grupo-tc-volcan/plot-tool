@@ -206,7 +206,8 @@ class Ui_MainWindow(object):
         self.actionfrom_LTSpice_IV_2.setText(_translate("MainWindow", "from LTSpice IV"))
         self.actionfrom_Excel_2.setText(_translate("MainWindow", "from Excel"))
 
-from plotter_visor_view import GraphPlotterVisorView
+
+from plot_tool.view.plotter_visor_view import GraphPlotterVisorView
 
 if __name__ == "__main__":
     import sys

@@ -60,6 +60,9 @@ class GraphPlotterFigureView(Figure, View):
         """ When the GraphFunctionModel is created """
         self.graphViews.append(GraphFunctionLineView(model, self.canvas))
 
+        # Need to know when its color is updated!
+        model.hasChanged.connect(self.updateLegendView)
+
         # Update axe and line attachment
         self.updateAttachments()
 
@@ -69,6 +72,7 @@ class GraphPlotterFigureView(Figure, View):
             if graphView.model == model:
                 self.graphViews.remove(graphView)
                 graphView.remove()
+                self.updateAttachments()
                 break
 
     def onAxesModelAdded(self, model: GraphAxesModel):
@@ -110,6 +114,8 @@ class GraphPlotterFigureView(Figure, View):
             if axesView.model == model:
                 self.axesViews.remove(axesView)
                 axesView.remove()
+                self.updateAttachments()
+                break
 
     def updateAttachments(self):
         """ Attaches every GraphFunction view to its corresponding AxesView """

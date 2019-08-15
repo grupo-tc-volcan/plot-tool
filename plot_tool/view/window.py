@@ -16,6 +16,7 @@ from plot_tool.designer.window.window_ui import Ui_MainWindow
 from plot_tool.view.signal_dialog import SignalDialog
 from plot_tool.view.transfer_dialog import TransferDialog
 from plot_tool.view.plotter_dialog import PlotterDialog
+from plot_tool.view.about_dialog import AboutDialog
 
 from plot_tool.data.magnitudes import get_magnitude_from_string
 
@@ -49,6 +50,7 @@ class Window(QMainWindow, Ui_MainWindow):
         self.actionfrom_Excel_2.triggered.connect(self.onFromExcelAction)
         self.actionfrom_LTSpice_IV_2.triggered.connect(self.onFromLTSpiceAction)
         self.actionas_Image.triggered.connect(self.onImageExportAction)
+        self.actionAbout.triggered.connect(self.onAboutAction)
 
         self.addButton.clicked.connect(self.onAdd)
         self.deleteButton.clicked.connect(self.onDelete)
@@ -68,8 +70,15 @@ class Window(QMainWindow, Ui_MainWindow):
             return True
 
     def updatePlotterList(self):
+        # Saving the current index...
+        selectedIndex = self.plotterList.currentIndex()
+
+        # Clear and adds all new items
         self.plotterList.clear()
         self.plotterList.addItems([plotter_model.name for plotter_model in self.session.plotter_models])
+
+        # Restore the index
+        self.plotterList.setCurrentIndex(selectedIndex)
 
     def onSelection(self):
         selectedIndex = self.plotterList.currentIndex().row()
@@ -85,11 +94,14 @@ class Window(QMainWindow, Ui_MainWindow):
                 QMessageBox.warning(self, "Error message",
                                     "Error detected adding a new graph. Name already used!")
             else:
+                # Creating model, view, data instances
                 plotterData = GraphPlotter(get_magnitude_from_string(dialog.xMagnitude.currentText()))
                 plotterModel = GraphPlotterModel(plotterData, name=dialog.name.text())
                 plotterView = GraphPlotterFigureView(plotterModel)
                 figureCanvas = FigureCanvas(plotterView)
 
+                # Connections between objects
+                plotterModel.hasChanged.connect(self.updatePlotterList)
                 plotterView.setFigureCanvas(figureCanvas)
                 self.session.addPlotterModel(plotterModel)
                 self.canvas.append(figureCanvas)
@@ -140,6 +152,11 @@ class Window(QMainWindow, Ui_MainWindow):
                     dpi=600,
                     format="png"
                 )
+
+    @staticmethod
+    def onAboutAction():
+        dialog = AboutDialog()
+        dialog.exec()
 
     def onFromExcelAction(self):
         if not self.verifySelection():

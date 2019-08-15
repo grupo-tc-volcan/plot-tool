@@ -6,6 +6,8 @@ from PyQt5.QtCore import pyqtProperty
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtCore import QObject
 
+from PyQt5.QtGui import QColor
+
 # plot-tool modules
 from plot_tool.data.magnitudes import GraphMagnitude
 
@@ -48,11 +50,22 @@ class GraphAxesModel(QObject):
         self._yMinimum = kwargs["yMinimum"] if "yMinimum" in kwargs.keys() else 0.0
         self._yMaximum = kwargs["yMaximum"] if "yMaximum" in kwargs.keys() else 10.0
 
+        self._faceColor = kwargs["faceColor"] if "faceColor" in kwargs.keys() else QColor(255, 255, 255)
+
     def __eq__(self, other):
         return self.yMagnitude == other.yMagnitude
 
     def notifyChange(self):
         self.hasChanged.emit()
+
+    @pyqtProperty(QColor)
+    def faceColor(self):
+        return self._faceColor
+
+    @faceColor.setter
+    def faceColor(self, value: QColor):
+        self._faceColor = value
+        self.notifyChange()
 
     @pyqtProperty(GraphMagnitude)
     def yMagnitude(self):

@@ -7,6 +7,8 @@ from matplotlib.axes import Axes
 from matplotlib.scale import LinearScale
 from matplotlib.scale import LogScale
 
+from PyQt5.QtGui import QColor
+
 # plot-tool modules
 from plot_tool.model.axe_model import GraphAxesModel
 from plot_tool.model.axe_model import Scale
@@ -29,6 +31,7 @@ class GraphAxesView(Axes, View):
             ylabel=model.yLabel,
             xlim=(model.xMinimum, model.xMaximum),
             ylim=(model.yMinimum, model.yMaximum),
+            facecolor=self.convertColor(model.faceColor),
             *args, **kwargs)
         View.__init__(self, canvas)
 
@@ -51,6 +54,9 @@ class GraphAxesView(Axes, View):
         self.set_xlabel(self.model.xLabel)
         self.set_ylabel(self.model.yLabel)
 
+        # Coloring...
+        self.set_facecolor(self.convertColor(self.model.faceColor))
+
         self.canvas.draw_idle()
 
     @staticmethod
@@ -59,3 +65,12 @@ class GraphAxesView(Axes, View):
             return LinearScale.name
         elif modelValue == Scale.Log:
             return LogScale.name
+
+    @staticmethod
+    def convertColor(value: QColor):
+        return (
+            value.red() / 255,
+            value.green() / 255,
+            value.blue() / 255,
+            value.alpha() / 255
+        )

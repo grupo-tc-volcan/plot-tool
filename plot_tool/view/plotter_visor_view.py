@@ -32,6 +32,7 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
 
         self.axes.currentIndexChanged.connect(self.updateAxesData)
 
+        self.axesFaceColorButton.clicked.connect(self.onAxesFaceColorButton)
         self.faceColorButton.clicked.connect(self.onFaceColorButton)
         self.edgeColorButton.clicked.connect(self.onEdgeColorButton)
         self.legendFaceColorButton.clicked.connect(self.onLegendFaceColorButton)
@@ -141,6 +142,12 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
                     "Please remember not to use empty names!"
                 )
                 self.name.setText(self.model.name)
+
+    def onAxesFaceColorButton(self):
+        if self.model is not None:
+            if len(self.model.axesModels):
+                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
+                selectedAxes.faceColor = self.colorDialog.getColor()
 
     def onFaceColorButton(self):
         if self.model is not None:
@@ -252,6 +259,14 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
                     self.yScale.clear()
                     self.yScale.addItems([s.value for s in Scale])
                     self.yScale.setCurrentText(selectedAxes.yScale.value)
+
+                self.axesFaceColor.setStyleSheet(
+                    "background-color: rgb({}, {}, {});".format(
+                        selectedAxes.faceColor.red(),
+                        selectedAxes.faceColor.green(),
+                        selectedAxes.faceColor.blue()
+                    )
+                )
 
     @staticmethod
     def convertScale(value: str):

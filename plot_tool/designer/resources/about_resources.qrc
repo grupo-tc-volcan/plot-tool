@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="image">
+    <file>files/unnamed.png</file>
+    <file>files/volcan.png</file>
+  </qresource>
+</RCC>
