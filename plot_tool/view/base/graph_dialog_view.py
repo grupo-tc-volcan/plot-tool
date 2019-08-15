@@ -15,7 +15,7 @@ class GraphFunctionDialog(QDialog):
     def __init__(self, *args, **kwargs):
         super(GraphFunctionDialog, self).__init__(*args, **kwargs)
 
-    def getGraphFunction(self) -> GraphFunction:
+    def getGraphFunction(self) -> list:
         """ Returns the resulting value of GraphFunction.
         If was rejected, should return None.
         """

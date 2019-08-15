@@ -74,7 +74,7 @@ class SignalDialog(GraphFunctionDialog, Ui_Dialog):
                         return
         self.buttonBox.setEnabled(False)
 
-    def getGraphFunction(self) -> GraphFunction:
+    def getGraphFunction(self) -> list:
         if self.waveformsInput.currentText() == "Sinusoidal":
             amplitude = float(self.sinAmplitude.value())
             frequency = float(self.sinFrequency.value())
@@ -83,12 +83,12 @@ class SignalDialog(GraphFunctionDialog, Ui_Dialog):
             times = arange(0, 1 / frequency, 1 / frequency / 100)
             values = [amplitude * sin(time * 2 * pi * frequency + radians(phase)) for time in times]
 
-            return GraphFunction(
+            return [GraphFunction(
                 self.nameInput.text(),
                 GraphValues(list(times), values),
                 self.xMagnitudeInput.currentText(),
                 self.yMagnitudeInput.currentText()
-            )
+            )]
 
 
 if __name__ == "__main__":

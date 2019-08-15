@@ -49,8 +49,9 @@ class Window(QMainWindow, Ui_MainWindow):
     def onSignalsAction(self):
         signalDialog = SignalDialog()
         if signalDialog.exec():
-            graphFunction = signalDialog.getGraphFunction()
-            self.plotterModel.addGraph(graphFunction)
+            graphFunctions = signalDialog.getGraphFunction()
+            for graphFunction in graphFunctions:
+                self.plotterModel.addGraph(graphFunction)
 
 
 if __name__ == "__main__":
