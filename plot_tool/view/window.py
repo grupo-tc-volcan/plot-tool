@@ -5,6 +5,7 @@ from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMessageBox
 
 from PyQt5.QtGui import QColor
 
@@ -81,23 +82,25 @@ class Window(QMainWindow, Ui_MainWindow):
 
     def onDelete(self):
         if len(self.session.plotter_models):
-            selectedIndex = self.plotterList.currentIndex().row()
+            if QMessageBox.question(self, "Deleting graph", "Are you sure you want to delete?",
+                                    QMessageBox.Ok | QMessageBox.Cancel):
+                selectedIndex = self.plotterList.currentIndex().row()
 
-            # Look for the objects
-            plotter_model = self.session.plotter_models[selectedIndex]
-            plotter_view = self.views[selectedIndex]
-            canvas = self.canvas[selectedIndex]
+                # Look for the objects
+                plotter_model = self.session.plotter_models[selectedIndex]
+                plotter_view = self.views[selectedIndex]
+                canvas = self.canvas[selectedIndex]
 
-            # Remove them from the GUI
-            self.canvasList.removeWidget(canvas)
+                # Remove them from the GUI
+                self.canvasList.removeWidget(canvas)
 
-            # Remove them from the data references
-            self.canvas.remove(canvas)
-            self.views.remove(plotter_view)
-            self.session.plotter_models.remove(plotter_model)
+                # Remove them from the data references
+                self.canvas.remove(canvas)
+                self.views.remove(plotter_view)
+                self.session.plotter_models.remove(plotter_model)
 
-            # Update plotter list and resets selection
-            self.updatePlotterList()
+                # Update plotter list and resets selection
+                self.updatePlotterList()
 
     def onTransferAction(self):
         transferDialog = TransferDialog()
