@@ -6,6 +6,7 @@ from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QFileDialog
 
 from PyQt5.QtGui import QColor
 
@@ -47,6 +48,7 @@ class Window(QMainWindow, Ui_MainWindow):
         self.actionTransfer_Function.triggered.connect(self.onTransferAction)
         self.actionfrom_Excel_2.triggered.connect(self.onFromExcelAction)
         self.actionfrom_LTSpice_IV_2.triggered.connect(self.onFromLTSpiceAction)
+        self.actionas_Image.triggered.connect(self.onImageExportAction)
 
         self.addButton.clicked.connect(self.onAdd)
         self.deleteButton.clicked.connect(self.onDelete)
@@ -117,6 +119,27 @@ class Window(QMainWindow, Ui_MainWindow):
 
                 # Update plotter list and resets selection
                 self.updatePlotterList()
+
+    def onImageExportAction(self):
+        if not self.verifySelection():
+            return
+
+        dialog = QFileDialog()
+        dialog.setDefaultSuffix(".png")
+
+        if dialog.exec():
+            file_path = dialog.selectedFiles()
+            if len(file_path) > 1:
+                QMessageBox.warning(self,
+                                    "Error message",
+                                    "Only one .png image will be saved!")
+            else:
+                plotter_view = self.views[self.plotterList.currentIndex().row()]
+                plotter_view.savefig(
+                    file_path[0],
+                    dpi=600,
+                    format="png"
+                )
 
     def onFromExcelAction(self):
         if not self.verifySelection():

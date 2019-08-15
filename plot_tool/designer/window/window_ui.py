@@ -183,7 +183,7 @@ class Ui_MainWindow(object):
         self.menuExport.setTitle(_translate("MainWindow", "Export"))
         self.menuAbout.setTitle(_translate("MainWindow", "Help"))
         self.menuAdd.setTitle(_translate("MainWindow", "Add"))
-        self.actionas_Image.setText(_translate("MainWindow", "as Image..."))
+        self.actionas_Image.setText(_translate("MainWindow", "Image (.png)"))
         self.actionfrom_Excel.setText(_translate("MainWindow", "from Excel"))
         self.actionfrom_TransferFunction.setText(_translate("MainWindow", "from TransferFunction..."))
         self.actionAbout.setText(_translate("MainWindow", "About"))

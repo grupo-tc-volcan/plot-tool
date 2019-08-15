@@ -216,7 +216,7 @@
   </widget>
   <action name="actionas_Image">
    <property name="text">
-    <string>as Image...</string>
+    <string>Image (.png)</string>
    </property>
   </action>
   <action name="actionfrom_Excel">
