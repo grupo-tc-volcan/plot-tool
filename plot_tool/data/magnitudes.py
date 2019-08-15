@@ -26,3 +26,4 @@ class GraphMagnitude(Enum):
     Frequency = "Frequency (Hz)"
     Decibel = "Decibel (Db)"
     AngularFrequency = "Angular Frequency (rad/s)"
+    Phase = "Phase (°)"

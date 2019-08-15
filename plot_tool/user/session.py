@@ -16,7 +16,6 @@ class Session(object):
 
     def __init__(self):
         self.plotter_models = []
-        self.plotter_selected = None
 
     def addPlotterModel(self, plotter_model: GraphPlotterModel):
         self.plotter_models.append(plotter_model)

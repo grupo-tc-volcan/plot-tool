@@ -45,6 +45,8 @@ class Window(QMainWindow, Ui_MainWindow):
         # Slot and signal connections
         self.actionSignals.triggered.connect(self.onSignalsAction)
         self.actionTransfer_Function.triggered.connect(self.onTransferAction)
+        self.actionfrom_Excel_2.triggered.connect(self.onFromExcelAction)
+        self.actionfrom_LTSpice_IV_2.triggered.connect(self.onFromLTSpiceAction)
 
         self.addButton.clicked.connect(self.onAdd)
         self.deleteButton.clicked.connect(self.onDelete)
@@ -53,32 +55,46 @@ class Window(QMainWindow, Ui_MainWindow):
         # Show()
         self.show()
 
+    def verifySelection(self) -> bool:
+        selectedIndex = self.plotterList.currentIndex().row()
+        if selectedIndex < 0:
+            QMessageBox.warning(self,
+                                "Error message",
+                                "No GraphPlotter selected! You must create or select one first.")
+            return False
+        else:
+            return True
+
     def updatePlotterList(self):
         self.plotterList.clear()
         self.plotterList.addItems([plotter_model.name for plotter_model in self.session.plotter_models])
 
     def onSelection(self):
         selectedIndex = self.plotterList.currentIndex().row()
-        if selectedIndex > 0:
+        if selectedIndex >= 0:
             self.visorView.setModel(self.session.plotter_models[selectedIndex])
             self.canvasList.setCurrentWidget(self.canvas[selectedIndex])
-            self.canvas[selectedIndex].draw()
 
     def onAdd(self):
         dialog = PlotterDialog()
         if dialog.exec():
-            plotterData = GraphPlotter(get_magnitude_from_string(dialog.xMagnitude.currentText()))
-            plotterModel = GraphPlotterModel(plotterData, name=dialog.name.text())
-            plotterView = GraphPlotterFigureView(plotterModel)
-            figureCanvas = FigureCanvas(plotterView)
 
-            plotterView.setFigureCanvas(figureCanvas)
-            self.session.addPlotterModel(plotterModel)
-            self.canvas.append(figureCanvas)
-            self.views.append(plotterView)
-            self.canvasList.setCurrentIndex(self.canvasList.addWidget(figureCanvas))
+            if dialog.name.text() in [plotter_model.name for plotter_model in self.session.plotter_models]:
+                QMessageBox.warning(self, "Error message",
+                                    "Error detected adding a new graph. Name already used!")
+            else:
+                plotterData = GraphPlotter(get_magnitude_from_string(dialog.xMagnitude.currentText()))
+                plotterModel = GraphPlotterModel(plotterData, name=dialog.name.text())
+                plotterView = GraphPlotterFigureView(plotterModel)
+                figureCanvas = FigureCanvas(plotterView)
 
-            self.updatePlotterList()
+                plotterView.setFigureCanvas(figureCanvas)
+                self.session.addPlotterModel(plotterModel)
+                self.canvas.append(figureCanvas)
+                self.views.append(plotterView)
+                self.canvasList.setCurrentIndex(self.canvasList.addWidget(figureCanvas))
+
+                self.updatePlotterList()
 
     def onDelete(self):
         if len(self.session.plotter_models):
@@ -102,19 +118,43 @@ class Window(QMainWindow, Ui_MainWindow):
                 # Update plotter list and resets selection
                 self.updatePlotterList()
 
+    def onFromExcelAction(self):
+        if not self.verifySelection():
+            return
+
+        # Code here please!
+
+    def onFromLTSpiceAction(self):
+        if not self.verifySelection():
+            return
+
+        # Code here please!
+
     def onTransferAction(self):
+        if not self.verifySelection():
+            return
+
         transferDialog = TransferDialog()
         if transferDialog.exec():
             graphFunctions = transferDialog.getGraphFunction()
             for graphFunction in graphFunctions:
-                self.plotterModel.addGraph(graphFunction)
+                if not self.session.plotter_models[self.plotterList.currentIndex().row()].addGraph(graphFunction):
+                    QMessageBox.warning(self,
+                                        "Error message",
+                                        "Cannot add new graph. Name already used or invalid x magnitude")
 
     def onSignalsAction(self):
+        if not self.verifySelection():
+            return
+
         signalDialog = SignalDialog()
         if signalDialog.exec():
             graphFunctions = signalDialog.getGraphFunction()
             for graphFunction in graphFunctions:
-                self.plotterModel.addGraph(graphFunction)
+                if not self.session.plotter_models[self.plotterList.currentIndex().row()].addGraph(graphFunction):
+                    QMessageBox.warning(self,
+                                        "Error message",
+                                        "Cannot add new graph. Name already used or invalid x magnitude")
 
 
 def main():
