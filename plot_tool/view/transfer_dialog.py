@@ -6,9 +6,19 @@ from PyQt5.QtSvg import QSvgWidget
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QGraphicsPixmapItem
 from PyQt5.QtWidgets import QVBoxLayout
+from PyQt5.QtWidgets import QGraphicsScene
+from PyQt5.QtWidgets import QGraphicsView
+from PyQt5.QtWidgets import QVBoxLayout
+from PyQt5.QtCore import Qt
+from PyQt5.QtSvg import QGraphicsSvgItem
 
-import matplotlib.pyplot as plot
+from PyQt5.QtGui import QPixmap
+
+from matplotlib import pyplot
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 
 from scipy.signal import lti
 
@@ -28,7 +38,7 @@ from plot_tool.data.magnitudes import get_magnitude_from_string
 from plot_tool.data.function import GraphFunction
 
 # Settings needed for the functions to work!
-plot.rc("mathtext", fontset="cm")
+pyplot.rc("mathtext", fontset="cm")
 
 
 class TransferDialog(GraphFunctionDialog, Ui_Dialog):
@@ -44,10 +54,11 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
 
         # Creating the preview widget
         self.onTypeChanged()
-        
-        self.previewSvg = QSvgWidget()
-        self.previewLayout.addWidget(self.previewSvg)
 
+        self.figureSvg = Figure(figsize=(1, 1),
+                                tight_layout=True)
+        self.previewSvg = FigureCanvas(self.figureSvg)
+        self.preview.addWidget(self.previewSvg)
 
         # Connecting the signals...
         self.gain.textChanged.connect(self.updateWithRoots)
@@ -216,6 +227,8 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         self.buttonBox.setEnabled(False)
 
     def updateWithRoots(self):
+        self.figureSvg.clf()
+
         zeros = self.canParseStringValue(self.zeros.text())
         if zeros is not None:
             poles = self.canParseStringValue(self.poles.text())
@@ -223,18 +236,38 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                 gain = self.canParseGainValue(self.gain.text())
                 if gain is not None:
                     latex = latex_rational_from_roots(zeros, poles, gain)
-                    self.previewSvg.load(svg_from_latex(latex))
+
+                    self.figureSvg.text(
+                        0.5, 0.5,
+                        r'${}$'.format(latex),
+                        fontsize=14,
+                        horizontalalignment='center',
+                        verticalalignment='center'
+                    )
+                    self.previewSvg.draw()
 
                     self.transferFunction = lti(zeros, poles, gain)
 
     def updateWithCoefficients(self):
+        self.figureSvg.clf()
+
         num = self.canParseStringValue(self.numerator.text())
         if num is not None:
             den = self.canParseStringValue(self.denominator.text())
             if den is not None:
                 if len(num) and len(den):
                     latex = latex_rational_from_coefficients(num, den)
-                    self.previewSvg.load(svg_from_latex(latex))
+
+                    self.figureSvg.clf()
+                    self.figureSvg.text(
+                        0.5, 0.5,
+                        r'${}$'.format(latex),
+                        fontsize=14,
+                        horizontalalignment='center',
+                        verticalalignment='center'
+                    )
+                    self.previewSvg.draw()
+                    self.preview.update()
 
                     self.transferFunction = lti(num, den)
 
@@ -361,8 +394,7 @@ def svg_from_latex(latex: str, font_size=12, dpi=300):
         transparent=True,
         format="svg",
         bbox_inches="tight",
-        pad_inches=0.0,
-        frameon=False
+        pad_inches=0.0
     )
 
     # Closes the plot and saves data
