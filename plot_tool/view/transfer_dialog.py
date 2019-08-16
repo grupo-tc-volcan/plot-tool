@@ -44,10 +44,10 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
 
         # Creating the preview widget
         self.onTypeChanged()
-        """
+        
         self.previewSvg = QSvgWidget()
         self.previewLayout.addWidget(self.previewSvg)
-        """
+
 
         # Connecting the signals...
         self.gain.textChanged.connect(self.updateWithRoots)
@@ -223,7 +223,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                 gain = self.canParseGainValue(self.gain.text())
                 if gain is not None:
                     latex = latex_rational_from_roots(zeros, poles, gain)
-                    # self.previewSvg.load(svg_from_latex(latex))
+                    self.previewSvg.load(svg_from_latex(latex))
 
                     self.transferFunction = lti(zeros, poles, gain)
 
@@ -234,7 +234,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
             if den is not None:
                 if len(num) and len(den):
                     latex = latex_rational_from_coefficients(num, den)
-                    # self.previewSvg.load(svg_from_latex(latex))
+                    self.previewSvg.load(svg_from_latex(latex))
 
                     self.transferFunction = lti(num, den)
 

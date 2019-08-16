@@ -14,7 +14,9 @@ class GraphPlotter(object):
     """
 
     def __init__(self,
-                 x_magnitude: GraphMagnitude):
+                 x_magnitude: GraphMagnitude,
+                 name: str):
+        self.name = name
         self.x_magnitude = x_magnitude
         self.y_magnitudes = []
         self.graphs = []

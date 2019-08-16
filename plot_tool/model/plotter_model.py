@@ -41,11 +41,8 @@ class GraphPlotterModel(QObject):
         self.graphModels = []
         self.axesModels = []
 
-        self.addGraphModels()
-        self.addAxesModels()
-
         # Property Members
-        self._name = kwargs["name"] if "name" in kwargs.keys() else "Name"
+        self._name = self.plotter.name
         self._xLabel = kwargs["xLabel"] if "xLabel" in kwargs.keys() else self.plotter.x_magnitude.value
         self._xScale = kwargs["xScale"] if "xScale" in kwargs.keys() else Scale.Linear
         self._xMinimum = kwargs["xMinimum"] if "xMinimum" in kwargs.keys() else 0.0
@@ -166,8 +163,9 @@ class GraphPlotterModel(QObject):
                 elif x > xMaximum:
                     xMaximum = x
 
-        self.xMinimum = xMinimum
-        self.xMaximum = xMaximum
+        if xMinimum is not None and xMaximum is not None:
+            self.xMinimum = xMinimum
+            self.xMaximum = xMaximum
 
     def adjustSizeOfYAxis(self):
         """ It's more complicated, for each possible y magnitude we should find the
@@ -239,6 +237,7 @@ class GraphPlotterModel(QObject):
     @name.setter
     def name(self, value: str):
         self._name = value
+        self.plotter.name = value
         self.notifyPropertyChange()
 
     @pyqtProperty(str)
