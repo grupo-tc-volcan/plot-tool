@@ -131,6 +131,7 @@ class Window(QMainWindow, Ui_MainWindow):
                 self.canvas.remove(canvas)
                 self.views.remove(plotter_view)
                 self.session.plotter_models.remove(plotter_model)
+                self.visorView.removeModel()
 
                 # Update plotter list and resets selection
                 self.updatePlotterList()
@@ -156,7 +157,8 @@ class Window(QMainWindow, Ui_MainWindow):
                     format="png"
                 )
 
-    def onAboutAction(self):
+    @staticmethod
+    def onAboutAction():
         dialog = AboutDialog()
         dialog.exec()
 

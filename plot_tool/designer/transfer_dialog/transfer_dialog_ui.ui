@@ -86,6 +86,9 @@
             <property name="text">
              <string>Step Response</string>
             </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
           <item row="2" column="0">
@@ -105,6 +108,9 @@
            <widget class="QRadioButton" name="impulsive">
             <property name="text">
              <string>Impulsive Response</string>
+            </property>
+            <property name="autoExclusive">
+             <bool>true</bool>
             </property>
            </widget>
           </item>

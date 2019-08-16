@@ -12,8 +12,10 @@ import matplotlib.pyplot as plot
 
 from scipy.signal import lti
 
+from numpy import degrees
 from numpy import angle
 from numpy import pi
+from numpy import abs
 
 # plot-tool modules
 from plot_tool.designer.transfer_dialog.transfer_dialog_ui import Ui_Dialog
@@ -63,6 +65,8 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         self.frequencyPhase.toggled.connect(self.verifySetupComplete)
         self.bodeModule.toggled.connect(self.verifySetupComplete)
         self.bodePhase.toggled.connect(self.verifySetupComplete)
+        self.impulsive.toggled.connect(self.verifySetupComplete)
+        self.step.toggled.connect(self.verifySetupComplete)
         self.name.textChanged.connect(self.verifySetupComplete)
         self.xMagnitude.currentTextChanged.connect(self.verifySetupComplete)
         self.yMagnitude.currentTextChanged.connect(self.verifySetupComplete)
@@ -71,6 +75,23 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         # Setting up components...
         self.xMagnitude.clear()
         self.yMagnitude.clear()
+
+        # Reset values on other widgets
+        self.frequencyModule.setChecked(False)
+        self.frequencyPhase.setChecked(False)
+        self.bodeModule.setChecked(False)
+        self.bodePhase.setChecked(False)
+
+        self.impulsive.setAutoExclusive(False)
+        self.step.setAutoExclusive(False)
+        self.impulsive.setChecked(False)
+        self.step.setChecked(False)
+        self.step.setAutoExclusive(True)
+        self.impulsive.setAutoExclusive(True)
+
+        self.buttonBox.setEnabled(False)
+
+        # Setting which options should be available to the user
         if self.type.currentText() == "Frequency Response":
             self.xMagnitude.addItems([GraphMagnitude.Frequency.value, GraphMagnitude.AngularFrequency.value])
         elif self.type.currentText() == "Bode":
@@ -101,7 +122,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                 graphFunctions.append(
                     GraphFunction(
                         self.name.text() + "_pha",
-                        GraphValues(frequency, [angle(magnitude) for magnitude in magnitudes]),
+                        GraphValues(frequency, [degrees(angle(magnitude)) for magnitude in magnitudes]),
                         get_magnitude_from_string(self.xMagnitude.currentText()),
                         GraphMagnitude.Phase
                     )
@@ -148,7 +169,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                 )
 
             if self.impulsive.isChecked():
-                t, y = self.transferFunction.impulsive()
+                t, y = self.transferFunction.impulse()
 
                 graphFunctions.append(
                     GraphFunction(
@@ -176,36 +197,22 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
     def verifySetupComplete(self):
         if self.transferFunction is not None:
             if len(self.name.text()):
+
                 if self.type.currentText() == "Frequency Response":
                     if self.frequencyModule.isChecked() or self.frequencyPhase.isChecked():
-                        if self.xMagnitude.currentText() == GraphMagnitude.AngularFrequency.value \
-                                or self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
-                            self.buttonBox.setEnabled(True)
-                            self.status.setText("OK")
-                            self.status.setStyleSheet("color: green;")
-                            self.info.setText("")
-                            return
-                        else:
-                            self.status.setText("ERROR")
-                            self.status.setStyleSheet("color: red;")
-                            self.info.setText("Frequency Response requires a frequency x magnitude!")
+                        self.buttonBox.setEnabled(True)
+                        return
+
                 elif self.type.currentText() == "Bode":
                     if self.bodeModule.isChecked() or self.bodePhase.isChecked():
-                        if self.xMagnitude.currentText() == GraphMagnitude.AngularFrequency.value \
-                                or self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
-                            self.buttonBox.setEnabled(True)
-                            self.status.setText("OK")
-                            self.status.setStyleSheet("color: green;")
-                            self.info.setText("")
-                            return
-                        else:
-                            self.status.setText("ERROR")
-                            self.status.setStyleSheet("color: red;")
-                            self.info.setText("Frequency Response requires a frequency x magnitude!")
+                        self.buttonBox.setEnabled(True)
+                        return
+
                 elif self.type.currentText() == "Temporal Response":
                     if self.signalFunction is not None or self.impulsive.isChecked() or self.step.isChecked():
                         self.buttonBox.setEnabled(True)
                         return
+
         self.buttonBox.setEnabled(False)
 
     def updateWithRoots(self):
@@ -232,10 +239,19 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                     self.transferFunction = lti(num, den)
 
     def onImport(self):
+        # Asking the user what signal to use!
         dialog = SignalDialog()
         if dialog.exec():
             self.signalFunction = dialog.getGraphFunction()[0]
             self.verifySetupComplete()
+
+        # Reset the other options
+        self.impulsive.setAutoExclusive(False)
+        self.step.setAutoExclusive(False)
+        self.impulsive.setChecked(False)
+        self.step.setChecked(False)
+        self.step.setAutoExclusive(True)
+        self.impulsive.setAutoExclusive(True)
 
     def canParseGainValue(self, value: str):
         """ Returns whether the string value containing the gain is valid or not.

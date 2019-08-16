@@ -142,6 +142,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="GraphPlotterVisorView" name="visorView">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>

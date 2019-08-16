@@ -24,9 +24,14 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
     def __init__(self, parent=None, model=None):
         super(GraphPlotterVisorView, self).__init__(parent)
 
+        # Initial settings
         self.setupUi(self)
+        self.setEnabled(False)
+
+        # References
         self.colorDialog = QColorDialog()
         self.model = None
+
         if model is not None:
             self.setModel(model)
 
@@ -173,6 +178,23 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         # Signal connections
         self.model.hasChanged.connect(self.updateViewData)
         self.updateViewData()
+
+        # Enabling the widget
+        self.setEnabled(True)
+
+    def removeModel(self):
+        self.model = None
+        self.name.clear()
+
+        self.xMaximum.clear()
+        self.xMinimum.clear()
+        self.yMaximum.clear()
+        self.yMinimum.clear()
+        self.xMagnitude.clear()
+        self.yMagnitude.clear()
+        self.listWidget.clear()
+
+        self.setEnabled(False)
 
     def updateViewData(self):
         if self.model is not None:

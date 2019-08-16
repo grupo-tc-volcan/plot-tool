@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/plot_tool/view/transfer_dialog.py" line="42" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/plot_tool/view/transfer_dialog.py" line="44" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b976ea12-097a-4504-9e18-7de89079988f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/plot_tool/data/function.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/data/function.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_tool/data/magnitudes.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/data/magnitudes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_tool/data/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/data/plotter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_tool/designer/plotter_visor/plotter_visor_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/designer/plotter_visor/plotter_visor_ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_tool/designer/plotter_visor/plotter_visor_ui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/designer/plotter_visor/plotter_visor_ui.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/designer/transfer_dialog/transfer_dialog_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/designer/transfer_dialog/transfer_dialog_ui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/designer/transfer_dialog/transfer_dialog_ui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/designer/transfer_dialog/transfer_dialog_ui.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_tool/designer/window/window_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/designer/window/window_ui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/designer/window/window_ui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/designer/window/window_ui.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_tool/view/plotter_figure_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/view/plotter_figure_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/view/transfer_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/view/transfer_dialog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/view/window.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/view/window.py" afterDir="false" />
@@ -26,75 +20,52 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="85" column="30" lean-forward="true" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
-              <folding>
-                <element signature="e#47#127#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="763">
-              <caret line="48" column="61" lean-forward="true" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
-              <folding>
-                <element signature="e#47#87#0" expanded="true" />
-                <element signature="e#2041#2091#0" />
-                <element signature="e#2042#2250#0" />
-                <element signature="e#2476#2765#0" />
-                <element signature="e#3048#3233#0" />
-                <element signature="e#3277#3545#0" />
-                <element signature="e#3057#3262#0" />
-                <element signature="e#3836#4301#0" />
-                <element signature="e#4354#4431#0" />
-                <element signature="e#4108#4445#0" />
-                <element signature="e#5203#5567#0" />
-                <element signature="e#5614#5831#0" />
-                <element signature="e#5874#5963#0" />
-                <element signature="e#6006#6095#0" />
-                <element signature="e#6144#6239#0" />
-                <element signature="e#6288#6383#0" />
-                <element signature="e#6443#6612#0" />
-                <element signature="e#6652#9471#0" />
-                <element signature="e#9511#10699#0" />
-                <element signature="e#10761#10854#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/view/axe_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-              <folding>
-                <element signature="e#47#100#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/model/plotter_model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="71" column="54" lean-forward="true" selection-start-line="71" selection-start-column="54" selection-end-line="73" selection-end-column="36" />
-              <folding>
-                <element signature="e#47#84#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.75405407">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="121">
+                  <caret line="181" selection-start-line="181" selection-end-line="181" />
+                  <folding>
+                    <element signature="e#47#127#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/plot_tool/view/transfer_dialog.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="19">
+                  <caret line="240" column="8" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
+                  <folding>
+                    <element signature="e#24#46#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1215">
+                  <caret line="200" column="31" lean-forward="true" selection-start-line="200" selection-start-column="31" selection-end-line="200" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#47#87#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -122,6 +93,7 @@
       <find>convertColr</find>
       <find>convert</find>
       <find>adjustar</find>
+      <find>verify</find>
     </findStrings>
     <replaceStrings>
       <replace>axesModel</replace>
@@ -171,10 +143,10 @@
         <option value="$PROJECT_DIR$/plot_tool/designer/window/window_ui.py" />
         <option value="$PROJECT_DIR$/plot_tool/data/magnitudes.py" />
         <option value="$PROJECT_DIR$/plot_tool/data/function.py" />
-        <option value="$PROJECT_DIR$/plot_tool/view/transfer_dialog.py" />
         <option value="$PROJECT_DIR$/plot_tool/data/plotter.py" />
         <option value="$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py" />
         <option value="$PROJECT_DIR$/plot_tool/view/window.py" />
+        <option value="$PROJECT_DIR$/plot_tool/view/transfer_dialog.py" />
       </list>
     </option>
   </component>
@@ -189,34 +161,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
-              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
-              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
-              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,13 +328,13 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1592262" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.05059524" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.60863096" visible="true" weight="0.21276596" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.86383927" weight="0.05728314" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.60863096" weight="0.21276596" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.86383927" visible="true" weight="0.32405892" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49925596" weight="0.3289689" />
@@ -424,13 +369,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/lines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="322" selection-start-line="322" selection-end-line="322" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/pyplot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
@@ -783,16 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/view/transfer_dialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="181" column="99" lean-forward="true" selection-start-line="181" selection-start-column="99" selection-end-line="181" selection-end-column="99" />
-          <folding>
-            <element signature="e#24#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/data/plotter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -813,35 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="48" column="61" lean-forward="true" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
-          <folding>
-            <element signature="e#47#87#0" expanded="true" />
-            <element signature="e#2041#2091#0" />
-            <element signature="e#2042#2250#0" />
-            <element signature="e#2476#2765#0" />
-            <element signature="e#3048#3233#0" />
-            <element signature="e#3277#3545#0" />
-            <element signature="e#3057#3262#0" />
-            <element signature="e#3836#4301#0" />
-            <element signature="e#4354#4431#0" />
-            <element signature="e#4108#4445#0" />
-            <element signature="e#5203#5567#0" />
-            <element signature="e#5614#5831#0" />
-            <element signature="e#5874#5963#0" />
-            <element signature="e#6006#6095#0" />
-            <element signature="e#6144#6239#0" />
-            <element signature="e#6288#6383#0" />
-            <element signature="e#6443#6612#0" />
-            <element signature="e#6652#9471#0" />
-            <element signature="e#9511#10699#0" />
-            <element signature="e#10761#10854#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/view/axe_view.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -852,12 +751,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_visor_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="200" column="31" lean-forward="true" selection-start-line="200" selection-start-column="31" selection-end-line="200" selection-end-column="31" />
+          <folding>
+            <element signature="e#47#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/designer/transfer_dialog/transfer_dialog_ui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="85" column="30" lean-forward="true" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+        <state relative-caret-position="121">
+          <caret line="181" selection-start-line="181" selection-end-line="181" />
           <folding>
             <element signature="e#47#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/transfer_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="240" column="8" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
+          <folding>
+            <element signature="e#24#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
