@@ -23,7 +23,7 @@ class GraphPlotterFigureView(Figure, View):
     def __init__(self, model: GraphPlotterModel, *args, **kwargs):
         Figure.__init__(
             self,
-            figsize=(1, 1),
+            figsize=(1.5, 1),
             facecolor=self.convertColor(model.faceColor),
             edgecolor=self.convertColor(model.edgeColor),
             *args, **kwargs)
@@ -72,7 +72,7 @@ class GraphPlotterFigureView(Figure, View):
             if graphView.model == model:
                 self.graphViews.remove(graphView)
                 graphView.remove()
-                self.updateAttachments()
+                self.updateLegendView()
                 break
 
     def onAxesModelAdded(self, model: GraphAxesModel):
@@ -87,14 +87,12 @@ class GraphPlotterFigureView(Figure, View):
 
             # Magic code to hide all the axes spines
             axesView.spines["left"].set_position(("axes", 1.1))
+
             axesView.set_frame_on(True)
             axesView.patch.set_visible(False)
             for spine in axesView.spines.values():
                 spine.set_visible(False)
             axesView.spines["left"].set_visible(True)
-
-            # Resizing the figure to keep adding new axis
-            self.set_figwidth(self.get_figwidth() * 1.1)
         else:
             axesView = GraphAxesView(model,
                                      self,
@@ -114,7 +112,7 @@ class GraphPlotterFigureView(Figure, View):
             if axesView.model == model:
                 self.axesViews.remove(axesView)
                 axesView.remove()
-                self.updateAttachments()
+                self.updateLegendView()
                 break
 
     def updateAttachments(self):

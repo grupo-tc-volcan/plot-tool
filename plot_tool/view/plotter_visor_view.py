@@ -38,46 +38,67 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         self.legendFaceColorButton.clicked.connect(self.onLegendFaceColorButton)
         self.legendEdgeColorButton.clicked.connect(self.onLegendEdgeColorButton)
 
+        self.adjustButton.clicked.connect(self.onAdjustButton)
         self.name.textChanged.connect(self.onNameChanged)
+
         self.xLabel.textChanged.connect(self.onLabelXChanged)
         self.xScale.currentTextChanged.connect(self.onScaleXChanged)
-        self.xMinimum.valueChanged.connect(self.onMinimumXChanged)
-        self.xMaximum.valueChanged.connect(self.onMaximumXChanged)
+        self.xMinimum.valueChanged.connect(self.onXIntervalChanged)
+        self.xMaximum.valueChanged.connect(self.onXIntervalChanged)
 
         self.yLabel.textChanged.connect(self.onLabelYChanged)
         self.yScale.currentTextChanged.connect(self.onScaleYChanged)
-        self.yMinimum.valueChanged.connect(self.onMinimumYChanged)
-        self.yMaximum.valueChanged.connect(self.onMaximumYChanged)
+        self.yMinimum.valueChanged.connect(self.onYIntervalChanged)
+        self.yMaximum.valueChanged.connect(self.onYIntervalChanged)
 
-    def verifyXValue(self, value: float):
-        if self.xScale.currentText() == Scale.Log.value:
-            if value < 0:
-                QMessageBox.warning(
-                    self,
-                    "Error message",
-                    "Logarithmic scale cannot have negative values!"
-                )
-                return False
+    def onAdjustButton(self):
+        if self.model is not None:
+            self.model.adjustSizeOfXAxis()
+            self.model.adjustSizeOfYAxis()
 
-        return True
+    def verifyXInterval(self) -> bool:
+        xMinimum = self.xMinimum.value()
+        xMaximum = self.xMaximum.value()
+        xScale = self.xScale.currentText()
 
-    def verifyYValue(self, value: float):
-        if self.yScale.currentText() == Scale.Log.value and value < 0:
-            QMessageBox.warning(
-                self,
-                "Error message",
-                "Logarithmic scale cannot have negative values!"
-            )
+        # Check if values are in the correct order...
+        if xMinimum >= xMaximum:
             return False
-        else:
-            if self.xMinimum.value() >= self.xMaximum.value() or self.yMinimum.value() >= self.yMaximum.value():
-                QMessageBox.warning(
-                    self,
-                    "Error message",
-                    "Invalid minimum and maximum values..."
-                )
-                return False
+
+        # Check if there are no negative values when using Logarithmic Scale...
+        if xScale == Scale.Log.value and xMinimum <= 0:
+            return False
+
         return True
+
+    def verifyYInterval(self) -> bool:
+        if len(self.model.axesModels):
+            yMinimum = self.yMinimum.value()
+            yMaximum = self.yMaximum.value()
+            yScale = self.yScale.currentText()
+
+            # Check if values are in the correct order...
+            if yMinimum >= yMaximum:
+                return False
+
+            # Check if there are no negative values when using Logarithmic Scale...
+            if yScale == Scale.Log.value and yMinimum <= 0:
+                return False
+
+            return True
+
+    def onXIntervalChanged(self):
+        if self.model is not None:
+            if self.verifyXInterval():
+                self.model.xMinimum = self.xMinimum.value()
+                self.model.xMaximum = self.xMaximum.value()
+
+    def onYIntervalChanged(self):
+        if self.model is not None:
+            if self.verifyYInterval():
+                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
+                selectedAxes.yMinimum = self.yMinimum.value()
+                selectedAxes.yMaximum = self.yMaximum.value()
 
     def onLabelYChanged(self):
         if self.model is not None:
@@ -91,45 +112,25 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
                 selectedAxes = self.model.axesModels[self.axes.currentIndex()]
                 selectedAxes.yScale = self.convertScale(self.yScale.currentText())
 
-    def onMinimumYChanged(self):
-        if self.model is not None:
-            if len(self.model.axesModels):
-                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
-                if self.verifyYValue(self.yMinimum.value()):
-                    selectedAxes.yMinimum = self.yMinimum.value()
-                else:
-                    self.yMinimum.setValue(selectedAxes.yMinimum)
+                if selectedAxes.yScale == Scale.Log:
+                    if self.yMaximum.value() <= 0:
+                        self.yMaximum.setValue(1)
+                    if self.yMinimum.value() <= 0:
+                        self.yMinimum.setValue(1)
 
-    def onMaximumYChanged(self):
+    def onLabelXChanged(self):
         if self.model is not None:
-            if len(self.model.axesModels):
-                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
-                if self.verifyYValue(self.yMaximum.value()):
-                    selectedAxes.yMaximum = self.yMaximum.value()
-                else:
-                    self.yMaximum.setValue(selectedAxes.yMaximum)
-
-    def onMaximumXChanged(self):
-        if self.model is not None:
-            if self.verifyXValue(float(self.xMaximum.value())):
-                self.model.xMaximum = float(self.xMaximum.value())
-            else:
-                self.xMaximum.setValue(self.model.xMaximum)
-
-    def onMinimumXChanged(self):
-        if self.model is not None:
-            if self.verifyXValue(float(self.xMinimum.value())):
-                self.model.xMinimum = float(self.xMinimum.value())
-            else:
-                self.xMinimum.setValue(self.model.xMinimum)
+            self.model.xLabel = self.xLabel.text()
 
     def onScaleXChanged(self):
         if self.model is not None:
             self.model.xScale = self.convertScale(self.xScale.currentText())
 
-    def onLabelXChanged(self):
-        if self.model is not None:
-            self.model.xLabel = self.xLabel.text()
+            if self.model.xScale == Scale.Log:
+                if self.xMaximum.value() <= 0:
+                    self.xMaximum.setValue(1)
+                if self.xMinimum.value() <= 0:
+                    self.xMinimum.setValue(1)
 
     def onNameChanged(self):
         if self.model is not None:

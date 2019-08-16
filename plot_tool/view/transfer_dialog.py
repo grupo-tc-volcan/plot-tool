@@ -41,14 +41,11 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         self.signalFunction = None
 
         # Creating the preview widget
+        self.onTypeChanged()
         """
         self.previewSvg = QSvgWidget()
         self.previewLayout.addWidget(self.previewSvg)
         """
-
-        # Setting up components...
-        self.yMagnitude.addItems([magnitude.value for magnitude in GraphMagnitude])
-        self.xMagnitude.addItems([magnitude.value for magnitude in GraphMagnitude])
 
         # Connecting the signals...
         self.gain.textChanged.connect(self.updateWithRoots)
@@ -61,6 +58,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         self.importButton.clicked.connect(self.onImport)
 
         self.type.currentTextChanged.connect(self.verifySetupComplete)
+        self.type.currentIndexChanged.connect(self.onTypeChanged)
         self.frequencyModule.toggled.connect(self.verifySetupComplete)
         self.frequencyPhase.toggled.connect(self.verifySetupComplete)
         self.bodeModule.toggled.connect(self.verifySetupComplete)
@@ -68,6 +66,18 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         self.name.textChanged.connect(self.verifySetupComplete)
         self.xMagnitude.currentTextChanged.connect(self.verifySetupComplete)
         self.yMagnitude.currentTextChanged.connect(self.verifySetupComplete)
+
+    def onTypeChanged(self):
+        # Setting up components...
+        self.xMagnitude.clear()
+        self.yMagnitude.clear()
+        if self.type.currentText() == "Frequency Response":
+            self.xMagnitude.addItems([GraphMagnitude.Frequency.value, GraphMagnitude.AngularFrequency.value])
+        elif self.type.currentText() == "Bode":
+            self.xMagnitude.addItems([GraphMagnitude.Frequency.value, GraphMagnitude.AngularFrequency.value])
+        elif self.type.currentText() == "Temporal Response":
+            self.xMagnitude.addItems([GraphMagnitude.Time.value])
+            self.yMagnitude.addItems([GraphMagnitude.Voltage.value, GraphMagnitude.Current.value])
 
     def getGraphFunction(self) -> list:
         graphFunctions = []
@@ -81,19 +91,19 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
             if self.frequencyModule.isChecked():
                 graphFunctions.append(
                     GraphFunction(
-                        self.name.text(),
+                        self.name.text() + "_mod",
                         GraphValues(frequency, [abs(magnitude) for magnitude in magnitudes]),
                         get_magnitude_from_string(self.xMagnitude.currentText()),
-                        get_magnitude_from_string(self.yMagnitude.currentText())
+                        GraphMagnitude.Transfer
                     )
                 )
             if self.frequencyPhase.isChecked():
                 graphFunctions.append(
                     GraphFunction(
-                        self.name.text(),
+                        self.name.text() + "_pha",
                         GraphValues(frequency, [angle(magnitude) for magnitude in magnitudes]),
                         get_magnitude_from_string(self.xMagnitude.currentText()),
-                        get_magnitude_from_string(self.yMagnitude.currentText())
+                        GraphMagnitude.Phase
                     )
                 )
 
@@ -106,20 +116,20 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
             if self.bodeModule.isChecked():
                 graphFunctions.append(
                     GraphFunction(
-                        self.name.text(),
+                        self.name.text() + "_mod",
                         GraphValues(frequency, [magnitude for magnitude in magnitudes]),
                         get_magnitude_from_string(self.xMagnitude.currentText()),
-                        get_magnitude_from_string(self.yMagnitude.currentText())
+                        GraphMagnitude.Decibel
                     )
                 )
 
             if self.bodePhase.isChecked():
                 graphFunctions.append(
                     GraphFunction(
-                        self.name.text(),
+                        self.name.text() + "_pha",
                         GraphValues(frequency, [phase for phase in phases]),
                         get_magnitude_from_string(self.xMagnitude.currentText()),
-                        get_magnitude_from_string(self.yMagnitude.currentText())
+                        GraphMagnitude.Phase
                     )
                 )
 
@@ -171,6 +181,9 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                         if self.xMagnitude.currentText() == GraphMagnitude.AngularFrequency.value \
                                 or self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
                             self.buttonBox.setEnabled(True)
+                            self.status.setText("OK")
+                            self.status.setStyleSheet("color: green;")
+                            self.info.setText("")
                             return
                         else:
                             self.status.setText("ERROR")
@@ -181,6 +194,9 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                         if self.xMagnitude.currentText() == GraphMagnitude.AngularFrequency.value \
                                 or self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
                             self.buttonBox.setEnabled(True)
+                            self.status.setText("OK")
+                            self.status.setStyleSheet("color: green;")
+                            self.info.setText("")
                             return
                         else:
                             self.status.setText("ERROR")
@@ -200,9 +216,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                 gain = self.canParseGainValue(self.gain.text())
                 if gain is not None:
                     latex = latex_rational_from_roots(zeros, poles, gain)
-                    """
-                    self.previewSvg.load(svg_from_latex(latex))
-                    """
+                    # self.previewSvg.load(svg_from_latex(latex))
 
                     self.transferFunction = lti(zeros, poles, gain)
 
@@ -213,9 +227,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
             if den is not None:
                 if len(num) and len(den):
                     latex = latex_rational_from_coefficients(num, den)
-                    """
-                    self.previewSvg.load(svg_from_latex(latex))
-                    """
+                    # self.previewSvg.load(svg_from_latex(latex))
 
                     self.transferFunction = lti(num, den)
 

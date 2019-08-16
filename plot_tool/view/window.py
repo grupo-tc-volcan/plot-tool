@@ -36,6 +36,7 @@ class Window(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
         super(Window, self).__init__(*args, **kwargs)
         self.setupUi(self)
+        self.showMaximized()
 
         # Data reference
         self.session = Session()
@@ -83,8 +84,10 @@ class Window(QMainWindow, Ui_MainWindow):
     def onSelection(self):
         selectedIndex = self.plotterList.currentIndex().row()
         if selectedIndex >= 0:
-            self.visorView.setModel(self.session.plotter_models[selectedIndex])
-            self.canvasList.setCurrentWidget(self.canvas[selectedIndex])
+            model = self.session.plotter_models[selectedIndex]
+            if model != self.visorView.model:
+                self.visorView.setModel(self.session.plotter_models[selectedIndex])
+                self.canvasList.setCurrentWidget(self.canvas[selectedIndex])
 
     def onAdd(self):
         dialog = PlotterDialog()
@@ -153,8 +156,7 @@ class Window(QMainWindow, Ui_MainWindow):
                     format="png"
                 )
 
-    @staticmethod
-    def onAboutAction():
+    def onAboutAction(self):
         dialog = AboutDialog()
         dialog.exec()
 

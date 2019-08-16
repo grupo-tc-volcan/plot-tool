@@ -217,7 +217,7 @@ class Ui_Dialog(object):
         self.gridLayout_3.addLayout(self.verticalLayout_3, 3, 1, 1, 1)
 
         self.retranslateUi(Dialog)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         self.tabWidget.setCurrentIndex(1)
         self.buttonBox.accepted.connect(Dialog.accept)
         self.buttonBox.rejected.connect(Dialog.reject)
