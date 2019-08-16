@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b976ea12-097a-4504-9e18-7de89079988f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/utilities/data_readers/dataReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers/dataReader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utilities/data_readers/fileTester.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers/fileTester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="369">
+              <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -50,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utilities/data_readers/fileTester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+            <state relative-caret-position="176">
+              <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -62,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            <state relative-caret-position="215">
+              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -150,13 +150,13 @@
         <option value="$PROJECT_DIR$/utilities/data_readers/view/csv_dialog.py" />
         <option value="$PROJECT_DIR$/utilities/data_readers/designer/browserDialog.py" />
         <option value="$PROJECT_DIR$/utilities/data_readers/view/fileTester.py" />
-        <option value="$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py" />
         <option value="$PROJECT_DIR$/utilities/data_readers/view/fileReader.py" />
         <option value="$PROJECT_DIR$/utilities/data_readers/fileReader.py" />
         <option value="$PROJECT_DIR$/utilities/data_readers/designer/csvDialog_ui.py" />
         <option value="$PROJECT_DIR$/utilities/data_readers/dataReader.py" />
-        <option value="$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py" />
         <option value="$PROJECT_DIR$/utilities/data_readers/fileTester.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py" />
       </list>
     </option>
   </component>
@@ -379,7 +379,7 @@
     <frame x="719" y="0" width="823" height="926" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24904701" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22109276" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -615,16 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utilities/data_readers/dataReader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -649,20 +639,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py">
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        <state relative-caret-position="369">
+          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utilities/data_readers/fileTester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+        <state relative-caret-position="176">
+          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

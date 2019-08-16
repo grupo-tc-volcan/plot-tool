@@ -21,23 +21,28 @@ class CsvDialog(QtWidgets.QDialog, Ui_Dialog):
         self.comboBox.addItems(self.dr.get_file_data_names())#x axis
         self.comboBox_2.addItems(self.dr.get_file_data_names())#y axis
 
+        self.buttonBox.setEnabled(False)
         self.plainTextEdit.textChanged.connect(self.onChanges)
         #print(self.dr.get_file_data_names)
-        self.initUI()
+        #self.initUI()
     '''
     def setupUi(self, Reader):
         Reader.setObjectName("Reader")
     '''
 
+    '''
     def initUI(self):
         #self.setWindowTitle(self.title)
         #self.setGeometry(self.left, self.top, self.width, self.height)
         self.show()
+    '''
 
 
 
     def onChanges(self):
+        print("onChanges")
         if len(self.plainTextEdit.text()):
+            print("T")
             if self.comboBox_3.currentText() != self.comboBox_4.currentText():
 
                 if self.waveformsInput.currentText() == "Sinusoidal":

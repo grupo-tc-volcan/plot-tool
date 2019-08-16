@@ -23,7 +23,7 @@ class App(QWidget):
         #self.openFileNamesDialog()
         #self.saveFileDialog()
 
-        self.show()
+        #self.show() # Esto ponia el cuadrado blanco
 
     def openFileNameDialog(self):
         options = QFileDialog.Options()
