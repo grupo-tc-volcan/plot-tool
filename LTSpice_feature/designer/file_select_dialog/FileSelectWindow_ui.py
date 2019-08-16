@@ -26,7 +26,7 @@ class Ui_Dialog(object):
         self.BrowseButton.setGeometry(QtCore.QRect(320, 20, 61, 31))
         self.BrowseButton.setObjectName("BrowseButton")
         self.checkBox = QtWidgets.QCheckBox(Dialog)
-        self.checkBox.setGeometry(QtCore.QRect(10, 70, 81, 16))
+        self.checkBox.setGeometry(QtCore.QRect(10, 70, 141, 21))
         self.checkBox.setObjectName("checkBox")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(Dialog)
         self.plainTextEdit.setGeometry(QtCore.QRect(10, 20, 301, 31))
