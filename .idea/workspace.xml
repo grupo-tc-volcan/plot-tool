@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b976ea12-097a-4504-9e18-7de89079988f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/utilities/data_readers/designer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utilities/data_readers/view/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities/data_readers/csv_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers/csv_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/data_readers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/data_readers/DataViewerDialog.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/data_readers/DataViewerDialog_ui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/data_readers/csv_reader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/data_readers/fileDialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers/Drafts/fileDialog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/data_readers/fileOptions.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/data_readers/fileOptions_ui.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,93 +22,110 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/model/plotter_model.py">
+        <entry file="file://$PROJECT_DIR$/utilities/data_readers/dataReader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="228">
+              <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
               <folding>
-                <element signature="e#47#79#0" expanded="true" />
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_view.py">
+        <entry file="file://$PROJECT_DIR$/utilities/data_readers/Drafts/fileDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="-528">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
               <folding>
-                <element signature="e#47#127#0" expanded="true" />
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
+        <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/view/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/user/session.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/user/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_tool/model/function_model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="66">
+              <caret line="22" column="33" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="33" />
               <folding>
-                <element signature="e#47#79#0" expanded="true" />
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utilities/data_readers/fileTester.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="e#1#57#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utilities/data_readers/txtTest.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="8" selection-start-column="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utilities/data_readers/Drafts/csv_reader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="151" selection-start-line="151" selection-end-line="159" selection-end-column="20" />
+              <folding>
+                <element signature="e#434#453#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utilities/data_readers/csv_reader.py">
+        <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="232">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utilities/data_readers/txtTest2.txt">
+        <entry file="file://$PROJECT_DIR$/../SeguimientoCamiones/analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="42" lean-forward="true" selection-start-column="42" selection-end-line="1" />
+            <state relative-caret-position="286">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utilities/data_readers/designer/csvDialog_ui.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="100" selection-start-line="100" selection-end-line="107" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utilities/data_readers/csvTest.csv">
-          <provider selected="true" editor-type-id="csv-text-editor" />
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -115,6 +140,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>data</find>
+      <find>plain</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,13 +166,22 @@
         <option value="$PROJECT_DIR$/plot_tool/view/plotter_view.py" />
         <option value="$PROJECT_DIR$/utilities/data_readers/txtTest2.txt" />
         <option value="$PROJECT_DIR$/utilities/data_readers/csv_reader.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/view/csv_dialog.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/designer/browserDialog.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/view/fileTester.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/view/fileReader.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/fileReader.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/dataReader.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py" />
+        <option value="$PROJECT_DIR$/utilities/data_readers/fileTester.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="716" />
+    <option name="x" value="740" />
+    <option name="width" value="1188" />
+    <option name="height" value="1158" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -157,47 +192,43 @@
         <subPane>
           <expand>
             <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
-              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
               <item name="utilities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
               <item name="utilities" type="462c0819:PsiDirectoryNode" />
               <item name="data_readers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+              <item name="data_readers" type="462c0819:PsiDirectoryNode" />
+              <item name="designer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+              <item name="data_readers" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -208,7 +239,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/utilities" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Male\Desktop\plot_tool\utilities\data_readers\Drafts" />
+      <recent name="C:\Users\Male\Desktop\plot_tool\utilities\data_readers" />
+      <recent name="C:\Users\Male\Desktop\plot_tool\utilities\data_readers\view" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Male\Desktop\plot_tool\utilities" />
+      <recent name="C:\Users\Male\Desktop\plot-tool\utilities\data_readers" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -222,7 +264,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.csv_reader">
+  <component name="RunManager" selected="Python.fileTester">
     <configuration name="csv_reader" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="plot-tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -236,6 +278,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utilities/data_readers/csv_reader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="fileTester" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="plot-tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utilities/data_readers" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utilities/data_readers/fileTester.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -309,6 +372,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.fileTester" />
         <item itemvalue="Python.csv_reader" />
         <item itemvalue="Python.plotter_view" />
         <item itemvalue="Python.sample_0" />
@@ -330,10 +394,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="716" extended-state="0" />
+    <frame x="592" y="0" width="950" height="926" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15409055" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21115974" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.46415094" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Floobits" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18161926" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -351,7 +435,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/plot_tool/data/__init__.py">
@@ -381,13 +465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="76" column="22" lean-forward="true" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/data/magnitudes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -422,36 +499,9 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/backends/backend_qt5agg.py" />
-    <entry file="file://$PROJECT_DIR$/utilities/data_readers/txtTest.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utilities/data_readers/txtTest2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="42" lean-forward="true" selection-start-column="42" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/model/function_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#47#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/user/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/model/plotter_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
+        <state relative-caret-position="1012">
           <caret line="52" selection-start-line="52" selection-end-line="52" />
           <folding>
             <element signature="e#47#79#0" expanded="true" />
@@ -461,7 +511,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="638">
           <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#47#127#0" expanded="true" />
@@ -471,8 +521,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="176">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -481,21 +531,159 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/user/session.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="352">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/user/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/model/function_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#47#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/data/magnitudes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/txtTest2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="42" selection-start-column="42" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utilities/data_readers/csvTest.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/DataViewerDialog_ui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SeguimientoCamiones/analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/csv_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/fileReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utilities/data_readers/csv_reader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="242">
+          <caret line="11" selection-start-line="11" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="e#434#453#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/Drafts/fileDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-528">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/txtTest.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/Drafts/csv_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="151" selection-start-line="151" selection-end-line="159" selection-end-column="20" />
+          <folding>
+            <element signature="e#434#453#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/dataReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/designer/csvDialog_ui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="100" selection-start-line="100" selection-end-line="107" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/fileTester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#1#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/browserDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

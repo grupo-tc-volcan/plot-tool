@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>435</width>
-    <height>256</height>
+    <width>491</width>
+    <height>395</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>200</y>
+     <y>330</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -39,22 +39,12 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QSpinBox" name="YAxisSelector">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>130</y>
-     <width>211</width>
-     <height>25</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>50</y>
-     <width>391</width>
+     <y>180</y>
+     <width>451</width>
      <height>121</height>
     </rect>
    </property>
@@ -95,28 +85,110 @@ border-color: rgb(189, 189, 189);</string>
      <string>X-Axis</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>40</y>
+      <width>281</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>80</y>
+      <width>281</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
-  <widget class="QSpinBox" name="XAxisSelector">
+  <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>90</y>
-     <width>211</width>
-     <height>25</height>
+     <x>40</x>
+     <y>30</y>
+     <width>68</width>
+     <height>19</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>Name</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>101</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Magnitude X</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>120</y>
+     <width>101</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Magnitude Y</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>40</y>
+     <x>40</x>
+     <y>170</y>
      <width>68</width>
      <height>19</height>
     </rect>
    </property>
    <property name="text">
     <string>Plot Axis</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>30</y>
+     <width>281</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">bacground-color: rgb(255, 255, 255)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_3">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>80</y>
+     <width>281</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_4">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>120</y>
+     <width>281</width>
+     <height>25</height>
+    </rect>
    </property>
   </widget>
   <action name="actionhola">
@@ -138,6 +210,15 @@ border-color: rgb(189, 189, 189);</string>
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;chaaauuuuuu&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
+  <zorder>frame</zorder>
+  <zorder>buttonBox</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_3</zorder>
+  <zorder>plainTextEdit</zorder>
+  <zorder>comboBox_3</zorder>
+  <zorder>comboBox_4</zorder>
  </widget>
  <resources/>
  <connections>

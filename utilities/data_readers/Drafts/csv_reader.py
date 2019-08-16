@@ -66,7 +66,7 @@ class DataSelectorDialog(QWidget):#(Ui_Dialog):
         super().__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
-        self.ui.buttonBox.accepted.connect(print("CONNECTEEED"))
+        self.ui.buttonBox.accepted.connect(lambda: print("holaaa"))
 
 
 class DataReader:
@@ -175,8 +175,8 @@ def main(): #FOR TEST
     #myDialog.setupUi()
     #myDialog.XAxisSelector.setSpec
     #myDialog.show()
-    myDialog = DataSelectorDialog()
-    myDialog.ui.XAxisSelector.setValue(43)
+    #myDialog = DataSelectorDialog()
+    #myDialog.ui.XAxisSelector.setValue(43)
     input_data = myFile.import_file_data(x_col_name, x_col_number, y_col_name, y_col_number)
 
     if DEBUG:
