@@ -1,4 +1,5 @@
 # python native modules
+from random import randint
 
 # third-party modules
 from PyQt5.QtCore import pyqtProperty
@@ -27,7 +28,11 @@ class GraphFunctionModel(QObject):
         # Property members
         self._name = self.graph.name
         self._isVisible = True
-        self._color = QColor(0, 0, 0)
+        self._color = QColor(
+            randint(0, 255),
+            randint(0, 255),
+            randint(0, 255)
+        )
 
     def __eq__(self, other):
         return self.graph == other.graph

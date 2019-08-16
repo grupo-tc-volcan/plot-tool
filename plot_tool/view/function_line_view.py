@@ -2,19 +2,23 @@
 
 # third-party modules
 from matplotlib.lines import Line2D
+from matplotlib.backend_bases import FigureCanvasBase
 
 from PyQt5.QtGui import QColor
 
 # plot-tool modules
 from plot_tool.model.function_model import GraphFunctionModel
 
+from plot_tool.view.base.view import View
+
 
 # noinspection PyPropertyAccess
-class GraphFunctionLineView(Line2D):
+class GraphFunctionLineView(Line2D, View):
     """ GraphFunction Line View """
 
-    def __init__(self, model: GraphFunctionModel, parent=None, *args, **kwargs):
-        super(GraphFunctionLineView, self).__init__(
+    def __init__(self, model: GraphFunctionModel, canvas: FigureCanvasBase, *args, **kwargs):
+        Line2D.__init__(
+            self,
             model.graph.values.x,
             model.graph.values.y,
             visible=model.isVisible,
@@ -23,9 +27,9 @@ class GraphFunctionLineView(Line2D):
             *args,
             **kwargs
         )
+        View.__init__(self, canvas)
 
         # Reference Members
-        self.parent = parent
         self.model = model
 
         # Connecting slots and signals
@@ -43,3 +47,5 @@ class GraphFunctionLineView(Line2D):
         self.set_visible(self.model.isVisible)
         self.set_color(self.convertColor(self.model.color))
         self.set_label(self.model.name)
+
+        self.canvas.draw_idle()

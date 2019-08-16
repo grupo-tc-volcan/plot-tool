@@ -6,47 +6,206 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>861</width>
-    <height>477</height>
+    <width>1300</width>
+    <height>827</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1300</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QWidget" name="verticalWidget" native="true">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>350</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Graphs</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="plotterList">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetFixedSize</enum>
+            </property>
+            <item alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="addButton">
+              <property name="maximumSize">
+               <size>
+                <width>70</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Add</string>
+              </property>
+             </widget>
+            </item>
+            <item alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="deleteButton">
+              <property name="maximumSize">
+               <size>
+                <width>70</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Delete</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="verticalFrame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="GraphPlotterVisorView" name="visorView">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Click and drag here</string>
+            </property>
+            <property name="whatsThis">
+             <string>Visor View.  </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="canvasList">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::WinPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="page"/>
+      <widget class="QWidget" name="page_2"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>861</width>
+     <width>1300</width>
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFiles">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="actionOpen"/>
-    <addaction name="actionSave"/>
-    <addaction name="actionSave_as"/>
-    <addaction name="actionSave_all"/>
-    <addaction name="actionExit"/>
-   </widget>
-   <widget class="QMenu" name="menuImport">
-    <property name="title">
-     <string>Import</string>
-    </property>
-    <widget class="QMenu" name="menufrom_LTSpice_IV">
-     <property name="title">
-      <string>from LTSpice IV</string>
-     </property>
-     <addaction name="actionSignal"/>
-     <addaction name="actionBode"/>
-    </widget>
-    <addaction name="menufrom_LTSpice_IV"/>
-    <addaction name="actionfrom_Excel"/>
-   </widget>
    <widget class="QMenu" name="menuExport">
     <property name="title">
      <string>Export</string>
@@ -63,27 +222,27 @@
     <property name="title">
      <string>Add</string>
     </property>
-    <widget class="QMenu" name="menuSignal">
-     <property name="title">
-      <string>Signal</string>
-     </property>
-     <addaction name="actionSenoidal"/>
-     <addaction name="actionSquare"/>
-     <addaction name="actionTriangle"/>
-     <addaction name="actionStep"/>
-    </widget>
-    <addaction name="menuSignal"/>
-    <addaction name="actionfrom_TransferFunction_2"/>
+    <addaction name="actionSignals"/>
+    <addaction name="actionTransfer_Function"/>
+    <addaction name="separator"/>
+    <addaction name="actionfrom_LTSpice_IV_2"/>
+    <addaction name="actionfrom_Excel_2"/>
    </widget>
-   <addaction name="menuFiles"/>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_2"/>
+    <addaction name="actionSave_2"/>
+   </widget>
+   <addaction name="menuFile"/>
    <addaction name="menuAdd"/>
-   <addaction name="menuImport"/>
    <addaction name="menuExport"/>
    <addaction name="menuAbout"/>
   </widget>
   <action name="actionas_Image">
    <property name="text">
-    <string>as Image...</string>
+    <string>Image (.png)</string>
    </property>
   </action>
   <action name="actionfrom_Excel">
@@ -166,7 +325,54 @@
     <string>Bode</string>
    </property>
   </action>
+  <action name="actionfrom_LTSpice_IV">
+   <property name="text">
+    <string>from LTSpice IV</string>
+   </property>
+  </action>
+  <action name="actionSignals">
+   <property name="text">
+    <string>Signals</string>
+   </property>
+  </action>
+  <action name="actionTransfer_Function">
+   <property name="text">
+    <string>Transfer Function</string>
+   </property>
+  </action>
+  <action name="actionfrom_LTSpice_IV_2">
+   <property name="text">
+    <string>from LTSpice IV</string>
+   </property>
+  </action>
+  <action name="actionfrom_Excel_2">
+   <property name="text">
+    <string>from Excel</string>
+   </property>
+  </action>
+  <action name="actionOpen_2">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave_2">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionExit_2">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GraphPlotterVisorView</class>
+   <extends>QWidget</extends>
+   <header>plotter_visor_view</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

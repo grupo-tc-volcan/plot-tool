@@ -14,7 +14,9 @@ class GraphPlotter(object):
     """
 
     def __init__(self,
-                 x_magnitude: GraphMagnitude):
+                 x_magnitude: GraphMagnitude,
+                 name: str):
+        self.name = name
         self.x_magnitude = x_magnitude
         self.y_magnitudes = []
         self.graphs = []
@@ -30,13 +32,13 @@ class GraphPlotter(object):
         """
         if graph.x_magnitude == self.x_magnitude:
             if graph not in self.graphs:
+                if graph.y_magnitude not in self.y_magnitudes and len(self.y_magnitudes) >= 2:
+                    return False
+
                 self.graphs.append(graph)
                 self.update_magnitude()
                 return True
-            else:
-                return False
-        else:
-            return False
+        return False
 
     def remove_graph(self, graph: GraphFunction) -> bool:
         """

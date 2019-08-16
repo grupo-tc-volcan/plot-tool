@@ -23,7 +23,7 @@ from plot_tool.data.function import GraphFunction
 from plot_tool.data.values import GraphValues
 from plot_tool.data.plotter import GraphPlotter
 from plot_tool.model.plotter_model import GraphPlotterModel
-from plot_tool.view.plotter_view import GraphPlotterFigureView
+from plot_tool.view.plotter_figure_view import GraphPlotterFigureView
 
 
 class SampleWidget(QWidget):
@@ -35,6 +35,8 @@ class SampleWidget(QWidget):
 
     def __init__(self, parent=None, *args, **kwargs):
         super(SampleWidget, self).__init__(parent, *args, **kwargs)
+
+        self.bla = False
 
         # Widget settings
         self.setWindowTitle("Sample Widget")
@@ -72,15 +74,19 @@ class SampleWidget(QWidget):
         self.figureCanvas.draw()
 
     def onNewButton(self, event=None):
+        amplitude = 5 if self.bla else 10
+        magnitude = GraphMagnitude.Voltage if self.bla else GraphMagnitude.Current
+        self.bla = not self.bla
+
         times = list(arange(0, 10, 0.1))
-        values = [5*sin(time * 2 * pi / 10) for time in times]
+        values = [amplitude*sin(time * 2 * pi / 10) for time in times]
 
         self.plotterModel.addGraph(
             GraphFunction(
-                "NewFunction",
+                "NewFunction_{}".format(amplitude),
                 GraphValues(times, values),
                 GraphMagnitude.Time,
-                GraphMagnitude.Voltage
+                magnitude
             )
         )
 

@@ -6,6 +6,8 @@ from PyQt5.QtCore import pyqtProperty
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtCore import QObject
 
+from PyQt5.QtGui import QColor
+
 # plot-tool modules
 from plot_tool.data.magnitudes import GraphMagnitude
 
@@ -38,21 +40,32 @@ class GraphAxesModel(QObject):
         # Property members
         self._xMagnitude = xMagnitude
         self._xScale = kwargs["xScale"] if "xScale" in kwargs.keys() else Scale.Linear
-        self._xLabel = kwargs["xLabel"] if "xLabel" in kwargs.keys() else "X Label"
+        self._xLabel = kwargs["xLabel"] if "xLabel" in kwargs.keys() else xMagnitude.value
         self._xMinimum = kwargs["xMinimum"] if "xMinimum" in kwargs.keys() else 0.0
         self._xMaximum = kwargs["xMaximum"] if "xMaximum" in kwargs.keys() else 10.0
 
         self._yMagnitude = yMagnitude
         self._yScale = kwargs["yScale"] if "yScale" in kwargs.keys() else Scale.Linear
-        self._yLabel = kwargs["yLabel"] if "yLabel" in kwargs.keys() else "Y Label"
+        self._yLabel = kwargs["yLabel"] if "yLabel" in kwargs.keys() else yMagnitude.value
         self._yMinimum = kwargs["yMinimum"] if "yMinimum" in kwargs.keys() else 0.0
         self._yMaximum = kwargs["yMaximum"] if "yMaximum" in kwargs.keys() else 10.0
+
+        self._faceColor = kwargs["faceColor"] if "faceColor" in kwargs.keys() else QColor(255, 255, 255)
 
     def __eq__(self, other):
         return self.yMagnitude == other.yMagnitude
 
     def notifyChange(self):
         self.hasChanged.emit()
+
+    @pyqtProperty(QColor)
+    def faceColor(self):
+        return self._faceColor
+
+    @faceColor.setter
+    def faceColor(self, value: QColor):
+        self._faceColor = value
+        self.notifyChange()
 
     @pyqtProperty(GraphMagnitude)
     def yMagnitude(self):

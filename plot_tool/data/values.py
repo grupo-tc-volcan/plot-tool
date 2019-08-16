@@ -33,6 +33,8 @@ class GraphValues(object):
     """
 
     def __init__(self, x_values: list, y_values: list):
+        x_values = list(x_values)
+        y_values = list(y_values)
 
         # Constructor validation
         if type(x_values) is not list or type(y_values) is not list:
