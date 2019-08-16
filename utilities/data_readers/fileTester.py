@@ -1,4 +1,4 @@
-
+import time
 from utilities.data_readers.dataReader import DataReader
 from utilities.data_readers.view.browserDialog import App
 from utilities.data_readers.view.csvDialog import CsvDialog
@@ -26,13 +26,15 @@ def main():
 
     app = QApplication(sys.argv)
     ex = App()
-    # sys.exit(app.exec_())
+    #sys.exit(app.exec_())
     file_path = ex.openFileNameDialog()
 
+    print(file_path)
+    
     myFile = DataReader(file_path)
     data_columns = myFile.get_file_data_names()
 
-
+    '''
     #app = QApplication([])
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
@@ -41,16 +43,17 @@ def main():
     Dialog.show()
     sys.exit(app.exec_())
     #app.exec()
+    
 
     input_data = myFile.import_file_data(x_col_name, x_col_number, y_col_name, y_col_number)
     '''
     print("hola1")
-    app = QtWidgets.QApplication(sys.argv)
+    app2 = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
+    ui = CsvDialog(myFile)#Ui_Dialog()
     ui.setupUi(Dialog)
     Dialog.show()
-    sys.exit(app.exec_())
+    sys.exit(app2.exec_())
     print("hola2")
     input_data = myFile.import_file_data(x_col_name, x_col_number, y_col_name, y_col_number)
     '''
@@ -60,15 +63,14 @@ def main():
         print(input_data)
         print("data type:")
         print(type(input_data))
+    '''
 
-'''
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
+def hola():
+    app2 = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()
     ui.setupUi(Dialog)
     Dialog.show()
-    sys.exit(app.exec_())
-'''
+    sys.exit(app2.exec_())
+
 main()

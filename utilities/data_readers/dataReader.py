@@ -5,7 +5,7 @@ import csv
 import os
 
 class DataReader:
-    def __init__(self,_file_path):
+    def __init__(self, _file_path):
         self.file_path = _file_path
 
 
