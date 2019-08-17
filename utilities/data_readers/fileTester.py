@@ -51,13 +51,16 @@ def main():
     app2 = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = CsvDialog(myFile)#Ui_Dialog()
-    ui.setupUi(Dialog)
+    #ui.setupUi(Dialog)
     print("HOLA")
     #Dialog.show()
     ui.show()
     sys.exit(app2.exec_())
     print("hola2")
-    input_data = myFile.import_file_data(x_col_name, x_col_number, y_col_name, y_col_number)
+    #input_data = myFile.import_file_data(x_col_name, x_col_number, y_col_name, y_col_number)
+    print("window returns:")
+    print(ui.xMagnitude)
+    #input_data = myFile.import_file_data(ui.xMagnitude, )
     '''
     if DEBUG:
         print("data received:")
