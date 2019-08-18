@@ -17,6 +17,12 @@ class Scale(Enum):
     Log = "Log"
 
 
+class Grid(Enum):
+    Major = "Major"
+    Minor = "Minor"
+    Both = "Both"
+
+
 # noinspection PyPropertyAccess
 class GraphAxesModel(QObject):
     """ GraphAxes Model
@@ -52,11 +58,32 @@ class GraphAxesModel(QObject):
 
         self._faceColor = kwargs["faceColor"] if "faceColor" in kwargs.keys() else QColor(255, 255, 255)
 
+        self._gridEnable = False
+        self._gridOption = Grid.Major.value
+
     def __eq__(self, other):
         return self.yMagnitude == other.yMagnitude
 
     def notifyChange(self):
         self.hasChanged.emit()
+
+    @pyqtProperty(bool)
+    def gridEnable(self):
+        return self._gridEnable
+
+    @gridEnable.setter
+    def gridEnable(self, value: bool):
+        self._gridEnable = value
+        self.notifyChange()
+
+    @pyqtProperty(Grid)
+    def gridOption(self):
+        return self._gridOption
+
+    @gridOption.setter
+    def gridOption(self, value: Grid):
+        self._gridOption = value
+        self.notifyChange()
 
     @pyqtProperty(QColor)
     def faceColor(self):

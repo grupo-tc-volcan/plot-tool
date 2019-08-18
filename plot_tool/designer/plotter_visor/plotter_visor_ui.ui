@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
-    <height>430</height>
+    <width>311</width>
+    <height>509</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,7 +18,7 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>300</width>
+    <width>320</width>
     <height>16777215</height>
    </size>
   </property>
@@ -44,15 +44,15 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>282</width>
-        <height>172</height>
+        <width>293</width>
+        <height>227</height>
        </rect>
       </property>
       <attribute name="label">
@@ -227,8 +227,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>265</width>
-        <height>199</height>
+        <width>293</width>
+        <height>227</height>
        </rect>
       </property>
       <attribute name="label">
@@ -242,11 +242,18 @@
            <property name="horizontalSpacing">
             <number>60</number>
            </property>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="yLabel"/>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="yMagnitude">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item row="2" column="1">
             <widget class="QComboBox" name="yScale"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="yLabel"/>
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="label_12">
@@ -255,12 +262,8 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
-            <widget class="QLineEdit" name="yMagnitude">
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="axes"/>
            </item>
            <item row="4" column="0">
             <widget class="QLabel" name="label_10">
@@ -276,8 +279,32 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QComboBox" name="axes"/>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Scale Y</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>Axes Face Color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Axes</string>
+             </property>
+            </widget>
            </item>
            <item row="5" column="1" alignment="Qt::AlignRight">
             <widget class="QDoubleSpinBox" name="yMaximum">
@@ -345,33 +372,6 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_7">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="text">
-              <string>Axes</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="text">
-              <string>Scale Y</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="label_18">
-             <property name="text">
-              <string>Axes Face Color</string>
-             </property>
-            </widget>
-           </item>
            <item row="6" column="1">
             <layout class="QHBoxLayout" name="horizontalLayout_7">
              <item>
@@ -390,6 +390,26 @@
          </item>
         </layout>
        </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <widget class="QCheckBox" name="gridVisible">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Grid</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="gridOption"/>
+         </item>
+        </layout>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="page_3">
@@ -397,8 +417,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>282</width>
-        <height>148</height>
+        <width>293</width>
+        <height>227</height>
        </rect>
       </property>
       <attribute name="label">

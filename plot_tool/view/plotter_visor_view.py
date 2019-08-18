@@ -14,6 +14,7 @@ from plot_tool.data.magnitudes import GraphMagnitude
 
 from plot_tool.model.plotter_model import GraphPlotterModel
 from plot_tool.model.axe_model import Scale
+from plot_tool.model.axe_model import Grid
 
 from plot_tool.view.function_visor_view import GraphFunctionVisorView
 
@@ -34,6 +35,8 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
 
         if model is not None:
             self.setModel(model)
+
+        self.gridOption.addItems([grid.value for grid in Grid])
 
         self.axes.currentIndexChanged.connect(self.updateAxesData)
 
@@ -57,6 +60,23 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         self.yMaximum.valueChanged.connect(self.onYIntervalChanged)
 
         self.visible.toggled.connect(self.onIsVisibleButton)
+
+        self.gridOption.currentTextChanged.connect(self.onGridOption)
+        self.gridVisible.toggled.connect(self.onGridVisible)
+
+    def onGridOption(self):
+        if self.model is not None:
+            if len(self.model.axesModels):
+                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
+
+                selectedAxes.gridOption = self.gridOption.currentText()
+
+    def onGridVisible(self):
+        if self.model is not None:
+            if len(self.model.axesModels):
+                selectedAxes = self.model.axesModels[self.axes.currentIndex()]
+
+                selectedAxes.gridEnable = self.gridVisible.isChecked()
 
     def onIsVisibleButton(self):
         if self.model is not None:

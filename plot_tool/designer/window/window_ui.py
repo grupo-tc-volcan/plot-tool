@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1300, 827)
+        MainWindow.resize(1300, 737)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -53,8 +53,8 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.plotterList.sizePolicy().hasHeightForWidth())
         self.plotterList.setSizePolicy(sizePolicy)
-        self.plotterList.setMinimumSize(QtCore.QSize(0, 100))
-        self.plotterList.setMaximumSize(QtCore.QSize(16777215, 100))
+        self.plotterList.setMinimumSize(QtCore.QSize(0, 80))
+        self.plotterList.setMaximumSize(QtCore.QSize(16777215, 80))
         self.plotterList.setObjectName("plotterList")
         self.verticalLayout_3.addWidget(self.plotterList)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -229,8 +229,7 @@ class Ui_MainWindow(object):
         self.actionSave_2.setText(_translate("MainWindow", "Save"))
         self.actionExit_2.setText(_translate("MainWindow", "Exit"))
 
-
-from plot_tool.view.plotter_visor_view import GraphPlotterVisorView
+from plotter_visor_view import GraphPlotterVisorView
 
 if __name__ == "__main__":
     import sys

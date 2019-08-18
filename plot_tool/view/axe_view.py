@@ -54,6 +54,28 @@ class GraphAxesView(Axes, View):
         self.set_xlabel(self.model.xLabel)
         self.set_ylabel(self.model.yLabel)
 
+        # We first clear all existing grids, then...
+        self.grid(b=False, which="major", axis="both")
+        self.grid(b=False, which="minor", axis="both")
+        self.grid(b=False, which="both", axis="both")
+
+        if self.model.gridOption.lower() == "minor" or self.model.gridOption.lower() == "both":
+            self.minorticks_on()
+
+        if self.model.gridEnable:
+            if self.model.gridOption.lower() == "minor" or self.model.gridOption.lower() == "both":
+                self.grid(
+                    b=True,
+                    linestyle=":",
+                    which="minor",
+                    axis='both')
+            if self.model.gridOption.lower() == "major" or self.model.gridOption.lower() == "both":
+                self.grid(
+                    b=True,
+                    linestyle="-",
+                    which="major",
+                    axis='both')
+
         # Coloring...
         self.set_facecolor(self.convertColor(self.model.faceColor))
 
