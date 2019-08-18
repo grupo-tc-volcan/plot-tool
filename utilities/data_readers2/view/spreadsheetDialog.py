@@ -29,14 +29,17 @@ class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog, DataReader):
 
         self.addButton.setEnabled(False)
         self.deleteButton.setEnabled(False)
-        self.okButton.setEnabled(True)
+        self.okButton.setEnabled(False)
         #self.name.textChanged(self.onChanges)
         self.name.textChanged.connect(self.onChanges)
         # print(self.dr.get_file_data_names)
         # self.initUI()
 
+        self.functionList.currentItemChanged.connect(self.onSelection)
+
         self.addButton.clicked.connect(self.onAdd)
         self.deleteButton.clicked.connect(self.onDelete)
+        #self.okButton.clicked.connect(self.onOk)
         self.functions = list()
         self.functionsNames = list()
 
@@ -51,6 +54,14 @@ class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog, DataReader):
         #self.setGeometry(self.left, self.top, self.width, self.height)
         self.show()
     '''
+
+    def onSelection(self):
+        selectedIndex = self.functionList.currentIndex().row()
+
+        if selectedIndex >= 0:
+            self.deleteButton.setEnabled(True)
+
+        #self.deleteButton.setEnabled(True)
 
     def onAdd(self):
         self.addButton.setEnabled(False)
@@ -71,8 +82,9 @@ class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog, DataReader):
             self.functions.append(self.newFunction)
             self.functionsNames.append(self.newFunction.name)
             self.updateFunctionList()
+            self.okButton.setEnabled(True)
 
-        
+
     def updateFunctionList(self):
         selectedIndex = self.functionList.currentIndex()
         self.functionList.clear()
@@ -80,7 +92,31 @@ class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog, DataReader):
         self.functionList.setCurrentIndex(selectedIndex)
 
     def onDelete(self):
-        pass
+        selectedIndex = self.functionList.currentIndex().row()
+        selectedItem = self.functionList.currentRow()
+        print("selected index:")
+        print(selectedIndex)
+        print(type(selectedIndex))
+        print("selected item:")
+        print(selectedItem)
+        print(type(selectedItem))
+        self.deleteButton.setEnabled(False)
+        print("LEN FUNC LIST")
+        print(len(self.functionList))
+        if len(self.functionList) == 0:
+            self.okButton.setEnabled(False)
+
+
+        if selectedIndex >= 0:
+            self.functionsNames.remove(self.functionsNames[selectedIndex])
+            self.functions.remove(self.functions[selectedIndex])
+            self.updateFunctionList()
+            print("functions names:")
+            print(self.functionsNames)
+            print("functions:")
+            for i in self.functions:
+                print(i.name)
+
 
     def onChanges(self):
         print("onChanges")
@@ -109,35 +145,7 @@ class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog, DataReader):
             if self.xAxis.currentText() != self.yAxis.currentText():
                 print("DISTINTOS")
                 self.addButton.setEnabled(True)
-                 #BORRAR ESTA LINEA
-                return
-        #self.okButton.setEnabled(False)
-
-        '''
-        if len(self.plainTextEdit.text()):
-            #self.received = self.plainTextEdit.0
-            if self.comboBox_3.currentText() != self.comboBox_4.currentText():
-
-                if self.waveformsInput.currentText() == "Sinusoidal":
-                    if self.sinAmplitude.value() != 0.0 and self.sinFrequency.value() != 0.0:
-                        self.buttonBox.setEnabled(True)
-                        return
-                elif self.waveformsInput.currentText() == "Step":
-                    if self.stepAmplitude.value() != 0.0:
-                        self.buttonBox.setEnabled(True)
-                        return
-                elif self.waveformsInput.currentText() == "Square":
-                    if self.squareAmplitude.value() != 0.0 \
-                            and self.squareFrequency.value() != 0.0 and self.squareDuty != 0.0:
-                        self.buttonBox.setEnabled(True)
-                        return
-                elif self.waveformsInput.currentText() == "Triangle":
-                    if self.triangleAmplitude.value() != 0.0 \
-                            and self.triangleFrequency.value() != 0.0 and self.triangleSymmetry != 0.0:
-                        self.buttonBox.setEnabled(True)
-                        return
+                #return
 
 
-        self.buttonBox.setEnabled(False)
-        '''
 

@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b976ea12-097a-4504-9e18-7de89079988f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities/data_readers2/designer/csvDialog.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities/data_readers2/designer/csvDialog_ui.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities/data_readers2/designer/spreadsheet_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers2/Drafts/spreadsheet_dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities/data_readers2/designer/spreadsheet_dialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers2/Drafts/spreadsheet_dialog.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities/data_readers2/fileTester.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers2/fileTester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities/data_readers2/view/csvDialog.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/utilities/data_readers2/view/spreadsheetDialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers2/view/spreadsheetDialog.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,18 +12,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utilities/data_readers/view/csvDialog.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utilities/data_readers2/Drafts/spreadsheet_dialog.py">
           <provider selected="true" editor-type-id="text-editor" />
@@ -50,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utilities/data_readers2/fileTester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="56" selection-start-line="56" selection-end-line="57" selection-end-column="31" />
+            <state relative-caret-position="-363">
+              <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -62,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utilities/data_readers2/view/spreadsheetDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+            <state relative-caret-position="407">
+              <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
               <folding>
                 <element signature="e#0#71#0" expanded="true" />
               </folding>
@@ -101,8 +82,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plot_tool/data/function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="121">
               <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <folding>
+                <element signature="e#68#120#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plot_tool/data/plotter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-635">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
               <folding>
                 <element signature="e#68#120#0" expanded="true" />
               </folding>
@@ -176,8 +169,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="870" />
-    <option name="width" value="1058" />
+    <option name="x" value="618" />
+    <option name="width" value="1309" />
     <option name="height" value="1158" />
   </component>
   <component name="ProjectView">
@@ -406,16 +399,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="696" y="0" width="846" height="926" extended-state="0" />
+    <frame x="495" y="0" width="1047" height="926" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19012345" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15232444" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32955974" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.71862614" visible="true" weight="0.27169812" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39119497" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.07421384" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -479,16 +472,6 @@
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#126#166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/data/plotter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding>
-            <element signature="e#68#120#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -671,16 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plot_tool/data/function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding>
-            <element signature="e#68#120#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../spreadsheet_dialog (1).py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -689,16 +662,6 @@
         <state relative-caret-position="-154">
           <folding>
             <element signature="e#1#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utilities/data_readers2/fileTester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="56" selection-start-line="56" selection-end-line="57" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -724,10 +687,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/data_readers2/fileTester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-363">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/data/function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="e#68#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/data/plotter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-635">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <element signature="e#68#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utilities/data_readers2/view/spreadsheetDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+        <state relative-caret-position="407">
+          <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
           <folding>
             <element signature="e#0#71#0" expanded="true" />
           </folding>
