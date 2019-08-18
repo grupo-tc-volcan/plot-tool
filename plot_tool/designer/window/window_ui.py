@@ -229,7 +229,8 @@ class Ui_MainWindow(object):
         self.actionSave_2.setText(_translate("MainWindow", "Save"))
         self.actionExit_2.setText(_translate("MainWindow", "Exit"))
 
-from plotter_visor_view import GraphPlotterVisorView
+
+from plot_tool.view.plotter_visor_view import GraphPlotterVisorView
 
 if __name__ == "__main__":
     import sys
