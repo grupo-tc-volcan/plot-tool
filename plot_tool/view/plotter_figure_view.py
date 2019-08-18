@@ -83,17 +83,11 @@ class GraphPlotterFigureView(Figure, View):
             axesView = GraphAxesView(model,
                                      self,
                                      self.canvas,
-                                     [0.1, 0.1, 0.8, 0.8],
-                                     sharex=self.axesViews[0])
+                                     [0.1, 0.1, 0.8, 0.8])
 
             # Magic code to hide all the axes spines
             axesView.spines["left"].set_position(("axes", 1.1))
-
-            axesView.set_frame_on(True)
             axesView.patch.set_visible(False)
-            for spine in axesView.spines.values():
-                spine.set_visible(False)
-            axesView.spines["left"].set_visible(True)
         else:
             axesView = GraphAxesView(model,
                                      self,
@@ -111,6 +105,10 @@ class GraphPlotterFigureView(Figure, View):
         """ When the GraphAxesModel is removed """
         for axesView in self.axesViews:
             if axesView.model == model:
+
+                if self.axesViews.index(axesView) == 0:
+                    self.axesViews[-1].spines["left"].set_position(("data", 0))
+
                 self.axesViews.remove(axesView)
                 axesView.remove()
                 self.updateLegendView()
