@@ -1,8 +1,9 @@
-from ltpice_reader import *
+from LTSpice_feature.reader.ltspice_time_graph_reader import *
 
-lts = LTSpiceBodeReader('21.txt', True)
+lts = LTSpiceTimeGraphReader('2time.txt', True)
 
 data = lts.get_data()
 
-print(data['abs_y_axis_0_step1'])
-print(data['f'])
+print(data['y_axis_0_step1'])
+print(data['x_axis'])
+print(data['x_axis_label'])

@@ -11,14 +11,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(389, 101)
+        Dialog.resize(427, 425)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Dialog.sizePolicy().hasHeightForWidth())
         Dialog.setSizePolicy(sizePolicy)
+        Dialog.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
-        self.buttonBox.setGeometry(QtCore.QRect(230, 70, 161, 32))
+        self.buttonBox.setGeometry(QtCore.QRect(250, 390, 161, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
@@ -33,6 +34,19 @@ class Ui_Dialog(object):
         self.plainTextEdit.setWhatsThis("")
         self.plainTextEdit.setAutoFillBackground(False)
         self.plainTextEdit.setObjectName("plainTextEdit")
+        self.ReadFileButton = QtWidgets.QPushButton(Dialog)
+        self.ReadFileButton.setGeometry(QtCore.QRect(310, 70, 75, 23))
+        self.ReadFileButton.setObjectName("ReadFileButton")
+        self.line = QtWidgets.QFrame(Dialog)
+        self.line.setGeometry(QtCore.QRect(0, 90, 421, 20))
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.tableWidget = QtWidgets.QTableWidget(Dialog)
+        self.tableWidget.setGeometry(QtCore.QRect(20, 110, 381, 271))
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
 
         self.retranslateUi(Dialog)
         self.buttonBox.accepted.connect(Dialog.accept)
@@ -44,6 +58,7 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Please select a LTSpice file"))
         self.BrowseButton.setText(_translate("Dialog", "..."))
         self.checkBox.setText(_translate("Dialog", "MonteCarlo"))
+        self.ReadFileButton.setText(_translate("Dialog", "Load File"))
 
 
 if __name__ == "__main__":
