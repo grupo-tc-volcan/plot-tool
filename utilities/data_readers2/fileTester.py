@@ -1,15 +1,10 @@
-import time
 from utilities.data_readers2.dataReader import DataReader
 from utilities.data_readers2.view.browserDialog import App
 from utilities.data_readers2.view.spreadsheetDialog import SpreadsheetDialog
-from utilities.data_readers2.designer.spreadsheet_dialog import Ui_Dialog
 
-import PyQt5.QtWidgets
-from PyQt5.QtWidgets import QApplication, QDialog
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
-from PyQt5.QtGui import QIcon
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication
+from PyQt5 import QtWidgets
 DEBUG = False
 
 
@@ -59,10 +54,13 @@ def main():
     print("data type:")
     print(type(input_data))
     print(input_data[0])
-    xData = input_data[0]
-    yData = input_data[1]
+    xData = list(input_data[0])
+    yData = list(input_data[1])
+    print("data TYPE:")
+    print(type(xData))
 
     return(ui.xMagnitude_, ui.yMagnitude_,  input_data[0],input_data[1])
+
 
 
 main()

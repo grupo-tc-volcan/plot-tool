@@ -1,14 +1,13 @@
-import time
-from PyQt5.QtWidgets import QApplication
-from utilities.data_readers2.designer.spreadsheet_dialog import Ui_Dialog
-from utilities.data_readers2.dataReader import DataReader
+from utilities.data_readers2.Drafts.spreadsheet_dialog import Ui_Dialog
 from plot_tool.data.magnitudes import GraphMagnitude
 from plot_tool.data.function import GraphFunction
 from plot_tool.data.values import GraphValues
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+from utilities.data_readers2.dataReader import DataReader
 
 
-class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog):
+class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog, DataReader):
     '''Csv Dialog'''
 
     def __init__(self, dr_, *args, **kwargs):
@@ -30,7 +29,7 @@ class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog):
 
         self.addButton.setEnabled(False)
         self.deleteButton.setEnabled(False)
-        self.okButton.setEnabled(False)
+        self.okButton.setEnabled(True)
         #self.name.textChanged(self.onChanges)
         self.name.textChanged.connect(self.onChanges)
         # print(self.dr.get_file_data_names)
@@ -38,6 +37,8 @@ class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog):
 
         self.addButton.clicked.connect(self.onAdd)
         self.deleteButton.clicked.connect(self.onDelete)
+        self.functions = list()
+        self.functionsNames = list()
 
     '''
     def setupUi(self, Reader):
@@ -52,7 +53,31 @@ class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog):
     '''
 
     def onAdd(self):
-        pass
+        self.addButton.setEnabled(False)
+
+        if self.name_ in self.functionsNames:
+            QMessageBox.warning(self,
+                                "Error message",
+                                "Error detected adding a new function. Name already used!")
+        else:
+            self.input_data = self.dr.import_file_data(self.xAxis_, self.yAxis_)
+            self.xData = list(self.input_data[0])
+            print("x TYPE:")
+            print(self.xData)
+            print(type(self.xData))
+            self.yData = list(self.input_data[1])
+            self.gValues = GraphValues(list(self.input_data[0]), list(self.input_data[1]))
+            self.newFunction = GraphFunction(self.name_, self.gValues, self.xMagnitude_, self.yMagnitude_)
+            self.functions.append(self.newFunction)
+            self.functionsNames.append(self.newFunction.name)
+            self.updateFunctionList()
+
+        
+    def updateFunctionList(self):
+        selectedIndex = self.functionList.currentIndex()
+        self.functionList.clear()
+        self.functionList.addItems(self.functionsNames)
+        self.functionList.setCurrentIndex(selectedIndex)
 
     def onDelete(self):
         pass
@@ -84,7 +109,7 @@ class SpreadsheetDialog(QtWidgets.QDialog, Ui_Dialog):
             if self.xAxis.currentText() != self.yAxis.currentText():
                 print("DISTINTOS")
                 self.addButton.setEnabled(True)
-                if self.addButton.
+                 #BORRAR ESTA LINEA
                 return
         #self.okButton.setEnabled(False)
 
