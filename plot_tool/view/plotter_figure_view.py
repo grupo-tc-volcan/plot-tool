@@ -54,6 +54,7 @@ class GraphPlotterFigureView(Figure, View):
         """ When properties have changed, updating view... """
         self.set_facecolor(self.convertColor(self.model.faceColor))
         self.set_edgecolor(self.convertColor(self.model.edgeColor))
+        self.suptitle(self.model.name if self.model.titleVisible else "")
         self.updateLegendView()
 
     def onGraphModelAdded(self, model: GraphFunctionModel):

@@ -56,6 +56,12 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         self.yMinimum.valueChanged.connect(self.onYIntervalChanged)
         self.yMaximum.valueChanged.connect(self.onYIntervalChanged)
 
+        self.visible.toggled.connect(self.onIsVisibleButton)
+
+    def onIsVisibleButton(self):
+        if self.model is not None:
+            self.model.titleVisible = self.visible.isChecked()
+
     def onAdjustButton(self):
         if self.model is not None:
             self.model.adjustSizeOfXAxis()

@@ -53,6 +53,8 @@ class GraphPlotterModel(QObject):
         self._legendFaceColor = kwargs["legendFaceColor"] if "legendFaceColor" in kwargs.keys() else QColor(255, 255, 255, 255)
         self._legendEdgeColor = kwargs["legendEdgeColor"] if "legendEdgeColor" in kwargs.keys() else QColor(0, 0, 0, 255)
 
+        self._titleVisible = True
+
     def addGraph(self, graph: GraphFunction) -> bool:
         """
         Adds a new graph to the Plotter Model and creates a model
@@ -194,6 +196,15 @@ class GraphPlotterModel(QObject):
                 axesModel.yMaximum = yMaximum
 
     # GraphPlotterModel's properties
+    @pyqtProperty(bool)
+    def titleVisible(self):
+        return self._titleVisible
+
+    @titleVisible.setter
+    def titleVisible(self, value: bool):
+        self._titleVisible = value
+        self.notifyPropertyChange()
+
     @pyqtProperty(QColor)
     def faceColor(self):
         return self._faceColor

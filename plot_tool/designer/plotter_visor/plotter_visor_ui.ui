@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>481</height>
+    <height>430</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,7 +52,7 @@
         <x>0</x>
         <y>0</y>
         <width>282</width>
-        <height>199</height>
+        <height>172</height>
        </rect>
       </property>
       <attribute name="label">
@@ -227,7 +227,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>282</width>
+        <width>265</width>
         <height>199</height>
        </rect>
       </property>
@@ -398,7 +398,7 @@
         <x>0</x>
         <y>0</y>
         <width>282</width>
-        <height>199</height>
+        <height>148</height>
        </rect>
       </property>
       <attribute name="label">
@@ -407,6 +407,9 @@
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <layout class="QFormLayout" name="formLayout">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetFixedSize</enum>
+         </property>
          <property name="horizontalSpacing">
           <number>30</number>
          </property>
@@ -497,6 +500,16 @@
           </layout>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="visible">
+         <property name="text">
+          <string>Name Visible</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
