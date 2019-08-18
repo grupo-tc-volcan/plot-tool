@@ -33,7 +33,7 @@ class CsvDialog(QtWidgets.QDialog, Ui_Dialog):
         #print(self.dr.get_file_data_names)
         #self.initUI()
 
-    ''' 
+    '''
     def setupUi(self, Reader):
         Reader.setObjectName("Reader")
     '''

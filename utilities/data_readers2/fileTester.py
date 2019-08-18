@@ -1,8 +1,8 @@
 import time
-from utilities.data_readers.dataReader import DataReader
-from utilities.data_readers.view.browserDialog import App
-from utilities.data_readers.view.csvDialog import CsvDialog
-from utilities.data_readers.designer.csvDialog_ui import Ui_Dialog
+from utilities.data_readers2.dataReader import DataReader
+from utilities.data_readers2.view.browserDialog import App
+from utilities.data_readers2.view.spreadsheetDialog import SpreadsheetDialog
+from utilities.data_readers2.designer.spreadsheet_dialog import Ui_Dialog
 
 import PyQt5.QtWidgets
 from PyQt5.QtWidgets import QApplication, QDialog
@@ -36,7 +36,7 @@ def main():
     print("hola1")
     app2 = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = CsvDialog(myFile)
+    ui = SpreadsheetDialog(myFile)
     #ui.setupUi(Dialog)
     print("HOLA234")
     #Dialog.show()
@@ -46,15 +46,15 @@ def main():
     print("hola2")
 
     print("ui.xAxis:")
-    print(ui.xAxis)
-    print(ui.xMagnitude)
+    print(ui.xAxis_)
+    print(ui.xMagnitude_)
     print("ui.yAxis:")
-    print(ui.yAxis)
-    print(ui.yMagnitude)
+    print(ui.yAxis_)
+    print(ui.yMagnitude_)
     print("ui.name:")
-    print(ui.name)
+    print(ui.name_)
     #input_data = myFile.import_file_data(x_col_name, x_col_number, y_col_name, y_col_number)
-    input_data = myFile.import_file_data(ui.xAxis,ui.yAxis)
+    input_data = myFile.import_file_data(ui.xAxis_,ui.yAxis_)
     print(input_data)
     print("data type:")
     print(type(input_data))
@@ -62,7 +62,7 @@ def main():
     xData = input_data[0]
     yData = input_data[1]
 
-    return(ui.xMagnitude, ui.yMagnitude,  input_data[0],input_data[1])
+    return(ui.xMagnitude_, ui.yMagnitude_,  input_data[0],input_data[1])
 
 
 main()
