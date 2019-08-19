@@ -5,7 +5,11 @@ from PyQt5.QtGui import QIcon
 
 
 class App(QWidget):
-
+    '''
+    Based on:
+    https://pythonspot.com/pyqt5-file-dialog/
+    Python Tutorials: "PyQt5 file dialog"
+    '''
     def __init__(self):
         super().__init__()
         self.title = 'PyQt5 file dialogs - pythonspot.com'
@@ -19,18 +23,10 @@ class App(QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
-        #self.openFileNameDialog()
-        #self.openFileNamesDialog()
-        #self.saveFileDialog()
-
-        #self.show() # Esto ponia el cuadrado blanco
-
     def openFileNameDialog(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getOpenFileName(self, "Choose File", "",
                                                   "All Files (*);;Python Files (*.py)", options=options)
         if fileName:
-            print("nombreeee:")
-            print(fileName)
             return fileName
