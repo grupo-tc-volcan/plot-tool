@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b976ea12-097a-4504-9e18-7de89079988f" name="Default Changelist" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/plot_tool/view/axe_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/view/axe_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/view/function_line_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/view/function_line_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_tool/view/signal_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_tool/view/signal_dialog.py" afterDir="false" />
@@ -16,6 +17,12 @@
       <change beforePath="$PROJECT_DIR$/utilities/data_readers2/dataReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers2/dataReader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utilities/data_readers2/fileTester.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/data_readers2/fileTester.py" afterDir="false" />
 >>>>>>> remotes/origin/csv-feature
+=======
+      <change beforePath="$PROJECT_DIR$/LTSpice_feature/designer/file_select_dialog/FileSelectDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/LTSpice_feature/designer/file_select_dialog/FileSelectDialog.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LTSpice_feature/designer/file_select_dialog/FileSelectDialog_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/LTSpice_feature/designer/file_select_dialog/FileSelectDialog_ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LTSpice_feature/reader/ltspice_reader_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/LTSpice_feature/reader/ltspice_reader_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LTSpice_feature/view/file_select_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/LTSpice_feature/view/file_select_dialog.py" afterDir="false" />
+>>>>>>> remotes/origin/LTSpice-feature
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +31,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
 =======
@@ -36,6 +44,41 @@
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1708702912/PyQt5/QtGui/QStandardItemModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="112" column="58" selection-start-line="112" selection-start-column="58" selection-end-line="112" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="324" selection-start-line="324" selection-end-line="324" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1708702912/PyQt5/QtWidgets/QListWidget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="150" column="8" selection-start-line="150" selection-start-column="8" selection-end-line="150" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LTSpice_feature/reader/ltpice_reader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
+>>>>>>> remotes/origin/LTSpice-feature
             </state>
           </provider>
         </entry>
@@ -68,18 +111,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/utilities/data_readers2/fileTester.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
               <caret line="30" column="23" lean-forward="true" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
+=======
+        <entry file="file://$PROJECT_DIR$/LTSpice_feature/view/file_select_dialog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-902">
+              <caret selection-end-line="1" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+>>>>>>> remotes/origin/LTSpice-feature
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/utilities/data_readers2/Drafts/copyy.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="611">
@@ -134,6 +187,46 @@
               <caret line="143" column="8" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="61" />
               <folding>
                 <element signature="e#434#453#0" expanded="true" />
+=======
+        <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1708702912/PyQt5/QtWidgets/QErrorMessage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="617">
+              <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plot_tool/data/magnitudes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PyQt5/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LTSpice_feature/reader/ltspice_bode_reader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="118" column="11" lean-forward="true" selection-start-line="118" selection-start-column="11" selection-end-line="119" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LTSpice_feature/reader/ltspice_reader_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-35">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#4#0" expanded="true" />
+>>>>>>> remotes/origin/LTSpice-feature
               </folding>
             </state>
           </provider>
@@ -152,10 +245,13 @@
   <component name="FindInProjectRecents">
     <findStrings>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <find>self.axeModel</find>
       <find>axeModel</find>
       <find>updateaxes</find>
       <find>graph_models</find>
+=======
+>>>>>>> remotes/origin/LTSpice-feature
       <find>updateAxes</find>
       <find>faceColor</find>
       <find>update</find>
@@ -179,10 +275,20 @@
       <find>Figure</find>
       <find>FigureCanvas</find>
       <find>fontsize</find>
+      <find>\n</find>
+      <find>np</find>
+      <find>f</find>
+      <find>&quot;f&quot;</find>
+      <find>'''</find>
+      <find>read_y_axis</find>
+      <find>opened_file</find>
     </findStrings>
     <replaceStrings>
       <replace>axesModel</replace>
       <replace>graphModels</replace>
+      <replace>&quot;&quot;&quot;</replace>
+      <replace>self.opened_file</replace>
+      <replace>self. opened_file</replace>
     </replaceStrings>
 =======
       <find>data</find>
@@ -238,10 +344,19 @@
         <option value="$PROJECT_DIR$/plot_tool/view/function_line_view.py" />
         <option value="$PROJECT_DIR$/plot_tool/view/signal_dialog.py" />
         <option value="$PROJECT_DIR$/plot_tool/view/transfer_dialog.py" />
+        <option value="$PROJECT_DIR$/LTSpice_feature/view/pruboncia.py" />
+        <option value="$PROJECT_DIR$/LTSpice_feature/view/browserDialog.py" />
+        <option value="$PROJECT_DIR$/LTSpice_feature/reader/ltspice_bode_reader.py" />
+        <option value="$PROJECT_DIR$/LTSpice_feature/reader/ltspice_time_graph_reader.py" />
+        <option value="$PROJECT_DIR$/LTSpice_feature/test/test.py" />
+        <option value="$PROJECT_DIR$/LTSpice_feature/reader/ltpice_reader.py" />
+        <option value="$PROJECT_DIR$/LTSpice_feature/reader/ltspice_reader_interface.py" />
+        <option value="$PROJECT_DIR$/LTSpice_feature/view/file_select_dialog.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -276,6 +391,14 @@
     <option name="width" value="1242" />
     <option name="height" value="1158" />
 >>>>>>> remotes/origin/csv-feature
+=======
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+>>>>>>> remotes/origin/LTSpice-feature
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -291,13 +414,20 @@
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="LTSpice_feature" type="462c0819:PsiDirectoryNode" />
+>>>>>>> remotes/origin/LTSpice-feature
             </path>
 <<<<<<< HEAD
 =======
             <path>
+<<<<<<< HEAD
               <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
@@ -331,20 +461,45 @@
               <item name="utilities" type="462c0819:PsiDirectoryNode" />
               <item name="data_readers2" type="462c0819:PsiDirectoryNode" />
               <item name="designer" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="LTSpice_feature" type="462c0819:PsiDirectoryNode" />
+              <item name="designer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="LTSpice_feature" type="462c0819:PsiDirectoryNode" />
+              <item name="reader" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="plot-tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plot-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="LTSpice_feature" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+>>>>>>> remotes/origin/LTSpice-feature
             </path>
             <path>
               <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="utilities" type="462c0819:PsiDirectoryNode" />
               <item name="data_readers2" type="462c0819:PsiDirectoryNode" />
               <item name="Drafts" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> remotes/origin/LTSpice-feature
             </path>
             <path>
               <item name="plot_tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="plot_tool" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="utilities" type="462c0819:PsiDirectoryNode" />
               <item name="data_readers2" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+>>>>>>> remotes/origin/LTSpice-feature
             </path>
 >>>>>>> remotes/origin/csv-feature
           </expand>
@@ -361,6 +516,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\plot-tool\utilities" />
       <recent name="C:\Users\Lucas\source\repos\plot-tool\plot_tool\view\base" />
 =======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/utilities" />
@@ -393,12 +549,17 @@
     </option>
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.window">
     <configuration name="plotter_dialog" type="PythonConfigurationType" factoryName="Python" temporary="true">
 =======
   <component name="RunManager" selected="Python.fileTester (1)">
     <configuration name="csv_reader" type="PythonConfigurationType" factoryName="Python" temporary="true">
 >>>>>>> remotes/origin/csv-feature
+=======
+  <component name="RunManager" selected="Python.file_select_dialog">
+    <configuration name="file_select_dialog" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> remotes/origin/LTSpice-feature
       <module name="plot-tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -406,6 +567,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+<<<<<<< HEAD
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utilities/data_readers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -415,6 +577,13 @@
 =======
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utilities/data_readers/csv_reader.py" />
 >>>>>>> remotes/origin/csv-feature
+=======
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LTSpice_feature/view" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LTSpice_feature/view/file_select_dialog.py" />
+>>>>>>> remotes/origin/LTSpice-feature
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -424,10 +593,14 @@
       <method v="2" />
     </configuration>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <configuration name="plotter_visor_view" type="PythonConfigurationType" factoryName="Python" temporary="true">
 =======
     <configuration name="fileTester (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
 >>>>>>> remotes/origin/csv-feature
+=======
+    <configuration name="pruboncia" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> remotes/origin/LTSpice-feature
       <module name="plot-tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -435,6 +608,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plot_tool/view" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -468,6 +642,13 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utilities/data_readers/fileTester.py" />
+=======
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LTSpice_feature/view" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LTSpice_feature/view/pruboncia.py" />
+>>>>>>> remotes/origin/LTSpice-feature
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -476,6 +657,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="plotter_view" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="plot-tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -503,6 +685,9 @@
 =======
     <configuration name="sample_0" type="PythonConfigurationType" factoryName="Python" temporary="true">
 >>>>>>> remotes/origin/csv-feature
+=======
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> remotes/origin/LTSpice-feature
       <module name="plot-tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -510,12 +695,16 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plot_tool/view" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LTSpice_feature/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plot_tool/view/signal_dialog.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LTSpice_feature/test/test.py" />
+>>>>>>> remotes/origin/LTSpice-feature
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -572,6 +761,7 @@
     <recent_temporary>
       <list>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <item itemvalue="Python.window" />
         <item itemvalue="Python.transfer_dialog" />
         <item itemvalue="Python.plotter_dialog" />
@@ -584,6 +774,13 @@
         <item itemvalue="Python.plotter_view" />
         <item itemvalue="Python.sample_0" />
 >>>>>>> remotes/origin/csv-feature
+=======
+        <item itemvalue="Python.file_select_dialog" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.pruboncia" />
+        <item itemvalue="Python.transfer_dialog" />
+        <item itemvalue="Python.window" />
+>>>>>>> remotes/origin/LTSpice-feature
       </list>
     </recent_temporary>
   </component>
@@ -610,6 +807,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="516" y="0" width="993" height="926" extended-state="0" />
     <editor active="true" />
     <layout>
@@ -638,10 +836,17 @@
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2406639" />
 >>>>>>> remotes/origin/csv-feature
+=======
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.168428" />
+>>>>>>> remotes/origin/LTSpice-feature
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.60863096" weight="0.21276596" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.86383927" weight="0.25531915" />
@@ -649,35 +854,39 @@
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34842768" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
 >>>>>>> remotes/origin/csv-feature
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.59511226" visible="true" weight="0.21216407" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.85072654" weight="0.3479491" />
+>>>>>>> remotes/origin/LTSpice-feature
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49925596" weight="0.3289689" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4980185" weight="0.3281471" />
       <window_info anchor="bottom" id="Floobits" order="7" sideWeight="0.49925596" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.13616072" side_tool="true" weight="0.27168575" />
-      <window_info anchor="bottom" id="Python Console" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4993395" weight="0.3281471" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4980185" weight="0.32956153" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4048877" side_tool="true" visible="true" weight="0.21216407" />
+      <window_info anchor="bottom" id="Python Console" order="11" sideWeight="0.4993395" weight="0.32956153" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
 <<<<<<< HEAD
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1592262" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.168428" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.60863096" weight="0.21276596" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.86383927" weight="0.05728314" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.60863096" visible="true" weight="0.21216407" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.86383927" weight="0.3479491" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49925596" weight="0.3289689" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49925596" weight="0.3281471" />
       <window_info anchor="bottom" id="Floobits" order="7" sideWeight="0.49925596" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3281471" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32956153" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.13616072" side_tool="true" weight="0.27168575" />
-      <window_info anchor="bottom" id="Python Console" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.32956153" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -685,7 +894,29 @@
 >>>>>>> remotes/origin/csv-feature
     </layout-to-restore>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/LTSpice_feature/test/test.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/LTSpice_feature/view/file_select_dialog.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/LTSpice_feature/view/file_select_dialog.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-116346528/PyQt5/QtWidgets/QLabel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -836,6 +1067,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> remotes/origin/LTSpice-feature
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -852,6 +1085,7 @@
     <entry file="file://$PROJECT_DIR$/plot_tool/view/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/plot_tool/user/session.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -863,6 +1097,9 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/model/function_model.py">
+=======
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/signal_dialog.py">
+>>>>>>> remotes/origin/LTSpice-feature
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
@@ -902,6 +1139,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/axes/_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -913,6 +1151,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="239" selection-start-line="239" selection-end-line="239" />
+=======
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/axes/_base.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/colors.py" />
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/about_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#47#113#0" expanded="true" />
+          </folding>
+>>>>>>> remotes/origin/LTSpice-feature
         </state>
       </provider>
     </entry>
@@ -923,10 +1172,21 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/figure.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="937" column="8" selection-start-line="937" selection-start-column="8" selection-end-line="937" selection-end-column="8" />
+=======
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/figure.py" />
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/axe_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#47#100#0" expanded="true" />
+          </folding>
+>>>>>>> remotes/origin/LTSpice-feature
         </state>
       </provider>
     </entry>
@@ -937,6 +1197,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/json/encoder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -1014,6 +1275,9 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/json/encoder.py" />
+>>>>>>> remotes/origin/LTSpice-feature
     <entry file="file://$PROJECT_DIR$/plot_tool/data/function.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1033,6 +1297,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/plot_tool/data/magnitudes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -1046,6 +1311,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../SeguimientoCamiones/analysis.py">
+=======
+    <entry file="file://$PROJECT_DIR$/plot_tool/data/values.py">
+>>>>>>> remotes/origin/LTSpice-feature
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
@@ -1055,6 +1323,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/utilities/data_readers/csvTest.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1106,6 +1375,10 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/utilities/data_readers2/view/csvDialog.py">
+=======
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/enum.py" />
+    <entry file="file://$PROJECT_DIR$/plot_tool/user/session.py">
+>>>>>>> remotes/origin/LTSpice-feature
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="105" />
@@ -1175,6 +1448,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/plot_tool/data/values.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-493">
@@ -1183,6 +1457,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_tool/model/plotter_model.py">
+=======
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-116346528/PyQt5/QtWidgets/QWidget.py" />
+    <entry file="file://$PROJECT_DIR$/plot_tool/designer/plotter_visor/plotter_visor_ui.py">
+>>>>>>> remotes/origin/LTSpice-feature
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1419">
           <caret line="132" selection-start-line="132" selection-end-line="132" />
@@ -1304,26 +1582,52 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/utilities/data_readers2/view/spreadsheetDialog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-46">
           <caret line="69" column="43" lean-forward="true" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+=======
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/codecs.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/matplotlib/backends/backend_qt5.py" />
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2193">
+          <caret line="158" column="36" selection-start-line="158" selection-start-column="36" selection-end-line="158" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/plotter_figure_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+>>>>>>> remotes/origin/LTSpice-feature
           <folding>
             <element signature="e#73#125#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/utilities/data_readers2/Drafts/copyy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="611">
           <caret line="65" column="6" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/plot_tool/view/transfer_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="242" column="36" selection-start-line="242" selection-start-column="36" selection-end-line="242" selection-end-column="36" />
+          <folding>
+            <element signature="e#24#46#0" expanded="true" />
+>>>>>>> remotes/origin/LTSpice-feature
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/utilities/data_readers2/fileTester.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -1351,16 +1655,160 @@
           <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="e#47#100#0" expanded="true" />
+=======
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1708702912/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1310">
+          <caret line="731" column="6" selection-start-line="731" selection-start-column="6" selection-end-line="731" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LTSpice_feature/designer/file_select_dialog/FileSelectWindow_ui.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LTSpice_feature/view/pruboncia.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+>>>>>>> remotes/origin/LTSpice-feature
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/plot_tool/view/function_line_view.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="e#47#82#0" expanded="true" />
+=======
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/_bootlocale.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/model/function_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#24#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LTSpice_feature/view/browserDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LTSpice_feature/test/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LTSpice_feature/reader/ltspice_time_graph_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1708702912/PyQt5/QtWidgets/QWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="181" column="8" selection-start-line="181" selection-start-column="8" selection-end-line="181" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="324" selection-start-line="324" selection-end-line="324" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1708702912/PyQt5/QtGui/QStandardItemModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="112" column="58" selection-start-line="112" selection-start-column="58" selection-end-line="112" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1708702912/PyQt5/QtWidgets/QListWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="150" column="8" selection-start-line="150" selection-start-column="8" selection-end-line="150" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LTSpice_feature/reader/ltpice_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PyQt5/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LTSpice_feature/reader/ltspice_bode_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="118" column="11" lean-forward="true" selection-start-line="118" selection-start-column="11" selection-end-line="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LTSpice_feature/reader/ltspice_reader_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-35">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#4#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_tool/data/magnitudes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/-1708702912/PyQt5/QtWidgets/QErrorMessage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LTSpice_feature/view/file_select_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-902">
+          <caret selection-end-line="1" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+>>>>>>> remotes/origin/LTSpice-feature
           </folding>
         </state>
       </provider>
