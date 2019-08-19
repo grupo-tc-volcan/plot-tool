@@ -1,2 +1,7 @@
 # plot-tool
 Plotting tool
+
+Check if you have all the dependencies required in requirements.txt, if not install them using
+the pip install command in the console. After that you are ready to go.
+
+Execute the program by running the "/main.py"
