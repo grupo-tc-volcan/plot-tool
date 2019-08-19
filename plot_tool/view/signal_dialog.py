@@ -59,6 +59,8 @@ class SignalDialog(GraphFunctionDialog, Ui_Dialog):
         self.toInput.valueChanged.connect(self.onChanges)
 
     def onChanges(self):
+        """ Whenever a change is done in the SignalDialog, we have to check if everything needed has been set up
+        and enable the Ok button. """
         if len(self.nameInput.text()):
             if self.fromInput.value() < self.toInput.value():
                 if self.xMagnitudeInput.currentText() != self.yMagnitudeInput.currentText():
@@ -83,6 +85,8 @@ class SignalDialog(GraphFunctionDialog, Ui_Dialog):
         self.buttonBox.setEnabled(False)
 
     def getGraphFunction(self) -> list:
+        """ When the SignalDialog has ended with an accepted() signal from the user,
+        the result will be received through this method. """
         graphFunctions = []
 
         times = arange(self.fromInput.value(),

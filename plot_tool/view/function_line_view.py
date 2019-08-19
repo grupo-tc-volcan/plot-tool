@@ -47,5 +47,4 @@ class GraphFunctionLineView(Line2D, View):
         self.set_visible(self.model.isVisible)
         self.set_color(self.convertColor(self.model.color))
         self.set_label(self.model.name)
-
         self.canvas.draw_idle()

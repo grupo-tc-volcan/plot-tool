@@ -78,7 +78,6 @@ class GraphAxesView(Axes, View):
 
         # Coloring...
         self.set_facecolor(self.convertColor(self.model.faceColor))
-
         self.canvas.draw_idle()
 
     @staticmethod

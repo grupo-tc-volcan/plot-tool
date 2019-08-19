@@ -112,6 +112,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
             self.yMagnitude.addItems([GraphMagnitude.Voltage.value, GraphMagnitude.Current.value])
 
     def getGraphFunction(self) -> list:
+        """ Result of the TransferDialog is returned. """
         graphFunctions = []
 
         if self.type.currentText() == "Frequency Response":
