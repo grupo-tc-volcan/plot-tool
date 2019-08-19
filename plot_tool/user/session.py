@@ -19,9 +19,13 @@ class Session(object):
         self.plotter_models = []
 
     def getPlotterModel(self, plotter_data: GraphPlotter):
+        """ Returns the instance of a GraphPlotterModel containing
+        the given GraphPlotter data.
+        """
         for plotter_model in self.plotter_models:
             if plotter_model.plotter == plotter_data:
                 return plotter_model
 
     def addPlotterModel(self, plotter_model: GraphPlotterModel):
+        """ Adds a new GraphPlotterModel to the user session. """
         self.plotter_models.append(plotter_model)
