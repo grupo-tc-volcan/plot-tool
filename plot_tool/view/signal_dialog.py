@@ -28,6 +28,7 @@ class SignalDialog(GraphFunctionDialog, Ui_Dialog):
     def __init__(self, *args, **kwargs):
         super(SignalDialog, self).__init__(*args, **kwargs)
         self.setupUi(self)
+        self.setWindowTitle("Adding a Signal")
 
         self.xMagnitudeInput.addItems([magnitude.value for magnitude in GraphMagnitude])
         self.yMagnitudeInput.addItems([magnitude.value for magnitude in GraphMagnitude])

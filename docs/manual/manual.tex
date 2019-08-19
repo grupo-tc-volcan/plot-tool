@@ -8,6 +8,18 @@
 
 \begin{document}
 
+\title{ \textbf{PlotTool: Gu\'ia de usuario} }
+\author{
+Farall, Facundo \\
+Gaytan, Joaquin \\
+Kammann, Lucas \\
+Maselli, Carlos \\
+Muller, Malena
+}
+\date{\today}
+
+\maketitle
+
 \section{Introducci\'on}
 El presente es un mini manual o gu\'ia de uso de la herramienta PlotTool desarrollada como consigna para el trabajo
 pr\'actico de Teor\'ia de los Circuitos del Instituto Tecnol\'ogico de Buenos Aires. El principal objetivo de tal aplicaci\'on es permitir al usuario superponer gr\'aficos provenientes de diferentes fuentes, sea excel, ltspice, entre otras cosas.
@@ -111,6 +123,71 @@ El visor de propiedades es una parte elemental del programa pues permite modific
 \begin{center}
 	\includegraphics[scale=0.5]{resources/visor_style.png}
 	\caption{Style settings}
+\end{center}
+\end{figure}
+
+\subsection{Add: Signals}
+En un Graph se pueden agregar se\~nales con la respectiva funcionalidad,
+seleccionando la opci\'on. En la ventana se pueden observar tres secciones, donde cada una de ellas
+configura:
+\begin{enumerate}
+	\item Propiedades del GraphFunction. Nombre, y magnitudes de los valores de la misma.
+	\item Intervalo de evaluaci\'on. Indica en qu\'e rango de valores debe ser evaluada la funci\'on al momento de generar los puntos.
+	\item Par\'ametros de la funci\'on. Se describe la funci\'on matem\'atica de la cual se extraen los puntos.
+\end{enumerate}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[scale=0.8]{resources/signal_dialog.png}
+	\caption{Agregando nuevas señales}
+\end{center}
+\end{figure}
+
+\subsection{Add: Transfer Function}
+En un Graph se pueden obtener diferentes entradas que resulten de trabajar con funciones transferencia que describen a un sistema dado, para lo cual se puede usar esta funcionalidad en la cual la ventana se compone de:
+\begin{enumerate}
+	\item Preview. Visualizaci\'on previa de la funci\'on transferencia ingresada.
+	\item Entrada de la funci\'on transferencia, ya sea mediante el cociente de polinomios o polos y ceros.
+	\item Salida generada, se indica qu\'e salida debe generarse de la funci\'on de transferencia.
+	\item Propiedades del GraphFunction.
+	\item Mensajes de error.
+\end{enumerate}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[scale=0.8]{resources/transfer_dialog.png}
+	\caption{Agregando nuevas se\~nales}
+\end{center}
+\end{figure}
+
+\subsection{Add: from LTSpice}
+El boto\'on de LTSpice permite agregar archivos para leer tanto se\~nales en el tiempo como respuestas en frecuencia,
+ya sea de forma normal o usando montecarlo, se compone de la siguiente manera:
+\begin{enumerate}
+	\item Carga del archivo. Ingrese el archivo de la simulaci\'on a cargar.
+	\item Panel con los objetos a cargar. Permite agregarlos y quitarlos.
+	\item Selecci\'on de las magnitudes y configuraci\'on del GraphFunctions.
+\end{enumerate}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[scale=0.8]{resources/ltspice.png}
+	\caption{Agregando nuevas se\~nales}
+\end{center}
+\end{figure}
+
+\subsection{Add: from Excel}
+Esta funcionalidad permite cargar de un Excel los datos, y se compone la ventana:
+\begin{enumerate}
+	\item Visualiza aquellos campos de datos ingresados.
+	\item Selecciona las columnas para completar los datos del GraphFunctions.
+	\item Par\'ametros del GraphFunctions.
+\end{enumerate}
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[scale=0.8]{resources/excel.png}
+	\caption{Agregando nuevas se\~nales}
 \end{center}
 \end{figure}
 

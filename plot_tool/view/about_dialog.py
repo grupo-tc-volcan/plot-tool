@@ -14,3 +14,4 @@ class AboutDialog(QDialog, Ui_Dialog):
     def __init__(self, *args, **kwargs):
         super(AboutDialog, self).__init__(*args, **kwargs)
         self.setupUi(self)
+        self.setWindowTitle("About us")

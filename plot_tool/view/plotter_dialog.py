@@ -16,6 +16,7 @@ class PlotterDialog(QDialog, Ui_Dialog):
     def __init__(self, *args, **kwargs):
         super(PlotterDialog, self).__init__(*args, **kwargs)
         self.setupUi(self)
+        self.setWindowTitle("New Plotter")
 
         # Setting up the view
         self.xMagnitude.addItems([magnitude.value for magnitude in GraphMagnitude])

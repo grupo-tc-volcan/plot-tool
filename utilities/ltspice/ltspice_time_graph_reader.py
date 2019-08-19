@@ -1,5 +1,5 @@
 "LTSpice_reader modules"
-from LTSpice_feature.reader.ltpice_reader import LTSpiceReader
+from utilities.ltspice.ltpice_reader import LTSpiceReader
 
 
 class LTSpiceTimeGraphReader(LTSpiceReader):

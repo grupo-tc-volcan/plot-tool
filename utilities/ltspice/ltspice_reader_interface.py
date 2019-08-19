@@ -1,7 +1,6 @@
-from LTSpice_feature.reader.ltpice_reader import LTSpiceReader
-from LTSpice_feature.reader.ltspice_bode_reader import LTSpiceBodeReader
-from LTSpice_feature.reader.ltspice_time_graph_reader import LTSpiceTimeGraphReader
-from plot_tool.data.function import GraphFunction
+from utilities.ltspice.ltpice_reader import LTSpiceReader
+from utilities.ltspice.ltspice_bode_reader import LTSpiceBodeReader
+from utilities.ltspice.ltspice_time_graph_reader import LTSpiceTimeGraphReader
 from plot_tool.data.magnitudes import GraphMagnitude
 from plot_tool.data.function import GraphFunction
 from plot_tool.data.values import GraphValues
@@ -9,13 +8,14 @@ from plot_tool.data.magnitudes import get_magnitude_from_string
 
 
 class LTSpiceReaderInterface:
-    reader = None  # used as a class to read the desired LTSpice file
-    isBode = False
-    data = dict()
-    labels = dict()
-    graphFunctionList = list()
 
     def __init__(self, filepath, isMc):
+        self.reader = None  # used as a class to read the desired LTSpice file
+        self.isBode = False
+        self.data = dict()
+        self.labels = dict()
+        self.graphFunctionList = list()
+
         self.reader = LTSpiceReader(filepath)
         if self.reader.isBode():
             self.reader = LTSpiceBodeReader(filepath, isMc)
@@ -46,7 +46,7 @@ class LTSpiceReaderInterface:
     def add_function_to_list(self, name: str):
         name = name.replace(' ','',1)
         splitted = name.split(',')
-        for step in range(1, int(self.reader.get_mc_steps())):
+        for step in range(1, int(self.reader.get_mc_steps()) + 1):
 
             self.graphFunctionList.append(GraphFunction(splitted[0] + '_' + str(step),
                                                         GraphValues(self.get_x_axis_values(),

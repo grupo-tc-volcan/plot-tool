@@ -39,6 +39,11 @@ class GraphValues(object):
         # Constructor validation
         if type(x_values) is not list or type(y_values) is not list:
             raise InvalidConstructorValues
+        if len(x_values) < len(y_values):
+            y_values = y_values[0:len(x_values)]
+        elif len(x_values) > len(y_values):
+            x_values = x_values[0:len(y_values)]
+
         if len(x_values) != len(y_values):
             raise ValuesLengthDoesNotMatch
 

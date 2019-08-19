@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'FileSelectDialog.ui'
+# Form implementation generated from reading ui file 'ltspice_dialog_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -14,14 +14,6 @@ class Ui_Dialog(object):
         Dialog.resize(606, 484)
         self.gridLayout = QtWidgets.QGridLayout(Dialog)
         self.gridLayout.setObjectName("gridLayout")
-        self.mcCheckBox = QtWidgets.QCheckBox(Dialog)
-        self.mcCheckBox.setObjectName("mcCheckBox")
-        self.gridLayout.addWidget(self.mcCheckBox, 3, 0, 1, 1)
-        self.line = QtWidgets.QFrame(Dialog)
-        self.line.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line.setObjectName("line")
-        self.gridLayout.addWidget(self.line, 1, 0, 1, 1)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.horizontalLayout.setObjectName("horizontalLayout")
@@ -79,10 +71,12 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.addWidget(self.deleteButton)
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
         self.horizontalLayout.addLayout(self.verticalLayout_2)
-        self.gridLayout.addLayout(self.horizontalLayout, 5, 0, 1, 1)
-        self.loadFilePB = QtWidgets.QPushButton(Dialog)
-        self.loadFilePB.setObjectName("loadFilePB")
-        self.gridLayout.addWidget(self.loadFilePB, 4, 0, 1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout, 8, 0, 1, 1)
+        self.okButton = QtWidgets.QDialogButtonBox(Dialog)
+        self.okButton.setOrientation(QtCore.Qt.Horizontal)
+        self.okButton.setStandardButtons(QtWidgets.QDialogButtonBox.Ok)
+        self.okButton.setObjectName("okButton")
+        self.gridLayout.addWidget(self.okButton, 9, 0, 1, 1)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.filepathLabel = QtWidgets.QLabel(Dialog)
@@ -108,11 +102,17 @@ class Ui_Dialog(object):
         self.browseButton.setObjectName("browseButton")
         self.horizontalLayout_3.addWidget(self.browseButton)
         self.gridLayout.addLayout(self.horizontalLayout_3, 2, 0, 1, 1)
-        self.okButton = QtWidgets.QDialogButtonBox(Dialog)
-        self.okButton.setOrientation(QtCore.Qt.Horizontal)
-        self.okButton.setStandardButtons(QtWidgets.QDialogButtonBox.Ok)
-        self.okButton.setObjectName("okButton")
-        self.gridLayout.addWidget(self.okButton, 6, 0, 1, 1)
+        self.loadFilePB = QtWidgets.QPushButton(Dialog)
+        self.loadFilePB.setObjectName("loadFilePB")
+        self.gridLayout.addWidget(self.loadFilePB, 6, 0, 1, 1)
+        self.mcCheckBox = QtWidgets.QCheckBox(Dialog)
+        self.mcCheckBox.setObjectName("mcCheckBox")
+        self.gridLayout.addWidget(self.mcCheckBox, 4, 0, 1, 1)
+        self.line = QtWidgets.QFrame(Dialog)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.gridLayout.addWidget(self.line, 7, 0, 1, 1)
 
         self.retranslateUi(Dialog)
         self.okButton.accepted.connect(Dialog.accept)
@@ -122,7 +122,6 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "LTSpice File Reader"))
-        self.mcCheckBox.setText(_translate("Dialog", "Montecarlo"))
         self.dataSelectionGB.setTitle(_translate("Dialog", "Data Selection"))
         self.y.setText(_translate("Dialog", "Y-axis"))
         self.amplitudeCB.setText(_translate("Dialog", "Amplitude"))
@@ -131,9 +130,10 @@ class Ui_Dialog(object):
         self.yMagLabel.setText(_translate("Dialog", "Y Magnitude"))
         self.addButton.setText(_translate("Dialog", "Add"))
         self.deleteButton.setText(_translate("Dialog", "Delete"))
-        self.loadFilePB.setText(_translate("Dialog", "Load File"))
         self.filepathLabel.setText(_translate("Dialog", "Filepath"))
         self.browseButton.setText(_translate("Dialog", "..."))
+        self.loadFilePB.setText(_translate("Dialog", "Load File"))
+        self.mcCheckBox.setText(_translate("Dialog", "Montecarlo"))
 
 
 if __name__ == "__main__":

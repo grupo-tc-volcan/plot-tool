@@ -1,29 +1,28 @@
-from PyQt5.QtWidgets import QApplication
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QWidgetItem
+# python native modules
 
-from LTSpice_feature.designer.file_select_dialog.FileSelectDialog_ui import Ui_Dialog
-from LTSpice_feature.view.browserDialog import App
-from LTSpice_feature.reader.ltspice_reader_interface import LTSpiceReaderInterface
+# third-party modules
+from PyQt5 import QtCore
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QFileDialog
 
-# Luqui's stuff
-from plot_tool.data.magnitudes import get_magnitude_from_string
+# plot-tool modules
 from plot_tool.data.magnitudes import GraphMagnitude
-from plot_tool.data.function import GraphFunction
-from plot_tool.data.values import GraphValues
 from plot_tool.view.base.graph_dialog_view import GraphFunctionDialog
+from plot_tool.designer.ltspice_dialog.ltspice_dialog_ui import Ui_Dialog
+
+from utilities.ltspice.ltspice_reader_interface import LTSpiceReaderInterface
 
 
-class FileSelectDialog(GraphFunctionDialog, Ui_Dialog):
+# noinspection PyBroadException
+class LTSpiceDialog(GraphFunctionDialog, Ui_Dialog):
 
-    fileBrowser = App
     isMc = False
     ltSpiceReader = None
     data = dict()
     previousFilePath = ''
 
     def __init__(self, *args, **kwargs):
-        super(FileSelectDialog, self).__init__(*args, **kwargs)
+        super(LTSpiceDialog, self).__init__(*args, **kwargs)
         self.setupUi(self)
 
         self.okButton.setEnabled(False)
@@ -52,7 +51,7 @@ class FileSelectDialog(GraphFunctionDialog, Ui_Dialog):
         self.deleteButton.released.connect(self.deleteVar)
 
     def browseButtonClicked(self):
-        filePath = self.fileBrowser.openFileNameDialog(self)
+        filePath, _ = QFileDialog.getOpenFileName()
         if filePath is not None:
             self.filepathPTE.clear()
             self.filepathPTE.insert(filePath)
@@ -64,7 +63,9 @@ class FileSelectDialog(GraphFunctionDialog, Ui_Dialog):
                 self.ltSpiceReader = LTSpiceReaderInterface(self.filepathPTE.text(), self.isMc)
                 self.data = self.ltSpiceReader.get_y_axis_labels()
             except:
-                QtWidgets.QMessageBox.critical(self, 'Fatal Error', 'There was an error while reading '
+                QtWidgets.QMessageBox.critical(self,
+                                               'Fatal Error',
+                                               'There was an error while reading '
                                                + self.filepathPTE.text()
                                                + ' please check if the path and file '
                                                  'formatting are correct and try again')
@@ -135,12 +136,12 @@ class FileSelectDialog(GraphFunctionDialog, Ui_Dialog):
             self.deleteButton.setDisabled(True)
 
     def getGraphFunction(self) -> list:
-        return self.ltSpiceReader.get_functions()
+        return self.ltSpiceReader.get_graph_functions()
+
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication([])
-    dialog = FileSelectDialog()
+    dialog = LTSpiceDialog()
     dialog.show()
     sys.exit(app.exec())
-

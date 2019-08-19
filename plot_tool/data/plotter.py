@@ -12,6 +12,7 @@ class GraphPlotter(object):
     """ This is a container of GraphFunction objects which represents
     the same space where they are being drawn.
     """
+    max_graphs = 20
 
     def __init__(self,
                  x_magnitude: GraphMagnitude,
@@ -30,6 +31,9 @@ class GraphPlotter(object):
         :param graph: GraphFunction being added to the plotter.
         :return: Boolean value true or false.
         """
+        if len(self.graphs) >= self.max_graphs:
+            return False
+
         if graph.x_magnitude == self.x_magnitude:
             if graph not in self.graphs:
                 if graph.y_magnitude not in self.y_magnitudes and len(self.y_magnitudes) >= 2:

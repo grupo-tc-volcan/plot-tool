@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.29)  19 AUG 2019 13:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.29)  19 AUG 2019 15:15
 entering extended mode
 **./manual.tex
 (manual.tex
@@ -220,67 +220,96 @@ G,.JBIG2,.JB2,.eps]
 
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 21.
 <resources/initial_window.png, id=1, 1028.34187pt x 548.0475pt>
 File: resources/initial_window.png Graphic file (type png)
 <use resources/initial_window.png>
-Package pdftex.def Info: resources/initial_window.png  used on input line 48.
+Package pdftex.def Info: resources/initial_window.png  used on input line 60.
 (pdftex.def)             Requested size: 514.16968pt x 274.02307pt.
 [1
 
 {C:/Users/Lucas/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<resources/menu_add.png, id=9, 149.05687pt x 114.4275pt>
+<resources/menu_add.png, id=10, 149.05687pt x 114.4275pt>
 File: resources/menu_add.png Graphic file (type png)
 <use resources/menu_add.png>
-Package pdftex.def Info: resources/menu_add.png  used on input line 66.
+Package pdftex.def Info: resources/menu_add.png  used on input line 78.
 (pdftex.def)             Requested size: 119.24565pt x 91.54211pt.
-<resources/menu_export.png, id=10, 152.82094pt x 57.21375pt>
+<resources/menu_export.png, id=11, 152.82094pt x 57.21375pt>
 File: resources/menu_export.png Graphic file (type png)
 <use resources/menu_export.png>
-Package pdftex.def Info: resources/menu_export.png  used on input line 77.
+Package pdftex.def Info: resources/menu_export.png  used on input line 89.
 (pdftex.def)             Requested size: 122.2569pt x 45.77104pt.
  [2 <./resources/initial_window.png> <./resources/menu_add.png>]
-<resources/example_create_plotter.png, id=16, 1028.34187pt x 548.0475pt>
+<resources/example_create_plotter.png, id=17, 1028.34187pt x 548.0475pt>
 File: resources/example_create_plotter.png Graphic file (type png)
 <use resources/example_create_plotter.png>
 Package pdftex.def Info: resources/example_create_plotter.png  used on input li
-ne 88.
+ne 100.
 (pdftex.def)             Requested size: 514.16968pt x 274.02307pt.
-<resources/visor_general.png, id=17, 1028.34187pt x 548.0475pt>
+<resources/visor_general.png, id=18, 1028.34187pt x 548.0475pt>
 File: resources/visor_general.png Graphic file (type png)
 <use resources/visor_general.png>
-Package pdftex.def Info: resources/visor_general.png  used on input line 98.
+Package pdftex.def Info: resources/visor_general.png  used on input line 110.
 (pdftex.def)             Requested size: 514.16968pt x 274.02307pt.
  [3 <./resources/menu_export.png> <./resources/example_create_plotter.png>]
-<resources/visor_axes.png, id=22, 1028.34187pt x 548.0475pt>
+<resources/visor_axes.png, id=23, 1028.34187pt x 548.0475pt>
 File: resources/visor_axes.png Graphic file (type png)
 <use resources/visor_axes.png>
-Package pdftex.def Info: resources/visor_axes.png  used on input line 105.
+Package pdftex.def Info: resources/visor_axes.png  used on input line 117.
 (pdftex.def)             Requested size: 514.16968pt x 274.02307pt.
-<resources/visor_style.png, id=23, 1028.34187pt x 548.0475pt>
+<resources/visor_style.png, id=24, 1028.34187pt x 548.0475pt>
 File: resources/visor_style.png Graphic file (type png)
 <use resources/visor_style.png>
-Package pdftex.def Info: resources/visor_style.png  used on input line 112.
+Package pdftex.def Info: resources/visor_style.png  used on input line 124.
 (pdftex.def)             Requested size: 514.16968pt x 274.02307pt.
- [4 <./resources/visor_general.png> <./resources/visor_axes.png>] [5 <./resourc
-es/visor_style.png>]
-(manual.aux
+ [4 <./resources/visor_general.png> <./resources/visor_axes.png>]
+<resources/signal_dialog.png, id=30, 214.55156pt x 293.59688pt>
+File: resources/signal_dialog.png Graphic file (type png)
+<use resources/signal_dialog.png>
+Package pdftex.def Info: resources/signal_dialog.png  used on input line 141.
+(pdftex.def)             Requested size: 171.64146pt x 234.8778pt.
+ [5 <./resources/visor_style.png> <./resources/signal_dialog.png>]
+<resources/transfer_dialog.png, id=36, 434.37282pt x 287.57437pt>
+File: resources/transfer_dialog.png Graphic file (type png)
+<use resources/transfer_dialog.png>
+Package pdftex.def Info: resources/transfer_dialog.png  used on input line 158.
+
+(pdftex.def)             Requested size: 347.49872pt x 230.0598pt.
+<resources/ltspice.png, id=37, 457.71pt x 388.45125pt>
+File: resources/ltspice.png Graphic file (type png)
+<use resources/ltspice.png>
+Package pdftex.def Info: resources/ltspice.png  used on input line 174.
+(pdftex.def)             Requested size: 366.1685pt x 310.76141pt.
+ [6 <./resources/transfer_dialog.png>]
+<resources/excel.png, id=42, 506.6428pt x 230.36063pt>
+File: resources/excel.png Graphic file (type png)
+<use resources/excel.png>
+Package pdftex.def Info: resources/excel.png  used on input line 189.
+(pdftex.def)             Requested size: 405.31479pt x 184.28873pt.
+ [7 <./resources/ltspice.png> <./resources/excel.png>] (manual.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 2927 strings out of 492945
- 41460 string characters out of 3135513
+ 2971 strings out of 492945
+ 42254 string characters out of 3135513
  123645 words of memory out of 3000000
- 6798 multiletter control sequences out of 15000+200000
- 5158 words of font info for 19 fonts, out of 3000000 for 9000
+ 6830 multiletter control sequences out of 15000+200000
+ 8202 words of font info for 29 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,6n,32p,547b,359s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on manual.pdf (5 pages, 177196 bytes).
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on manual.pdf (7 pages, 218069 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

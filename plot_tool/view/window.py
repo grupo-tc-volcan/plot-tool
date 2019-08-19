@@ -27,6 +27,7 @@ from plot_tool.view.plotter_figure_view import GraphPlotterFigureView
 from plot_tool.user.session import Session
 
 from plot_tool.view.spreadsheet_dialog import spreadsheet_sv
+from plot_tool.view.ltspice_dialog import LTSpiceDialog
 
 
 # noinspection PyPep8Naming
@@ -233,23 +234,23 @@ class Window(QMainWindow, Ui_MainWindow):
                                         "Cannot add new graph. Name already used or invalid x magnitude")
 
     def onFromLTSpiceAction(self):
-        if not self.verifySelection():
-            return
-
-        # Code here please!
+        if self.verifySelection():
+            self.loadFunctionsFromDialog(LTSpiceDialog())
 
     def onTransferAction(self):
-        if not self.verifySelection():
-            return
+        if self.verifySelection():
+            self.loadFunctionsFromDialog(TransferDialog())
 
-        transferDialog = TransferDialog()
-        if transferDialog.exec():
-            graphFunctions = transferDialog.getGraphFunction()
+    def loadFunctionsFromDialog(self, dialog):
+        if dialog.exec():
+            graphFunctions = dialog.getGraphFunction()
             for graphFunction in graphFunctions:
                 if not self.session.plotter_models[self.plotterList.currentIndex().row()].addGraph(graphFunction):
                     QMessageBox.warning(self,
                                         "Error message",
-                                        "Cannot add new graph. Name already used or invalid x magnitude")
+                                        "Cannot add new graph. " +
+                                        "Name already used, invalid x magnitude or maximum graphs exceeded (20)")
+                    break
 
     def onSignalsAction(self):
         if not self.verifySelection():

@@ -14,21 +14,7 @@
    <string>LTSpice File Reader</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="3" column="0">
-    <widget class="QCheckBox" name="mcCheckBox">
-     <property name="text">
-      <string>Montecarlo</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0">
+   <item row="8" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <property name="sizeConstraint">
       <enum>QLayout::SetDefaultConstraint</enum>
@@ -145,10 +131,13 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="0">
-    <widget class="QPushButton" name="loadFilePB">
-     <property name="text">
-      <string>Load File</string>
+   <item row="9" column="0">
+    <widget class="QDialogButtonBox" name="okButton">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -199,12 +188,23 @@
     </layout>
    </item>
    <item row="6" column="0">
-    <widget class="QDialogButtonBox" name="okButton">
+    <widget class="QPushButton" name="loadFilePB">
+     <property name="text">
+      <string>Load File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QCheckBox" name="mcCheckBox">
+     <property name="text">
+      <string>Montecarlo</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>

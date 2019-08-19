@@ -2,13 +2,13 @@ class LTSpiceReader:
     """
     Base class for bode reader and time based reader
     """
-    data = dict()
-    opened_file = ''
-    mc_step_counter = 1
-    total_steps = 0
-    y_axis_var_count = 0
 
     def __init__(self, filename):
+        self.data = dict()
+        self.opened_file = ''
+        self.mc_step_counter = 1
+        self.total_steps = 1
+        self.y_axis_var_count = 0
         file = open(filename, 'r')
         self. opened_file = file.readlines()
 

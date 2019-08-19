@@ -47,6 +47,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
     def __init__(self, *args, **kwargs):
         super(TransferDialog, self).__init__(*args, **kwargs)
         self.setupUi(self)
+        self.setWindowTitle("Adding a Transfer Function output")
 
         # Data
         self.transferFunction = None
@@ -241,7 +242,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                     self.figureSvg.text(
                         0.5, 0.5,
                         r'${}$'.format(latex),
-                        fontsize=14,
+                        fontsize=12,
                         horizontalalignment='center',
                         verticalalignment='center'
                     )
@@ -263,7 +264,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                     self.figureSvg.text(
                         0.5, 0.5,
                         r'${}$'.format(latex),
-                        fontsize=14,
+                        fontsize=12,
                         horizontalalignment='center',
                         verticalalignment='center'
                     )
