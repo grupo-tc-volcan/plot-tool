@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QWidgetItem
 
 from LTSpice_feature.designer.file_select_dialog.FileSelectDialog_ui import Ui_Dialog
 from LTSpice_feature.view.browserDialog import App
@@ -105,16 +106,21 @@ class FileSelectDialog(GraphFunctionDialog, Ui_Dialog):
             if not self.functionList.findItems(self.yAxis.currentText() + ', ' + self.yMagnitude.currentText()
                                                , QtCore.Qt.MatchExactly):
                 self.functionList.addItem(self.yAxis.currentText() + ', ' + self.yMagnitude.currentText())
+                self.ltSpiceReader.add_function_to_list(self.yAxis.currentText() + ', ' + self.yMagnitude.currentText())
         else:
 
             if self.amplitudeCB.isChecked():
                 if not self.functionList.findItems(self.yAxis.currentText() + ', ' + GraphMagnitude.Decibel.value
                                                    , QtCore.Qt.MatchExactly):
                     self.functionList.addItem(self.yAxis.currentText() + ', ' + GraphMagnitude.Decibel.value)
+                    self.ltSpiceReader.add_function_to_list(self.yAxis.currentText() +
+                                                            ', ' + GraphMagnitude.Decibel.value)
             if self.phaseCB.isChecked():
                 if not self.functionList.findItems(self.yAxis.currentText() + ', ' + GraphMagnitude.Phase.value
                                                    , QtCore.Qt.MatchExactly):
                     self.functionList.addItem(self.yAxis.currentText() + ', ' + GraphMagnitude.Phase.value)
+                    self.ltSpiceReader.add_function_to_list(self.yAxis.currentText() +
+                                                            ', ' + GraphMagnitude.Decibel.value)
 
         if not self. okButton.isEnabled():
             self.okButton.setEnabled(True)
@@ -122,11 +128,14 @@ class FileSelectDialog(GraphFunctionDialog, Ui_Dialog):
             self.deleteButton.setEnabled(True)
 
     def deleteVar(self):
-        self.functionList.takeItem(self.functionList.currentRow())
+        item = self.functionList.takeItem(self.functionList.currentRow())
+        self.ltSpiceReader.remove_function_from_list(item.text())
         if self.okButton.isEnabled() and not self.functionList.count():
             self.okButton.setDisabled(True)
             self.deleteButton.setDisabled(True)
 
+    def getGraphFunction(self) -> list:
+        return self.ltSpiceReader.get_functions()
 
 if __name__ == "__main__":
     import sys
