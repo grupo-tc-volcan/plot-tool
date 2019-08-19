@@ -13,8 +13,9 @@ Execute the program by running the main.py program.
 * python main.py
 
 ## Authors
-Farall, Facundo David
-Gaytan, Joaquín
-Kammann, Lucas Agustín
-Maselli, Carlos
-Muller, Malena
+Farall, Facundo David  
+Gaytan, Joaquín  
+Kammann, Lucas Agustín  
+Maselli, Carlos  
+Muller, Malena  
+ 
