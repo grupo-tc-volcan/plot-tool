@@ -9,7 +9,6 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtWidgets import QFileDialog
 
-from PyQt5.QtGui import QColor
 
 # plot-tool modules
 from plot_tool.designer.window.window_ui import Ui_MainWindow
@@ -21,16 +20,16 @@ from plot_tool.view.about_dialog import AboutDialog
 
 from plot_tool.data.magnitudes import get_magnitude_from_string
 
-from plot_tool.data.magnitudes import GraphMagnitude
-from plot_tool.data.function import GraphFunction
-from plot_tool.data.values import GraphValues
 from plot_tool.data.plotter import GraphPlotter
 from plot_tool.model.plotter_model import GraphPlotterModel
 from plot_tool.view.plotter_figure_view import GraphPlotterFigureView
 
 from plot_tool.user.session import Session
 
+from plot_tool.view.spreadsheet_dialog import spreadsheet_sv
 
+
+# noinspection PyPep8Naming
 class Window(QMainWindow, Ui_MainWindow):
     """ Application Window """
 
@@ -225,7 +224,13 @@ class Window(QMainWindow, Ui_MainWindow):
         if not self.verifySelection():
             return
 
-        # Code here please!
+        functions = spreadsheet_sv()
+        if functions is not None:
+            for function in functions:
+                if not self.session.plotter_models[self.plotterList.currentIndex().row()].addGraph(function):
+                    QMessageBox.warning(self,
+                                        "Error message",
+                                        "Cannot add new graph. Name already used or invalid x magnitude")
 
     def onFromLTSpiceAction(self):
         if not self.verifySelection():
