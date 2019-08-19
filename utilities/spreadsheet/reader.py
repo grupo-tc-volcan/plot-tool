@@ -37,7 +37,12 @@ class DataReader(object):
                 if ((type(j) is not float) and (type(j) is not int)):
                     if i in self.data_names:
                         self.data_names.remove(i)
-        return (self.data_names)
+
+        self.str_data_names = list()
+        for i in self.data_names:
+             self.str_data_names.append(str(i))
+
+        return (self.str_data_names)
 
     def import_file_data(self, x_col_name, y_col_name):
         '''
