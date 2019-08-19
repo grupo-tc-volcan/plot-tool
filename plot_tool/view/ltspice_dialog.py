@@ -121,7 +121,7 @@ class LTSpiceDialog(GraphFunctionDialog, Ui_Dialog):
                                                    , QtCore.Qt.MatchExactly):
                     self.functionList.addItem(self.yAxis.currentText() + ', ' + GraphMagnitude.Phase.value)
                     self.ltSpiceReader.add_function_to_list(self.yAxis.currentText() +
-                                                            ', ' + GraphMagnitude.Decibel.value)
+                                                            ', ' + GraphMagnitude.Phase.value)
 
         if not self. okButton.isEnabled():
             self.okButton.setEnabled(True)
