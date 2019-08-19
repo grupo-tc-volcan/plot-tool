@@ -20,7 +20,8 @@ def spreadsheet_sv():
     """ Calling the spreadsheet service """
 
     # Selecting the file
-    file_name, _ = QFileDialog.getOpenFileName()
+    file_name, _ = QFileDialog.getOpenFileName(None,"Choose File", "",
+                                                  "File Format (*.xlsx *.xls *.csv)")
     if file_name:
         # Reading the .csv
         my_file = DataReader(file_name)
