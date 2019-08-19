@@ -8,6 +8,10 @@ from plot_tool.data.magnitudes import get_magnitude_from_string
 
 
 class LTSpiceReaderInterface:
+    """
+    This class is and interface between the actual file readers and the window controlling that needs the info from the
+    simulation files
+    """
 
     def __init__(self, filepath, isMc):
         self.reader = None  # used as a class to read the desired LTSpice file
@@ -17,15 +21,15 @@ class LTSpiceReaderInterface:
         self.graphFunctionList = list()
 
         self.reader = LTSpiceReader(filepath)
-        if self.reader.isBode():
+        if self.reader.isBode():                            # Selecting the correct reader for the current file
             self.reader = LTSpiceBodeReader(filepath, isMc)
             self.isBode = True
         else:
             self.reader = LTSpiceTimeGraphReader(filepath, isMc)
             self.isBode = False
         self.data = self.reader.get_data()
-        for y_var in range(0, self.reader.get_y_axis_var_count()):
-            self.labels[self.data['y_axis_' + str(y_var)]] = ''
+        for y_var in range(0, self.reader.get_y_axis_var_count()):     # to access the internal name with a nice name
+            self.labels[self.data['y_axis_' + str(y_var)]] = ''        # when i need to get the info
             self.labels[self.data['y_axis_' + str(y_var)]] = 'y_axis_' + str(y_var)
 
     def get_y_axis_labels(self):
@@ -66,7 +70,12 @@ class LTSpiceReaderInterface:
                                                         get_magnitude_from_string(splitted[1])))
 
     def from_nice_to_data_name(self, niceName: str, step):
+        """
 
+        :param niceName: nice var name like I(C1), will be translated to the internal name to get info
+        :param step: Current MC step
+        :return: internal name
+        """
         niceString = str(niceName)
         splitted = niceString.split(',')
         yAxisLabelPos = self.labels[splitted[0]]   # this should return something like y_axis_0
