@@ -19,6 +19,7 @@ from plot_tool.model.axe_model import Grid
 from plot_tool.view.function_visor_view import GraphFunctionVisorView
 
 
+# noinspection PyPropertyAccess
 class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
     """ GraphPlotter model's visor view """
 
@@ -86,6 +87,8 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         if self.model is not None:
             self.model.adjustSizeOfXAxis()
             self.model.adjustSizeOfYAxis()
+
+            self.loadViewData()
 
     def verifyXInterval(self) -> bool:
         xMinimum = self.xMinimum.value()
@@ -208,6 +211,19 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         # Enabling the widget
         self.setEnabled(True)
 
+        self.loadViewData()
+
+    def loadViewData(self):
+        if self.model is not None:
+            if self.name.text() != self.model.name:
+                self.name.setText(self.model.name)
+            if self.xLabel.text() != self.model.xLabel:
+                self.xLabel.setText(self.model.xLabel)
+            if self.xMinimum.value() != self.model.xMinimum:
+                self.xMinimum.setValue(self.model.xMinimum)
+            if self.xMaximum.value() != self.model.xMaximum:
+                self.xMaximum.setValue(self.model.xMaximum)
+
     def removeModel(self):
         self.model = None
         self.name.clear()
@@ -224,14 +240,6 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
 
     def updateViewData(self):
         if self.model is not None:
-            if self.name.text() != self.model.name:
-                self.name.setText(self.model.name)
-            if self.xLabel.text() != self.model.xLabel:
-                self.xLabel.setText(self.model.xLabel)
-            if self.xMinimum.value() != self.model.xMinimum:
-                self.xMinimum.setValue(self.model.xMinimum)
-            if self.xMaximum.value() != self.model.xMaximum:
-                self.xMaximum.setValue(self.model.xMaximum)
 
             self.xMagnitude.setText(self.model.plotter.x_magnitude.value)
 
