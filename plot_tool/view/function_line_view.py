@@ -47,4 +47,13 @@ class GraphFunctionLineView(Line2D, View):
         self.set_visible(self.model.isVisible)
         self.set_color(self.convertColor(self.model.color))
         self.set_label(self.model.name)
+
+        # New functionality
+        if self.model.isDot:
+            self.set_marker(".")
+            self.set_linewidth(0)
+        else:
+            self.set_marker("None")
+            self.set_linewidth(1)
+
         self.canvas.draw_idle()

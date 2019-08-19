@@ -28,6 +28,7 @@ class GraphFunctionVisorView(QWidget, Ui_FunctionVisor):
         self.name.textChanged.connect(self.onNameChanged)
         self.color.clicked.connect(self.onChangeColorButton)
         self.isVisibleBox.toggled.connect(self.onVisibleToggled)
+        self.isDotBox.toggled.connect(self.onDotToggled)
         self.deleteButton.clicked.connect(self.onDeleteButton)
 
     def onNameChanged(self):
@@ -46,6 +47,10 @@ class GraphFunctionVisorView(QWidget, Ui_FunctionVisor):
     def onVisibleToggled(self):
         if self.model is not None:
             self.model.isVisible = self.isVisibleBox.isChecked()
+
+    def onDotToggled(self):
+        if self.model is not None:
+            self.model.isDot = self.isDotBox.isChecked()
 
     def onChangeColorButton(self):
         if self.model is not None:
