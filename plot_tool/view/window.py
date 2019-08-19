@@ -201,6 +201,7 @@ class Window(QMainWindow, Ui_MainWindow):
 
         dialog = QFileDialog()
         dialog.setDefaultSuffix(".png")
+        dialog.setAcceptMode(QFileDialog.AcceptSave)
 
         if dialog.exec():
             file_path = dialog.selectedFiles()
