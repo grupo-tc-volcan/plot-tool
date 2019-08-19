@@ -7,8 +7,6 @@ from PyQt5.QtCore import QObject
 
 from PyQt5.QtGui import QColor
 
-from PyQt5.QtWidgets import QMessageBox
-
 # plot-tool modules
 from plot_tool.data.plotter import GraphPlotter
 from plot_tool.data.function import GraphFunction

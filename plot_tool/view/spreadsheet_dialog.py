@@ -17,7 +17,7 @@ from utilities.spreadsheet.reader import DataReader
 
 
 def spreadsheet_sv():
-    """ Calling the spreadsheet serive """
+    """ Calling the spreadsheet service """
 
     # Selecting the file
     file_name, _ = QFileDialog.getOpenFileName()
