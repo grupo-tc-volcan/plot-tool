@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>579</width>
-    <height>542</height>
+    <width>606</width>
+    <height>484</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,16 +18,6 @@
     <widget class="QCheckBox" name="mcCheckBox">
      <property name="text">
       <string>Montecarlo</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="0">
-    <widget class="QDialogButtonBox" name="okButton">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -73,22 +63,22 @@
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
-             <widget class="QComboBox" name="yAxis"/>
-            </item>
             <item row="1" column="0">
-             <widget class="QCheckBox" name="checkBox">
+             <widget class="QCheckBox" name="amplitudeCB">
               <property name="text">
                <string>Amplitude</string>
               </property>
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QCheckBox" name="checkBox_2">
+             <widget class="QCheckBox" name="phaseCB">
               <property name="text">
                <string>Phase</string>
               </property>
              </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="yAxis"/>
             </item>
            </layout>
           </item>
@@ -107,23 +97,13 @@
              <number>50</number>
             </property>
             <item row="0" column="0">
-             <widget class="QLabel" name="nameLabel">
-              <property name="text">
-               <string>Name</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="namePTE"/>
-            </item>
-            <item row="1" column="0">
              <widget class="QLabel" name="yMagLabel">
               <property name="text">
                <string>Y Magnitude</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
+            <item row="0" column="1">
              <widget class="QComboBox" name="yMagnitude"/>
             </item>
            </layout>
@@ -218,6 +198,16 @@
      </item>
     </layout>
    </item>
+   <item row="6" column="0">
+    <widget class="QDialogButtonBox" name="okButton">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>
@@ -229,8 +219,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>259</x>
-     <y>411</y>
+     <x>270</x>
+     <y>472</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -245,28 +235,12 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>327</x>
-     <y>411</y>
+     <x>338</x>
+     <y>472</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
      <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>yAxis</sender>
-   <signal>currentTextChanged(QString)</signal>
-   <receiver>namePTE</receiver>
-   <slot>setText(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>620</x>
-     <y>163</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>608</x>
-     <y>243</y>
     </hint>
    </hints>
   </connection>

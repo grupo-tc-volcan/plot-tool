@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 from LTSpice_feature.designer.file_select_dialog.FileSelectDialog_ui import Ui_Dialog
 from LTSpice_feature.view.browserDialog import App
 from LTSpice_feature.reader.ltspice_reader_interface import LTSpiceReaderInterface
@@ -18,7 +17,9 @@ class FileSelectDialog(GraphFunctionDialog, Ui_Dialog):
 
     fileBrowser = App
     isMc = False
+    ltSpiceReader = None
     data = dict()
+    previousFilePath = ''
 
     def __init__(self, *args, **kwargs):
         super(FileSelectDialog, self).__init__(*args, **kwargs)
@@ -44,31 +45,87 @@ class FileSelectDialog(GraphFunctionDialog, Ui_Dialog):
         self.functionList.setEnabled(False)
 
         self.addButton.setEnabled(False)
+        self.addButton.released.connect(self.addVar)
 
         self.deleteButton.setEnabled(False)
+        self.deleteButton.released.connect(self.deleteVar)
 
     def browseButtonClicked(self):
         filePath = self.fileBrowser.openFileNameDialog(self)
         if filePath is not None:
             self.filepathPTE.clear()
-            self.filepathPTE.insertPlainText(filePath)
+            self.filepathPTE.insert(filePath)
 
     def fileLoaderHandler(self):
-
-        if len(self.filepathPTE.text()):
+        if len(self.filepathPTE.text()) and (self.filepathPTE.text() != self.previousFilePath):
+            self.previousFilePath = self.filepathPTE.text()
             try:
-                ltspicereader = LTSpiceReaderInterface(self.filepathPTE.text(),self.isMc)
-                self.data = ltspicereader.get_data()
-                print(self.data["y_axis_0"])
+                self.ltSpiceReader = LTSpiceReaderInterface(self.filepathPTE.text(), self.isMc)
+                self.data = self.ltSpiceReader.get_y_axis_labels()
             except:
-                print("error")
-        print(self.plainTextEdit.toPlainText())
-"""
+                QtWidgets.QMessageBox.critical(self, 'Fatal Error', 'There was an error while reading '
+                                               + self.filepathPTE.text()
+                                               + ' please check if the path and file '
+                                                 'formatting are correct and try again')
+                return
+
+            self.yAxis.clear()
+            self.yMagnitude.clear()
+            self.functionList.clear()
+            self.dataSelectionGB.setEnabled(True)
+
+            self.functionSettingGB.setEnabled(True)
+
+            self.yAxis.addItems(self.data)
+
+            self.functionList.setEnabled(True)
+
+            self.addButton.setEnabled(True)
+
+            if not self.ltSpiceReader.is_bode():
+                self.yMagnitude.setEnabled(True)
+                self.yMagnitude.addItems([magnitude.value for magnitude in GraphMagnitude
+                                          if magnitude == GraphMagnitude.Voltage
+                                          or magnitude == GraphMagnitude.Current])
+                self.amplitudeCB.setEnabled(False)
+                self.phaseCB.setEnabled(False)
+            else:
+                self.amplitudeCB.setEnabled(True)
+                self.phaseCB.setEnabled(True)
+                self.yMagnitude.setEnabled(False)
+
     def changeHandler(self):
         if self.mcCheckBox.isChecked():
             self.isMc = True
         else:
-            self.isMc = True
+            self.isMc = False
+
+    def addVar(self):
+        if not self.ltSpiceReader.is_bode():
+            if not self.functionList.findItems(self.yAxis.currentText() + ', ' + self.yMagnitude.currentText()
+                                               , QtCore.Qt.MatchExactly):
+                self.functionList.addItem(self.yAxis.currentText() + ', ' + self.yMagnitude.currentText())
+        else:
+
+            if self.amplitudeCB.isChecked():
+                if not self.functionList.findItems(self.yAxis.currentText() + ', ' + GraphMagnitude.Decibel.value
+                                                   , QtCore.Qt.MatchExactly):
+                    self.functionList.addItem(self.yAxis.currentText() + ', ' + GraphMagnitude.Decibel.value)
+            if self.phaseCB.isChecked():
+                if not self.functionList.findItems(self.yAxis.currentText() + ', ' + GraphMagnitude.Phase.value
+                                                   , QtCore.Qt.MatchExactly):
+                    self.functionList.addItem(self.yAxis.currentText() + ', ' + GraphMagnitude.Phase.value)
+
+        if not self. okButton.isEnabled():
+            self.okButton.setEnabled(True)
+        if not self.deleteButton.isEnabled():
+            self.deleteButton.setEnabled(True)
+
+    def deleteVar(self):
+        self.functionList.takeItem(self.functionList.currentRow())
+        if self.okButton.isEnabled() and not self.functionList.count():
+            self.okButton.setDisabled(True)
+            self.deleteButton.setDisabled(True)
 
 
 if __name__ == "__main__":
