@@ -1,7 +1,7 @@
 
 import pandas as pd
 import numpy as np
-
+from PyQt5.QtWidgets import QMessageBox
 import matplotlib.pyplot as plt
 import csv
 import os
@@ -25,9 +25,18 @@ class DataReader:
             self.data = pd.read_csv(self.file_path, sep='[,\t]', encoding="latin_1", decimal=".")
         elif (os.path.splitext(base)[1] == ".xls") or (os.path.splitext(base)[1] == ".xlsx"):
             self.data = pd.read_excel(self.file_path)#('xlsTest.xlsx')  # , sheetname='Sheet1')
-        self.data_names = list(self.data.columns.values)  # returns an array of index
-        return (self.data_names)
 
+        self.data_names = list(self.data.columns.values)  # returns an array of index
+
+        #Checking which columns contain numbers and which ones don't,
+        #in order to save only the data_names corresponding to numeric values:
+        for i in list(self.data.columns.values):
+            col = self.data.loc[:, i]
+            for j in col:
+                if ((type(j) is not float) and (type(j) is not int)):
+                    if i in self.data_names:
+                        self.data_names.remove(i)
+        return (self.data_names)
 
     def import_file_data(self, x_col_name, y_col_name):
         '''
@@ -42,7 +51,4 @@ class DataReader:
         self.data = self.data.reset_index(drop=True)
         x = self.data.loc[:, x_col_name]
         y = self.data.loc[:, y_col_name]
-        #x.apply(lambda s: pd.to_numeric(s, errors='coerce').notnull().all())
-        print("ACAAA")
-        print(x.dtypes)
         return (x, y)
