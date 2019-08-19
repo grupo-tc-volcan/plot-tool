@@ -231,7 +231,8 @@ class Window(QMainWindow, Ui_MainWindow):
                 if not self.session.plotter_models[self.plotterList.currentIndex().row()].addGraph(function):
                     QMessageBox.warning(self,
                                         "Error message",
-                                        "Cannot add new graph. Name already used or invalid x magnitude")
+                                        "Cannot add new graph. " +
+                                        "Name already used, invalid x magnitude or maximum graphs exceeded (20)")
 
     def onFromLTSpiceAction(self):
         if self.verifySelection():
@@ -263,7 +264,8 @@ class Window(QMainWindow, Ui_MainWindow):
                 if not self.session.plotter_models[self.plotterList.currentIndex().row()].addGraph(graphFunction):
                     QMessageBox.warning(self,
                                         "Error message",
-                                        "Cannot add new graph. Name already used or invalid x magnitude")
+                                        "Cannot add new graph. " +
+                                        "Name already used, invalid x magnitude or maximum graphs exceeded (20)")
 
 
 def main():
