@@ -69,6 +69,7 @@ class LTSpiceDialog(GraphFunctionDialog, Ui_Dialog):
                                                + self.filepathPTE.text()
                                                + ' please check if the path and file '
                                                  'formatting are correct and try again')
+                self.previousFilePath = ''
                 return
 
             self.yAxis.clear()
