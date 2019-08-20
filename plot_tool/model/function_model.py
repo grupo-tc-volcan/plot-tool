@@ -26,6 +26,7 @@ class GraphFunctionModel(QObject):
         self.parent = parent
 
         # Property members
+        self._isDot = False
         self._name = self.graph.name
         self._isVisible = True
         self._color = QColor(
@@ -44,6 +45,15 @@ class GraphFunctionModel(QObject):
         self.hasChanged.emit()
 
     # GraphFunctionModel's properties
+    @pyqtProperty(bool)
+    def isDot(self):
+        return self._isDot
+
+    @isDot.setter
+    def isDot(self, value: bool):
+        self._isDot = value
+        self.notifyChange()
+
     @pyqtProperty(str)
     def name(self):
         return self._name

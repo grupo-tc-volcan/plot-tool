@@ -66,7 +66,7 @@ class LTSpiceTimeGraphReader(LTSpiceReader):
         if self.mc_step_counter == 1:  # only save x_axis if it's the first step, Spice always uses same values
             self.data['x_axis'] = []
 
-        for i in range(start, end):
+        for i in range(start, end):  # This is O(scary), but seems quick enough in practice.
             pnt = 0
             c1 = ''
 

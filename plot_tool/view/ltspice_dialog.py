@@ -51,10 +51,10 @@ class LTSpiceDialog(GraphFunctionDialog, Ui_Dialog):
         self.deleteButton.released.connect(self.deleteVar)
 
     def browseButtonClicked(self):
-        filePath, _ = QFileDialog.getOpenFileName()
+        filePath, _ = QFileDialog.getOpenFileName()     # is browse button is clicked, open file browser
         if filePath is not None:
-            self.filepathPTE.clear()
-            self.filepathPTE.insert(filePath)
+            self.filepathPTE.clear()                    # delete old stinky filepath
+            self.filepathPTE.insert(filePath)           # write new filepath for the user to read
 
     def fileLoaderHandler(self):
         if len(self.filepathPTE.text()) and (self.filepathPTE.text() != self.previousFilePath):
@@ -62,17 +62,17 @@ class LTSpiceDialog(GraphFunctionDialog, Ui_Dialog):
             try:
                 self.ltSpiceReader = LTSpiceReaderInterface(self.filepathPTE.text(), self.isMc)
                 self.data = self.ltSpiceReader.get_y_axis_labels()
-            except:
-                QtWidgets.QMessageBox.critical(self,
+            except:                                    # if you read the documentation this line will most probably
+                QtWidgets.QMessageBox.critical(self,   # never execute (we know,it will execute and you will be sad)
                                                'Fatal Error',
                                                'There was an error while reading '
                                                + self.filepathPTE.text()
                                                + ' please check if the path and file '
                                                  'formatting are correct and try again')
-                self.previousFilePath = ''
-                return
+                self.previousFilePath = ''              # this is to let you retry to load the same file that we told
+                return                                  # you was incorrect just to make sure
 
-            self.yAxis.clear()
+            self.yAxis.clear()          # after loading a CORRECTLY FORMATTED file useful options will be activated
             self.yMagnitude.clear()
             self.functionList.clear()
             self.dataSelectionGB.setEnabled(True)
@@ -104,6 +104,7 @@ class LTSpiceDialog(GraphFunctionDialog, Ui_Dialog):
             self.isMc = False
 
     def addVar(self):
+        # You are not meant to understand this, just adds the variable to the list and to a buffer inside the reader
         if not self.ltSpiceReader.is_bode():
             if not self.functionList.findItems(self.yAxis.currentText() + ', ' + self.yMagnitude.currentText()
                                                , QtCore.Qt.MatchExactly):
@@ -129,7 +130,7 @@ class LTSpiceDialog(GraphFunctionDialog, Ui_Dialog):
         if not self.deleteButton.isEnabled():
             self.deleteButton.setEnabled(True)
 
-    def deleteVar(self):
+    def deleteVar(self):  # deletes selcted variable
         item = self.functionList.takeItem(self.functionList.currentRow())
         self.ltSpiceReader.remove_function_from_list(item.text())
         if self.okButton.isEnabled() and not self.functionList.count():
