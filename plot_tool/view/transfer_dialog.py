@@ -2,19 +2,7 @@
 from io import BytesIO
 
 # third-party modules
-from PyQt5.QtSvg import QSvgWidget
-
 from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtWidgets import QGraphicsPixmapItem
-from PyQt5.QtWidgets import QVBoxLayout
-from PyQt5.QtWidgets import QGraphicsScene
-from PyQt5.QtWidgets import QGraphicsView
-from PyQt5.QtWidgets import QVBoxLayout
-from PyQt5.QtCore import Qt
-from PyQt5.QtSvg import QGraphicsSvgItem
-
-from PyQt5.QtGui import QPixmap
 
 from matplotlib import pyplot
 from matplotlib.figure import Figure
@@ -22,6 +10,7 @@ from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 
 from scipy.signal import lti
 
+from numpy import arange
 from numpy import degrees
 from numpy import angle
 from numpy import pi
@@ -73,8 +62,8 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
 
         self.type.currentTextChanged.connect(self.verifySetupComplete)
         self.type.currentIndexChanged.connect(self.onTypeChanged)
-        self.frequencyModule.toggled.connect(self.verifySetupComplete)
-        self.frequencyPhase.toggled.connect(self.verifySetupComplete)
+        self.freqModule.toggled.connect(self.verifySetupComplete)
+        self.freqPhase.toggled.connect(self.verifySetupComplete)
         self.bodeModule.toggled.connect(self.verifySetupComplete)
         self.bodePhase.toggled.connect(self.verifySetupComplete)
         self.impulsive.toggled.connect(self.verifySetupComplete)
@@ -83,14 +72,32 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         self.xMagnitude.currentTextChanged.connect(self.verifySetupComplete)
         self.yMagnitude.currentTextChanged.connect(self.verifySetupComplete)
 
+        self.freqEnable.toggled.connect(self.onFreqEnable)
+        self.bodeEnable.toggled.connect(self.onBodeEnable)
+
+        self.freqEnable.toggled.connect(self.verifySetupComplete)
+        self.bodeEnable.toggled.connect(self.verifySetupComplete)
+        self.freqMin.valueChanged.connect(self.verifySetupComplete)
+        self.freqMax.valueChanged.connect(self.verifySetupComplete)
+        self.freqPoints.valueChanged.connect(self.verifySetupComplete)
+        self.bodeMin.valueChanged.connect(self.verifySetupComplete)
+        self.bodeMax.valueChanged.connect(self.verifySetupComplete)
+        self.bodePoints.valueChanged.connect(self.verifySetupComplete)
+
+    def onFreqEnable(self):
+        self.freqWidget.setEnabled(self.freqEnable.isChecked())
+
+    def onBodeEnable(self):
+        self.bodeWidget.setEnabled(self.bodeEnable.isChecked())
+
     def onTypeChanged(self):
         # Setting up components...
         self.xMagnitude.clear()
         self.yMagnitude.clear()
 
         # Reset values on other widgets
-        self.frequencyModule.setChecked(False)
-        self.frequencyPhase.setChecked(False)
+        self.freqModule.setChecked(False)
+        self.freqPhase.setChecked(False)
         self.bodeModule.setChecked(False)
         self.bodePhase.setChecked(False)
 
@@ -117,12 +124,22 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         graphFunctions = []
 
         if self.type.currentText() == "Frequency Response":
-            frequency, magnitudes = self.transferFunction.freqresp()
+            # When the option is enabled...
+            if self.freqEnable.isChecked():
+                minFreq = self.freqMin.value()
+                maxFreq = self.freqMax.value()
+                points = self.freqPoints.value()
+
+                w = arange(minFreq * 2 * pi, maxFreq * 2 * pi, 2 * pi * (maxFreq - minFreq) / points)
+
+                frequency, magnitudes = self.transferFunction.freqresp(w)
+            else:
+                frequency, magnitudes = self.transferFunction.freqresp()
 
             if self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
                 frequency = frequency / (2 * pi)
 
-            if self.frequencyModule.isChecked():
+            if self.freqModule.isChecked():
                 graphFunctions.append(
                     GraphFunction(
                         self.name.text() + "_mod",
@@ -131,7 +148,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                         GraphMagnitude.Transfer
                     )
                 )
-            if self.frequencyPhase.isChecked():
+            if self.freqPhase.isChecked():
                 graphFunctions.append(
                     GraphFunction(
                         self.name.text() + "_pha",
@@ -142,7 +159,17 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                 )
 
         elif self.type.currentText() == "Bode":
-            frequency, magnitudes, phases = self.transferFunction.bode()
+            # When the option is enabled...
+            if self.bodeEnable.isChecked():
+                minFreq = self.bodeMin.value()
+                maxFreq = self.bodeMax.value()
+                points = self.bodePoints.value()
+
+                w = arange(minFreq * 2 * pi, maxFreq * 2 * pi, 2 * pi * (maxFreq - minFreq) / points)
+
+                frequency, magnitudes, phases = self.transferFunction.bode(w)
+            else:
+                frequency, magnitudes, phases = self.transferFunction.bode()
 
             if self.xMagnitude.currentText() == GraphMagnitude.Frequency.value:
                 frequency = frequency / (2 * pi)
@@ -212,14 +239,22 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
             if len(self.name.text()):
 
                 if self.type.currentText() == "Frequency Response":
-                    if self.frequencyModule.isChecked() or self.frequencyPhase.isChecked():
-                        self.buttonBox.setEnabled(True)
-                        return
+                    if self.freqModule.isChecked() or self.freqPhase.isChecked():
+                        if self.freqEnable.isChecked() and self.freqMin.value() < self.freqMax.value():
+                            self.buttonBox.setEnabled(True)
+                            return
+                        elif not self.freqEnable.isChecked():
+                            self.buttonBox.setEnabled(True)
+                            return
 
                 elif self.type.currentText() == "Bode":
                     if self.bodeModule.isChecked() or self.bodePhase.isChecked():
-                        self.buttonBox.setEnabled(True)
-                        return
+                        if self.bodeEnable.isChecked() and self.bodeMin.value() < self.bodeMax.value():
+                            self.buttonBox.setEnabled(True)
+                            return
+                        elif not self.bodeEnable.isChecked():
+                            self.buttonBox.setEnabled(True)
+                            return
 
                 elif self.type.currentText() == "Temporal Response":
                     if self.signalFunction is not None or self.impulsive.isChecked() or self.step.isChecked():
@@ -385,7 +420,7 @@ def svg_from_latex(latex: str, font_size=12, dpi=300):
     the content of a string formatted with LaTex language. """
 
     # We create a figure where we print the LaTeX
-    figure = plot.figure(figsize=(1, 1))
+    figure = pyplot.figure(figsize=(1, 1))
     figure.text(0, 0, r'${}$'.format(latex), fontsize=font_size)
 
     # We create the output, where the SVG data is saved
@@ -400,7 +435,7 @@ def svg_from_latex(latex: str, font_size=12, dpi=300):
     )
 
     # Closes the plot and saves data
-    plot.close(figure)
+    pyplot.close(figure)
     output.seek(0)
     return output.read()
 
