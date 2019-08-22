@@ -1,0 +1,28 @@
+BUGS
++ Hay un error con el límite de la cantidad de GraphFunctions que podes agregar al GraphPlotter, creo que no se limpia la lista
++ Minimo intervalo del Bode menor positivo pero menor que < 1 ! Llega mal hasta 1
++ Se cuelga a veces con el segundo Plotter
++ Función transferencia limite de ancho
++ Errores con el Open/Save de los archivos en los objetos... quedan vacias algunas cosas y queda mal
++ Señales, toma pocos puntos!!
++ Los intervalos para las señales, creo que toma solo entero.
++ Polos y ceros complejos
+
+NEEDS
++ Uso automatico de las magnitudes y creación de los Plotters! Stack de nombres...
++ Necesito que se pueda cambiar el color de varios gráficos al mismo tiempo
++ Necesito poder cambiarle el trazo con diferentes opciones a la señal
++ Ocultar los labels
++ Lo de los puntos
++ Recalculo una vez cargadas las cosas
++ Build!
+
+WRONG
++ Frequency Response y los decibeles
++ Tamaños en varias
+
+PENDING
++ Manual de mierda
+
+[TO_TEST]
+	+ Funciones transferencia generación correcta de los coeficientes en el polinomio.

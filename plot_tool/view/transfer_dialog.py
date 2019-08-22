@@ -344,10 +344,20 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         if not then notifies the user!
         Success returns the list of values and failure returns None.
         """
+
+        def getNumericValue(string_value: str):
+            """ Process the string value in the field and returns the numeric
+            representation of it. """
+            try:
+                return float(string_value)
+            except Exception:
+                return complex(string_value)
+
         try:
             if len(value):
                 split_list = value.split(",")
-                parsed_list = [float(split_value) for split_value in split_list]
+                parsed_list = [getNumericValue(split_value)
+                               for split_value in split_list]
             else:
                 parsed_list = []
 
@@ -360,7 +370,8 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
             self.status.setText("ERROR")
             self.status.setStyleSheet("color: red;")
             self.info.setText("Error detected in the input fields, remember to separate each value with a comma. \n"
-                              "Do not use spaces between values.")
+                              "Do not use spaces between values. \n"
+                              "Complex numbers should be: 1+3j")
         return None
 
 
@@ -399,7 +410,7 @@ def latex_polynomial_from_coefficients(coefs: list) -> str:
     """ Returns a string value representing a polynomial function
     described by the given coefficients using LaTeX. """
     return " + ".join(
-        [r'{} {}'.format(c, " \cdot s^{" + str(len(coefs)-i-1) + "}" if c != coefs[-1] else "")
+        [r'{}{}'.format(c, " \cdot s^{" + str(len(coefs)-i-1) + "}" if i != len(coefs)-1 else "")
          for i, c in enumerate(coefs)
          ]
     )
