@@ -3,6 +3,7 @@ import os
 
 # third-party modules
 import pandas as pd
+import numpy as np
 
 # plot-tool modules
 
@@ -21,7 +22,8 @@ class DataReader(object):
         '''
         base = os.path.basename(self.file_path)
         if os.path.splitext(base)[1] == ".csv":
-            self.data = pd.read_csv(self.file_path, delimiter=";", encoding="utf-8", decimal=",")
+            self.data = pd.read_csv(self.file_path, delimiter=",", encoding="utf-8", decimal=".")
+            self.data = self.data.iloc[1:, :].astype(np.float64)
         elif os.path.splitext(base)[1] == ".txt":
             self.data = pd.read_csv(self.file_path, sep='[,\t]', encoding="latin_1", decimal=".")
         elif (os.path.splitext(base)[1] == ".xls") or (os.path.splitext(base)[1] == ".xlsx"):
