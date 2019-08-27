@@ -44,7 +44,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <property name="geometry">
@@ -332,6 +332,9 @@
              <property name="minimum">
               <double>-10000000.000000000000000</double>
              </property>
+             <property name="maximum">
+              <double>1000000000.000000000000000</double>
+             </property>
             </widget>
            </item>
            <item row="4" column="1" alignment="Qt::AlignRight">
@@ -417,8 +420,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>293</width>
-        <height>227</height>
+        <width>191</width>
+        <height>145</height>
        </rect>
       </property>
       <attribute name="label">

@@ -30,7 +30,7 @@ class Ui_GraphPlotterVisor(object):
         self.toolBox.setMaximumSize(QtCore.QSize(16777215, 400))
         self.toolBox.setObjectName("toolBox")
         self.page = QtWidgets.QWidget()
-        self.page.setGeometry(QtCore.QRect(0, 0, 282, 239))
+        self.page.setGeometry(QtCore.QRect(0, 0, 293, 227))
         self.page.setObjectName("page")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.page)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
@@ -174,6 +174,7 @@ class Ui_GraphPlotterVisor(object):
         self.yMaximum.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.yMaximum.setDecimals(4)
         self.yMaximum.setMinimum(-10000000.0)
+        self.yMaximum.setMaximum(1000000000.0)
         self.yMaximum.setObjectName("yMaximum")
         self.gridLayout_2.addWidget(self.yMaximum, 5, 1, 1, 1, QtCore.Qt.AlignRight)
         self.yMinimum = QtWidgets.QDoubleSpinBox(self.page_2)
@@ -220,7 +221,7 @@ class Ui_GraphPlotterVisor(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout_10)
         self.toolBox.addItem(self.page_2, "")
         self.page_3 = QtWidgets.QWidget()
-        self.page_3.setGeometry(QtCore.QRect(0, 0, 282, 239))
+        self.page_3.setGeometry(QtCore.QRect(0, 0, 191, 145))
         self.page_3.setObjectName("page_3")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.page_3)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -314,7 +315,7 @@ class Ui_GraphPlotterVisor(object):
         self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.retranslateUi(GraphPlotterVisor)
-        self.toolBox.setCurrentIndex(1)
+        self.toolBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(GraphPlotterVisor)
 
     def retranslateUi(self, GraphPlotterVisor):
