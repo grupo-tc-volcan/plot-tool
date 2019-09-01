@@ -8,6 +8,7 @@ from PyQt5.QtGui import QColor
 
 # plot-tool modules
 from plot_tool.model.function_model import GraphFunctionModel
+from plot_tool.model.function_model import Markers
 
 from plot_tool.view.base.view import View
 
@@ -49,11 +50,14 @@ class GraphFunctionLineView(Line2D, View):
         self.set_label(self.model.name)
 
         # New functionality, changing the trace
-        if self.model.isDot:
-            self.set_marker(".")
-            self.set_linewidth(0)
-        else:
-            self.set_marker("None")
-            self.set_linewidth(1)
+        self.set_marker(self.convertMarker(self.model.marker))
+        self.set_linestyle(self.model.style.lower())
 
         self.canvas.draw_idle()
+
+    @staticmethod
+    def convertMarker(marker: Markers):
+        if marker == Markers.Point.value:
+            return "."
+        else:
+            return None

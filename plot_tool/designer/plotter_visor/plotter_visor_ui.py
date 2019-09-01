@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_GraphPlotterVisor(object):
     def setupUi(self, GraphPlotterVisor):
         GraphPlotterVisor.setObjectName("GraphPlotterVisor")
-        GraphPlotterVisor.resize(311, 509)
+        GraphPlotterVisor.resize(311, 356)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -221,7 +221,7 @@ class Ui_GraphPlotterVisor(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout_10)
         self.toolBox.addItem(self.page_2, "")
         self.page_3 = QtWidgets.QWidget()
-        self.page_3.setGeometry(QtCore.QRect(0, 0, 191, 145))
+        self.page_3.setGeometry(QtCore.QRect(0, 0, 293, 227))
         self.page_3.setObjectName("page_3")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.page_3)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -292,27 +292,6 @@ class Ui_GraphPlotterVisor(object):
         self.adjustButton.setObjectName("adjustButton")
         self.horizontalLayout_8.addWidget(self.adjustButton)
         self.verticalLayout.addLayout(self.horizontalLayout_8)
-        self.line_2 = QtWidgets.QFrame(GraphPlotterVisor)
-        self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_2.setObjectName("line_2")
-        self.verticalLayout.addWidget(self.line_2)
-        self.label_17 = QtWidgets.QLabel(GraphPlotterVisor)
-        self.label_17.setObjectName("label_17")
-        self.verticalLayout.addWidget(self.label_17)
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.listWidget = QtWidgets.QListWidget(GraphPlotterVisor)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.listWidget.sizePolicy().hasHeightForWidth())
-        self.listWidget.setSizePolicy(sizePolicy)
-        self.listWidget.setMinimumSize(QtCore.QSize(0, 80))
-        self.listWidget.setMaximumSize(QtCore.QSize(16777215, 120))
-        self.listWidget.setObjectName("listWidget")
-        self.horizontalLayout.addWidget(self.listWidget)
-        self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.retranslateUi(GraphPlotterVisor)
         self.toolBox.setCurrentIndex(0)
@@ -349,7 +328,6 @@ class Ui_GraphPlotterVisor(object):
         self.visible.setText(_translate("GraphPlotterVisor", "Name Visible"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_3), _translate("GraphPlotterVisor", "Style Settings"))
         self.adjustButton.setText(_translate("GraphPlotterVisor", "Adjust Size"))
-        self.label_17.setText(_translate("GraphPlotterVisor", "Graph Functions"))
 
 
 if __name__ == "__main__":

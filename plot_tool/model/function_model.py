@@ -1,4 +1,5 @@
 # python native modules
+from enum import Enum
 from random import randint
 
 # third-party modules
@@ -10,6 +11,18 @@ from PyQt5.QtGui import QColor
 
 # plot-tool modules
 from plot_tool.data.function import GraphFunction
+
+
+class Styles(Enum):
+    """ Supported line styles """
+    Solid = "Solid"
+    Dashed = "Dashed"
+
+
+class Markers(Enum):
+    """ Supported line markers """
+    Default = "Default"
+    Point = "Point"
 
 
 class GraphFunctionModel(QObject):
@@ -26,9 +39,12 @@ class GraphFunctionModel(QObject):
         self.parent = parent
 
         # Property members
-        self._isDot = False
         self._isVisible = True
         self._hasLabel = True
+
+        self._marker = Markers.Default.value
+        self._style = Styles.Solid.value
+
         self._name = self.graph.name
         self._color = QColor(
             randint(0, 255),
@@ -55,13 +71,22 @@ class GraphFunctionModel(QObject):
         self._hasLabel = value
         self.notifyChange()
 
-    @pyqtProperty(bool)
-    def isDot(self):
-        return self._isDot
+    @pyqtProperty(str)
+    def marker(self):
+        return self._marker
 
-    @isDot.setter
-    def isDot(self, value: bool):
-        self._isDot = value
+    @marker.setter
+    def marker(self, value: str):
+        self._marker = value
+        self.notifyChange()
+
+    @pyqtProperty(str)
+    def style(self):
+        return self._style
+
+    @style.setter
+    def style(self, value: str):
+        self._style = value
         self.notifyChange()
 
     @pyqtProperty(str)

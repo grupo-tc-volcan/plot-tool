@@ -4,19 +4,15 @@
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QColorDialog
 from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtWidgets import QListWidgetItem
 from PyQt5.QtWidgets import QWidget
 
 # plot-tool modules
 from plot_tool.designer.plotter_visor.plotter_visor_ui import Ui_GraphPlotterVisor
 
-from plot_tool.data.magnitudes import GraphMagnitude
 
 from plot_tool.model.plotter_model import GraphPlotterModel
 from plot_tool.model.axe_model import Scale
 from plot_tool.model.axe_model import Grid
-
-from plot_tool.view.function_visor_view import GraphFunctionVisorView
 
 
 # noinspection PyPropertyAccess
@@ -234,7 +230,6 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         self.yMinimum.clear()
         self.xMagnitude.clear()
         self.yMagnitude.clear()
-        self.listWidget.clear()
 
         self.setEnabled(False)
 
@@ -286,14 +281,6 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
                     self.model.legendEdgeColor.alpha()
                 )
             )
-
-            self.listWidget.clear()
-            items = [GraphFunctionVisorView(None, graphModel) for graphModel in self.model.graphModels]
-            for item in items:
-                widgetItemWrapper = QListWidgetItem(self.listWidget)
-                widgetItemWrapper.setSizeHint(item.sizeHint())
-                self.listWidget.addItem(widgetItemWrapper)
-                self.listWidget.setItemWidget(widgetItemWrapper, item)
 
             self.updateAxesData()
 
