@@ -48,7 +48,7 @@ class GraphFunctionLineView(Line2D, View):
         self.set_color(self.convertColor(self.model.color))
         self.set_label(self.model.name)
 
-        # New functionality
+        # New functionality, changing the trace
         if self.model.isDot:
             self.set_marker(".")
             self.set_linewidth(0)

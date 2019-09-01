@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>311</width>
-    <height>509</height>
+    <height>454</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,7 +52,7 @@
         <x>0</x>
         <y>0</y>
         <width>293</width>
-        <height>227</height>
+        <height>172</height>
        </rect>
       </property>
       <attribute name="label">
@@ -420,8 +420,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>191</width>
-        <height>145</height>
+        <width>293</width>
+        <height>227</height>
        </rect>
       </property>
       <attribute name="label">
@@ -584,6 +584,9 @@
          <width>16777215</width>
          <height>120</height>
         </size>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::MultiSelection</enum>
        </property>
       </widget>
      </item>

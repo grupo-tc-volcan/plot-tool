@@ -27,8 +27,9 @@ class GraphFunctionModel(QObject):
 
         # Property members
         self._isDot = False
-        self._name = self.graph.name
         self._isVisible = True
+        self._hasLabel = True
+        self._name = self.graph.name
         self._color = QColor(
             randint(0, 255),
             randint(0, 255),
@@ -45,6 +46,15 @@ class GraphFunctionModel(QObject):
         self.hasChanged.emit()
 
     # GraphFunctionModel's properties
+    @pyqtProperty(bool)
+    def hasLabel(self):
+        return self._hasLabel
+
+    @hasLabel.setter
+    def hasLabel(self, value: bool):
+        self._hasLabel = value
+        self.notifyChange()
+
     @pyqtProperty(bool)
     def isDot(self):
         return self._isDot
