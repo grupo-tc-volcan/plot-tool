@@ -28,3 +28,4 @@ class GraphMagnitude(Enum):
     AngularFrequency = "Angular Frequency (rad/s)"
     Phase = "Phase (°)"
     Transfer = "Transfer"
+    Impedance = "Impedance (\u03A9)"
