@@ -15,6 +15,7 @@ from plot_tool.data.function import GraphFunction
 
 class Styles(Enum):
     """ Supported line styles """
+    Default = "Default"
     Solid = "Solid"
     Dashed = "Dashed"
 

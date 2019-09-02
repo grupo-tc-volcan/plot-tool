@@ -140,9 +140,9 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
         if self.model is not None:
             if len(self.model.axesModels):
                 selectedAxes = self.model.axesModels[self.axes.currentIndex()]
-                selectedAxes.yScale = self.convertScale(self.yScale.currentText())
+                selectedAxes.yScale = self.yScale.currentText()
 
-                if selectedAxes.yScale == Scale.Log:
+                if selectedAxes.yScale == Scale.Log.value:
                     if self.yMaximum.value() <= 0:
                         self.yMaximum.setValue(1)
                     if self.yMinimum.value() <= 0:
@@ -154,9 +154,9 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
 
     def onScaleXChanged(self):
         if self.model is not None:
-            self.model.xScale = self.convertScale(self.xScale.currentText())
+            self.model.xScale = self.xScale.currentText()
 
-            if self.model.xScale == Scale.Log:
+            if self.model.xScale == Scale.Log.value:
                 if self.xMaximum.value() <= 0:
                     self.xMaximum.setValue(1)
                 if self.xMinimum.value() <= 0:
@@ -238,10 +238,10 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
 
             self.xMagnitude.setText(self.model.plotter.x_magnitude.value)
 
-            if self.xScale.currentText() != self.model.xScale.value:
+            if self.xScale.currentText() != self.model.xScale:
                 self.xScale.clear()
                 self.xScale.addItems([s.value for s in Scale])
-                self.xScale.setCurrentText(self.model.xScale.value)
+                self.xScale.setCurrentText(self.model.xScale)
 
             self.axes.clear()
             self.axes.addItems(["Axes {}".format(index) for index in range(len(self.model.axesModels))])
@@ -299,10 +299,10 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
 
                 self.yMagnitude.setText(selectedAxes.yMagnitude.value)
 
-                if self.yScale.currentText() != selectedAxes.yScale.value:
+                if self.yScale.currentText() != selectedAxes.yScale:
                     self.yScale.clear()
                     self.yScale.addItems([s.value for s in Scale])
-                    self.yScale.setCurrentText(selectedAxes.yScale.value)
+                    self.yScale.setCurrentText(selectedAxes.yScale)
 
                 self.axesFaceColor.setStyleSheet(
                     "background-color: rgb({}, {}, {});".format(
@@ -311,13 +311,6 @@ class GraphPlotterVisorView(QWidget, Ui_GraphPlotterVisor):
                         selectedAxes.faceColor.blue()
                     )
                 )
-
-    @staticmethod
-    def convertScale(value: str):
-        for s in Scale:
-            if s.value == value:
-                return s
-        return None
 
 
 if __name__ == "__main__":

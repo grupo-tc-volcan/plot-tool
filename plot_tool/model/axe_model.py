@@ -12,6 +12,17 @@ from PyQt5.QtGui import QColor
 from plot_tool.data.magnitudes import GraphMagnitude
 
 
+"""
+Enum classes are used only as declaring statements. Any variable in the program shall
+be set using the string value of the enum. So every time we set a scale value,
+shall be using :
+    variable = Scale.Linear.value
+
+And comparing:
+    if variable == Scale.Linear.value
+"""
+
+
 class Scale(Enum):
     Linear = "Linear"
     Log = "Log"
@@ -45,13 +56,13 @@ class GraphAxesModel(QObject):
 
         # Property members
         self._xMagnitude = xMagnitude
-        self._xScale = kwargs["xScale"] if "xScale" in kwargs.keys() else Scale.Linear
+        self._xScale = kwargs["xScale"] if "xScale" in kwargs.keys() else Scale.Linear.value
         self._xLabel = kwargs["xLabel"] if "xLabel" in kwargs.keys() else xMagnitude.value
         self._xMinimum = kwargs["xMinimum"] if "xMinimum" in kwargs.keys() else 0.0
         self._xMaximum = kwargs["xMaximum"] if "xMaximum" in kwargs.keys() else 10.0
 
         self._yMagnitude = yMagnitude
-        self._yScale = kwargs["yScale"] if "yScale" in kwargs.keys() else Scale.Linear
+        self._yScale = kwargs["yScale"] if "yScale" in kwargs.keys() else Scale.Linear.value
         self._yLabel = kwargs["yLabel"] if "yLabel" in kwargs.keys() else yMagnitude.value
         self._yMinimum = kwargs["yMinimum"] if "yMinimum" in kwargs.keys() else 0.0
         self._yMaximum = kwargs["yMaximum"] if "yMaximum" in kwargs.keys() else 10.0
@@ -136,6 +147,8 @@ class GraphAxesModel(QObject):
 
     @yScale.setter
     def yScale(self, value: Scale):
+        if value == "":
+            pass
         self._yScale = value
         self.notifyChange()
 

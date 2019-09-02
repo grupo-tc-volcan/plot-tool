@@ -113,6 +113,8 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
         # Setting which options should be available to the user
         if self.type.currentText() == "Frequency Response":
             self.xMagnitude.addItems([GraphMagnitude.Frequency.value, GraphMagnitude.AngularFrequency.value])
+            self.yMagnitude.addItems([GraphMagnitude.Impedance.value, GraphMagnitude.Transfer.value,
+                                      GraphMagnitude.Decibel.value])
         elif self.type.currentText() == "Bode":
             self.xMagnitude.addItems([GraphMagnitude.Frequency.value, GraphMagnitude.AngularFrequency.value])
         elif self.type.currentText() == "Temporal Response":
@@ -145,7 +147,7 @@ class TransferDialog(GraphFunctionDialog, Ui_Dialog):
                         self.name.text() + "_mod",
                         GraphValues(frequency, [abs(magnitude) for magnitude in magnitudes]),
                         get_magnitude_from_string(self.xMagnitude.currentText()),
-                        GraphMagnitude.Transfer
+                        get_magnitude_from_string(self.yMagnitude.currentText())
                     )
                 )
             if self.freqPhase.isChecked():

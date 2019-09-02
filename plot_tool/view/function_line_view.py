@@ -51,7 +51,12 @@ class GraphFunctionLineView(Line2D, View):
 
         # New functionality, changing the trace
         self.set_marker(self.convertMarker(self.model.marker))
-        self.set_linestyle(self.model.style.lower())
+
+        if self.model.style.lower() == "default":
+            self.set_linewidth(0)
+        else:
+            self.set_linewidth(1)
+            self.set_linestyle(self.model.style.lower())
 
         self.canvas.draw_idle()
 

@@ -9,10 +9,6 @@ BUGS
 NEEDS
 + Uso automatico de las magnitudes y creación de los Plotters! Stack de nombres...
 
-+ Necesito que se pueda cambiar el color de varios gráficos al mismo tiempo
-+ Necesito poder cambiarle el trazo con diferentes opciones a la señal
-+ Ocultar los labels
-
 + Lo de los puntos
 + Recalculo una vez cargadas las cosas
 + Build!
@@ -38,3 +34,6 @@ PENDING
 	+ Funciones transferencia generación correcta de los coeficientes en el polinomio.
 	+ Coeficientes pueden ser complejos.
 	+ Mínimo intervalo para generar el Bode.
+	+ Propiedades individuales o grupales
+	+ Ocultar label
+	+ Cambiar trazo
