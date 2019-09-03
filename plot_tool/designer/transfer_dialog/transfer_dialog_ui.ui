@@ -117,10 +117,10 @@
                 <enum>QAbstractSpinBox::NoButtons</enum>
                </property>
                <property name="decimals">
-                <number>3</number>
+                <number>8</number>
                </property>
                <property name="minimum">
-                <double>1.000000000000000</double>
+                <double>0.000001000000000</double>
                </property>
                <property name="maximum">
                 <double>100000000.000000000000000</double>
@@ -139,7 +139,7 @@
                 <number>1</number>
                </property>
                <property name="maximum">
-                <number>100000</number>
+                <number>1000000000</number>
                </property>
               </widget>
              </item>
@@ -200,10 +200,10 @@
                 <enum>QAbstractSpinBox::NoButtons</enum>
                </property>
                <property name="decimals">
-                <number>3</number>
+                <number>8</number>
                </property>
                <property name="minimum">
-                <double>1.000000000000000</double>
+                <double>0.000001000000000</double>
                </property>
                <property name="maximum">
                 <double>100000000.000000000000000</double>
@@ -344,10 +344,10 @@
                 <enum>QAbstractSpinBox::NoButtons</enum>
                </property>
                <property name="decimals">
-                <number>3</number>
+                <number>8</number>
                </property>
                <property name="minimum">
-                <double>1.000000000000000</double>
+                <double>0.000001000000000</double>
                </property>
                <property name="maximum">
                 <double>100000000.000000000000000</double>
@@ -366,7 +366,7 @@
                 <number>1</number>
                </property>
                <property name="maximum">
-                <number>100000</number>
+                <number>10000000</number>
                </property>
               </widget>
              </item>
@@ -427,10 +427,10 @@
                 <enum>QAbstractSpinBox::NoButtons</enum>
                </property>
                <property name="decimals">
-                <number>3</number>
+                <number>8</number>
                </property>
                <property name="minimum">
-                <double>1.000000000000000</double>
+                <double>0.000001000000000</double>
                </property>
                <property name="maximum">
                 <double>100000000.000000000000000</double>

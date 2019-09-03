@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtWidgets import QListWidgetItem
 
 
 # plot-tool modules
@@ -23,6 +24,7 @@ from plot_tool.data.magnitudes import get_magnitude_from_string
 from plot_tool.data.plotter import GraphPlotter
 from plot_tool.model.plotter_model import GraphPlotterModel
 from plot_tool.view.plotter_figure_view import GraphPlotterFigureView
+from plot_tool.view.function_visor_view import GraphFunctionVisorView
 
 from plot_tool.user.session import Session
 
@@ -61,7 +63,8 @@ class Window(QMainWindow, Ui_MainWindow):
 
         self.addButton.clicked.connect(self.onAdd)
         self.deleteButton.clicked.connect(self.onDelete)
-        self.plotterList.currentItemChanged.connect(self.onSelection)
+        self.plotterList.currentItemChanged.connect(self.onPlotterSelection)
+        self.functionList.itemSelectionChanged.connect(self.onFunctionSelection)
 
         # Show()
         self.show()
@@ -129,15 +132,53 @@ class Window(QMainWindow, Ui_MainWindow):
         # Restore the index
         self.plotterList.setCurrentIndex(selectedIndex)
 
-    def onSelection(self):
+    def updateFunctionList(self):
+        # Checking if there is any GraphPlotter selected
+        selectedIndex = self.plotterList.currentIndex().row()
+
+        if selectedIndex >= 0:
+            self.functionList.clear()
+
+            # Getting all the GraphFunction models from the Plotter selected
+            items = [GraphFunctionVisorView(None, graphModel)
+                     for graphModel in self.session.plotter_models[selectedIndex].graphModels]
+
+            # Creating the ListWidgetItems and adding them to the list
+            for item in items:
+                widgetItemWrapper = QListWidgetItem(self.functionList)
+                widgetItemWrapper.setSizeHint(item.sizeHint())
+                self.functionList.addItem(widgetItemWrapper)
+                self.functionList.setItemWidget(widgetItemWrapper, item)
+
+    def onFunctionSelection(self):
+        # Verifying if there is any Function selected
+        selectedItems = self.functionList.selectedItems()
+        selectedItems = [self.functionList.itemWidget(selectedItem) for selectedItem in selectedItems]
+        selectedModels = [selectedItem.model for selectedItem in selectedItems]
+
+        # Setting the property view up
+        if len(selectedModels) > 0:
+            self.propertiesView.setModel(selectedModels)
+        else:
+            self.propertiesView.setEnabled(False)
+
+    def onPlotterSelection(self):
+        # Verifying if there is any Plotter selected
         selectedIndex = self.plotterList.currentIndex().row()
         if selectedIndex >= 0:
+
+            # Getting the model of the selected plotter by index
             model = self.session.plotter_models[selectedIndex]
+
+            # Setting up the current selected model
             if model != self.visorView.model:
                 self.visorView.setModel(self.session.plotter_models[selectedIndex])
                 self.canvasList.setCurrentWidget(self.canvas[selectedIndex])
                 model.adjustSizeOfXAxis()
                 model.adjustSizeOfYAxis()
+
+            # Loading its GraphFunctions
+            self.updateFunctionList()
 
     def onAdd(self):
         dialog = PlotterDialog()

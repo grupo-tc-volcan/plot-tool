@@ -47,8 +47,10 @@ class GraphAxesView(Axes, View):
         self.set_yscale(self.convertScale(self.model.yScale))
 
         # Axis Limits
-        self.set_xlim(self.model.xMinimum, self.model.xMaximum)
-        self.set_ylim(self.model.yMinimum, self.model.yMaximum)
+        if self.model.xMaximum != self.model.xMinimum:
+            self.set_xlim(self.model.xMinimum, self.model.xMaximum)
+        if self.model.yMinimum != self.model.yMaximum:
+            self.set_ylim(self.model.yMinimum, self.model.yMaximum)
 
         # Labels
         self.set_xlabel(self.model.xLabel)
@@ -81,11 +83,13 @@ class GraphAxesView(Axes, View):
         self.canvas.draw_idle()
 
     @staticmethod
-    def convertScale(modelValue: Scale):
-        if modelValue == Scale.Linear:
+    def convertScale(modelValue):
+        if modelValue == Scale.Linear.value:
             return LinearScale.name
-        elif modelValue == Scale.Log:
+        elif modelValue == Scale.Log.value:
             return LogScale.name
+        else:
+            pass
 
     @staticmethod
     def convertColor(value: QColor):

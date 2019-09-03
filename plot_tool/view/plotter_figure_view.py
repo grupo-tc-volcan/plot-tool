@@ -17,6 +17,7 @@ from plot_tool.view.axe_view import GraphAxesView
 from plot_tool.view.base.view import View
 
 
+# noinspection PyPropertyAccess
 class GraphPlotterFigureView(Figure, View):
     """ GraphPlotter figure view """
 
@@ -130,7 +131,7 @@ class GraphPlotterFigureView(Figure, View):
         """ Updating the legend view """
         if self.legendView is not None:
             self.legendView.remove()
-        self.legendView = self.legend(handles=self.graphViews,
+        self.legendView = self.legend(handles=[graphView for graphView in self.graphViews if graphView.model.hasLabel],
                                       facecolor=self.convertColor(self.model.legendFaceColor),
                                       edgecolor=self.convertColor(self.model.legendEdgeColor))
         self.canvas.draw_idle()

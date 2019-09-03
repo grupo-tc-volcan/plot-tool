@@ -1,0 +1,39 @@
+BUGS
++ Hay un error con el límite de la cantidad de GraphFunctions que podes agregar al GraphPlotter, creo que no se limpia la lista
++ Se cuelga a veces con el segundo Plotter
++ Función transferencia limite de ancho
++ Errores con el Open/Save de los archivos en los objetos... quedan vacias algunas cosas y queda mal
++ Señales, toma pocos puntos!!
++ Los intervalos para las señales, creo que toma solo entero.
+
+NEEDS
++ Uso automatico de las magnitudes y creación de los Plotters! Stack de nombres...
+
++ Lo de los puntos
++ Recalculo una vez cargadas las cosas
++ Build!
++ D. Polos y Ceros 
+
+WRONG
++ Frequency Response y los decibeles
++ Tamaños en varias
+
+PENDING
++ Manual de mierda
++ Colores del orto
+
+[PENDING...] ----> Modificación de manejo de señales
+1. La clase GraphFunction tiene que implementar Redrawable 
+
+[PENDING...] ----> Modificación de manejo de magnitudes en el Plotter
+1. Cuando creo un Plotter, manejo intrínseco de una magnitud automática no definida.
+2. Algoritmo de agregado de gráficos a un Plotter
+
+
+[TO_TEST]
+	+ Funciones transferencia generación correcta de los coeficientes en el polinomio.
+	+ Coeficientes pueden ser complejos.
+	+ Mínimo intervalo para generar el Bode.
+	+ Propiedades individuales o grupales
+	+ Ocultar label
+	+ Cambiar trazo
